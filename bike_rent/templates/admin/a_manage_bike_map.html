@@ -1,0 +1,91 @@
+{% include 'admin/header.html' %}
+        <script>
+        function initialize()
+        {
+          var mapProp = {
+            center: new google.maps.LatLng(51.508742,-0.120850),
+            zoom:7,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+        }
+
+        function loadScript()
+        {
+          var script = document.createElement("script");
+          script.type = "text/javascript";
+          script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&sensor=false&callback=initialize";
+          document.body.appendChild(script);
+        }
+        window.onload = loadScript;
+        </script>
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <!--======== Grid Menu Start ========-->
+                <div id="grid-menu">
+                    <div class="color-overlay grid-menu-overlay">
+                        <div class="grid-icon-wrap grid-icon-effect-8">
+                            <a href="#" class="grid-icon icon-envelope font-size-50 turquoise"></a>
+                            <a href="#" class="grid-icon icon-user font-size-50 teal"></a>
+                            <a href="#" class="grid-icon icon-support font-size-50 peter-river"></a>
+                            <a href="#" class="grid-icon icon-settings font-size-50 light-blue"></a>
+                            <a href="#" class="grid-icon icon-picture font-size-50 orange"></a>
+                            <a href="#" class="grid-icon icon-camrecorder font-size-50 light-orange"></a>
+                        </div>
+                    </div>
+                </div>                
+                <!--======== Grid Menu End ========-->
+
+                <!--======== Page Title and Breadcrumbs Start ========-->
+                <div class="top-page-header">
+                    
+                    <div class="page-title">
+                        <h2>Google Map</h2>
+<!--                        <small>All the bike/operator/user</small>-->
+                    </div>
+                    <div class="page-breadcrumb">
+                        <nav class="c_breadcrumbs">
+                            <ul>
+                                <li><a href="#">Index</a></li>
+                                <li><a href="#">Maps</a></li>
+                                <li><a href="#">Google Map</a></li>
+                                <li class="active"><a href="#">Basic map</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="right-menu pull-right">
+                    </div>
+                </div>
+                <!--======== Page Title and Breadcrumbs End ========-->
+
+                <!--======== START GOOGLE MAP ========-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-google-map">
+                            <h3>Google Maps :: Custom Controls</h3>
+                            <p>The easiest way to use Google Maps, for more info just visit</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="c_panel bg-white padding-25">
+                                        <div id='googleMap' style='width:100%; height:400px;'></div>
+                                    </div>
+                                </div>
+                            </div><!--row-->
+                        </div><!--/page-page-google-map-->
+                    </div><!--/col-md-12-->
+
+                </div><!--/row-->
+                <!--======== END GOOGLE MAP ========-->
+
+
+            </section>
+        </section>
+        <!--======== Main Content End ========-->
+    </section><!--/.container-->
+
+</body>
+
+</html>
+
+<!--===== Footer End ========-->

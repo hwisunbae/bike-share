@@ -1,0 +1,684 @@
+/*
+
+*Project Name: Thema Admin Bootstrap Template;
+*Author: Lancecoder;
+*Website: lancecoder.com;
+
+Content
+ - Header Section
+ - Left Sidebar Section
+ - Content Section
+ - Footer Section
+ - Progress Bar
+ - Small box
+ - Hover Plugin
+ - Daterange picker
+ - Panels
+ - Todo lists
+ - Mailbox
+ - Datepicker
+ - Jquery Multi Select
+ - Typeahead
+ - Select2
+ - Gallery Media
+ - Timeline
+ - Boxed Content
+ - Hover Boxed Icon Content
+ - Owl Carousel
+ - Profile
+ - Users
+ - Projects
+ - Ecommerce
+ - Contact Form
+ - Widgets
+ - People Directory
+ - Header top menus sub items
+*/
+
+#concrete-scheme ::selection {
+    background:#95A5A6;
+    color:#fff;
+}
+#concrete-scheme ::-moz-selection {
+    background:#95A5A6;
+    color:#fff;
+}
+
+/*** Header Section ***/
+	
+	/** Start of tap nav menu **/
+		
+		#concrete-scheme .top-nav .dropdown-menu:after {
+			border-bottom: 10px solid #95A5A6;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            content: "";
+            display: inline-block;
+            right: 6%;
+            position: absolute;
+            top: -10px;
+		}
+
+		#concrete-scheme .top-nav .nav>li>a:hover,#concrete-scheme .nav>li>a:focus {
+		    background-color: white;
+		    color: #95A5A6;
+		}
+	/** End of tap nav menu **/
+
+
+	/** Start of sidebar toggle **/
+		#concrete-scheme .sidebar-toggle-box {
+		    float:left;
+		    margin-top:13px;
+		    margin-left:15px !important;
+		    background:#95A5A6 !important;
+		    border-radius:2%;
+		    -webkit-border-radius:2%;
+		    width:32px;
+		    height:32px;
+		    position:absolute;
+		    right:-15px;
+		    -webkit-transition: all 0.7s ease;
+			transition: all 0.7s ease;
+			-o-transition: all 0.7s ease;
+            border-radius: 100%;
+		}
+
+		#concrete-scheme .sidebar-toggle-box .fa-bars {
+		    cursor:pointer;
+		    display:inline-block;
+		    font-size:15px;
+		    padding:8px 8px 8px 9px;
+		    color:white;
+		}
+		#concrete-scheme .sidebar-toggle-box:hover {
+		    background:#7F8C8D !important;
+		    -webkit-transform:scale(1.3);
+			transform:scale(1.3);
+		}
+
+        /*** Right Sidebar Toggle ***/
+        #concrete-scheme .right-sidebar-toggle-box {
+            float:left;
+            margin-top:13px;
+            margin-left:15px !important;
+            background:#95A5A6 !important;
+            border-radius:2%;
+            -webkit-border-radius:2%;
+            width:32px;
+            height:32px;
+            position:absolute;
+            right:-15px;
+            -webkit-transition: all 0.7s ease;
+            transition: all 0.7s ease;
+            -o-transition: all 0.7s ease;
+            border-radius: 100%;
+        }
+
+        #concrete-scheme .right-sidebar-toggle-box .fa-bars {
+            cursor:pointer;
+            display:inline-block;
+            font-size:15px;
+            padding:8px 8px 8px 9px;
+            color:white;
+        }
+        #concrete-scheme .right-sidebar-toggle-box:hover {
+            background:#7F8C8D !important;
+            -webkit-transform:scale(1.3);
+            transform:scale(1.3);
+        }
+
+
+	/** Start of sidebar toggle **/
+
+/*** Left Sidebar Section ***/
+
+	/** Start of Profile Sidebar **/
+		#concrete-scheme ul.sidebar-menu li.sidebar-profile {
+			background-color: #3A434D;
+			padding: 10px;
+			color: #fff;
+			text-align: center;
+			border-bottom: 10px solid #95A5A6 !important;
+		}
+
+        #concrete-scheme.theme-sidebar-2 ul.sidebar-menu li.sidebar-profile {
+            background-color: #3e313c;
+            border-bottom: 10px solid #83697F !important;
+        }
+        
+		#concrete-scheme ul.sidebar-menu li.sidebar-profile .name {
+			margin-top: 10px;
+		}
+
+		#concrete-scheme ul.sidebar-menu li.sidebar-profile .image img {
+			border-radius: 60%;
+		}
+
+		#concrete-scheme ul.sidebar-menu li.sidebar-profile .status {
+			margin-top: -10px;
+			font-size: 7;
+		}
+
+		#concrete-scheme ul.sidebar-menu li.sidebar-profile .status small i {
+			color:  #76CF1C;
+		}
+	/** End of Profile Sidebar **/
+
+
+
+	#concrete-scheme ul.sidebar-menu li a.active span.icon-sidebar:first-child,
+    #concrete-scheme ul.sidebar-menu li a:hover span.icon-sidebar:first-child,
+    #concrete-scheme ul.sidebar-menu li a:focus span.icon-sidebar:first-child {
+
+	    background:#95A5A6 !important;
+	    color:#ffffff;
+	    padding: 5px;
+	    -webkit-transition: all 0.4s ease-in-out 0.1s;
+	    -moz-transition: all 0.4s ease-in-out 0.1s;
+	    -o-transition: all 0.4s ease-in-out 0.1s;
+	    -ms-transition:all 0.4s ease-in-out 0.1;
+	    transition: all 0.4s ease-in-out 0.1s;
+        -webkit-transform:scale(.8);
+        transform:scale(.8);
+        border-radius: 100%;
+        box-shadow: 0 1px 4px rgba(0,0,0,-0.84),0 1px 4px rgba(0,0,0,.20);
+
+	}
+
+    
+
+/*** Content Section ***/
+
+
+/*** Footer Section ***/
+
+/*** Small Box ***/
+	#concrete-scheme .small-box {
+	  	color: #878d93;
+	}
+
+	#concrete-scheme .small-box:hover {
+	  	text-decoration: none;
+	  	color: #b8babb;
+	}
+
+	#concrete-scheme .small-box .small-box-footer {
+	  	position: relative;
+	  	text-align: center;
+	  	color: #fff;
+	  	display: block;
+	  	z-index: 10;
+	  	background: #95A5A6;
+	  	text-decoration: none;
+	}
+
+	#concrete-scheme .small-box .small-box-footer:hover {
+	  	background: #95A5A6;
+	  	text-decoration: none;
+	}
+
+
+/*** Hover Plugin ***/
+	/** Hover Plugin for small box **/
+	#concrete-scheme .small-box .hvr-bounce-to-right:before {
+	    background: #7F8C8D !important;
+	}
+
+	#concrete-scheme .hvr-underline-from-center-global:before {
+	  	content: "";
+	  	position: absolute;
+	  	z-index: -1;
+	  	left: 50%;
+	  	right: 50%;
+	  	bottom: 0;
+	  	background: #95A5A6 !important;
+	  	height: 4px;
+	  	-webkit-transition-property: left, right;
+	  	transition-property: left, right;
+	  	-webkit-transition-duration: 0.3s;
+	  	transition-duration: 0.3s;
+	  	-webkit-transition-timing-function: ease-out;
+	  	transition-timing-function: ease-out;
+	}
+
+
+/***  Skin Bacground Color Level  ***/
+	#concrete-scheme .bg-color-1 {
+		background: #86F7B6 !important;
+	    color: #fff;
+	}
+
+	#concrete-scheme .bg-color-2  {
+		background: #77F2AB !important;
+	    color: #fff;
+	}
+
+	#concrete-scheme .bg-color-3  {
+		background: #61E89B !important;
+	    color: #fff;
+	}
+
+	#concrete-scheme .bg-color-4  {
+		background: #4EDE8B !important;
+	    color: #fff;
+	}
+
+	#concrete-scheme .bg-color-5  {
+		background: #95A5A6 !important;
+	    color: #fff;
+	}
+/***  Skin Bacground Color Level  ***/
+
+
+/*********** Daterange picker **********/
+
+#concrete-scheme .daterangepicker .ranges li {
+    font-size: 13px;
+    background: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    color: #536A7F;
+    padding: 3px 12px;
+    margin-bottom: 8px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    cursor: pointer;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+
+#concrete-scheme .daterangepicker .ranges li.active,
+#concrete-scheme .daterangepicker .ranges li:hover {
+    background: #7F8C8D;
+    border: 1px solid #7F8C8D;
+    color: #fff;
+}
+
+#concrete-scheme .daterangepicker td.active,
+#concrete-scheme .daterangepicker td.active:hover {
+    background-color: #7F8C8D;
+    color: #fff;
+}
+
+#concrete-scheme .daterangepicker td.available:hover,
+#concrete-scheme .daterangepicker th.available:hover {
+    background: #7F8C8D;
+    color: #ffffff;
+}
+
+#concrete-scheme .range_inputs .applyBtn{
+	background-color: #95A5A6;
+	-webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: 1px solid #95A5A6;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+#concrete-scheme .range_inputs .applyBtn:hover, 
+#concrete-scheme .range_inputs .applyBtn:focus{
+	background-color: #7F8C8D;
+}
+
+#concrete-scheme .range_inputs .cancelBtn{
+	-webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+
+
+/*********** Panels **********/
+#concrete-scheme .c_panel .line-tabs.bottom .active a {
+    border-bottom: 1px solid #7F8C8D;
+    padding-top:10px;
+    padding-bottom:11px;
+}
+
+
+/*********** Todo Lists **********/
+
+
+
+/***************** Datepicker Section **************/
+	#concrete-scheme .datepicker table tr td.active:hover,
+    #concrete-scheme .datepicker table tr td.active:hover:hover,
+    #concrete-scheme .datepicker table tr td.active.disabled:hover,
+    #concrete-scheme .datepicker table tr td.active.disabled:hover:hover,
+    #concrete-scheme .datepicker table tr td.active:focus,
+    #concrete-scheme .datepicker table tr td.active:hover:focus,
+    #concrete-scheme .datepicker table tr td.active.disabled:focus,
+    #concrete-scheme .datepicker table tr td.active.disabled:hover:focus,
+    #concrete-scheme .datepicker table tr td.active:active,
+    #concrete-scheme .datepicker table tr td.active:hover:active,
+    #concrete-scheme .datepicker table tr td.active.disabled:active,
+    #concrete-scheme .datepicker table tr td.active.disabled:hover:active,
+    #concrete-scheme .datepicker table tr td.active.active,
+    #concrete-scheme .datepicker table tr td.active:hover.active,
+    #concrete-scheme .datepicker table tr td.active.disabled.active,
+    #concrete-scheme .datepicker table tr td.active.disabled:hover.active,
+    #concrete-scheme .open .dropdown-toggle.datepicker table tr td.active,
+    #concrete-scheme .open .dropdown-toggle.datepicker table tr td.active:hover,
+    #concrete-scheme .open .dropdown-toggle.datepicker table tr td.active.disabled,
+    #concrete-scheme .open .dropdown-toggle.datepicker table tr td.active.disabled:hover {
+        color: #ffffff;
+        background-color: #95A5A6;
+        border: 0;
+    }
+
+    #concrete-scheme .datepicker table tr td span.active:hover,
+    #concrete-scheme .datepicker table tr td span.active:hover:hover,
+    #concrete-scheme .datepicker table tr td span.active.disabled:hover,
+    #concrete-scheme .datepicker table tr td span.active.disabled:hover:hover,
+    #concrete-scheme .datepicker table tr td span.active:focus,
+    #concrete-scheme .datepicker table tr td span.active:hover:focus,
+    #concrete-scheme .datepicker table tr td span.active.disabled:focus,
+    #concrete-scheme .datepicker table tr td span.active.disabled:hover:focus,
+    #concrete-scheme .datepicker table tr td span.active:active,
+    #concrete-scheme .datepicker table tr td span.active:hover:active,
+    #concrete-scheme .datepicker table tr td span.active.disabled:active, 
+    #concrete-scheme .datepicker table tr td span.active.disabled:hover:active, 
+    #concrete-scheme .datepicker table tr td span.active.active,
+    #concrete-scheme .datepicker table tr td span.active:hover.active, 
+    #concrete-scheme .datepicker table tr td span.active.disabled.active, 
+    #concrete-scheme .datepicker table tr td span.active.disabled:hover.active, 
+    #concrete-scheme .open .dropdown-toggle.datepicker table tr td span.active, 
+    #concrete-scheme .open .dropdown-toggle.datepicker table tr td span.active:hover,
+    #concrete-scheme .open .dropdown-toggle.datepicker table tr td span.active.disabled,
+    #concrete-scheme .open .dropdown-toggle.datepicker table tr td span.active.disabled:hover {
+        color: #ffffff;
+        background-color: #95A5A6;
+        border: 0;
+    }
+
+
+/********* jQuery Multi Select ************/
+	#concrete-scheme .ms-container .ms-selectable li.ms-hover, 
+    #concrete-scheme .ms-container .ms-selection li.ms-hover {
+		background-color: #95A5A6;
+	}
+
+	#concrete-scheme .ms-container .ms-list.ms-focus{
+		border-color: #95A5A6;
+	}
+
+
+/********* Typeahead ************/
+	#concrete-scheme .tt-suggestion.tt-cursor {
+	  color: #fff;
+	  background-color: #95A5A6;
+	  cursor: hand;
+	  cursor: pointer;
+	}
+
+
+/******* Select2 ********/
+	#concrete-scheme .select2-drop-active {
+		border: 1px solid #ddd;
+	}
+
+	#concrete-scheme .select2-drop.select2-drop-above.select2-drop-active {
+		border: 1px solid #ddd;
+	}
+
+	#concrete-scheme .select2-container-active .select2-choice,
+	#concrete-scheme .select2-container-active .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+	#concrete-scheme .select2-dropdown-open.select2-drop-above .select2-choice,
+	#concrete-scheme .select2-dropdown-open.select2-drop-above .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+	#concrete-scheme .select2-results .select2-highlighted {
+		background: #ddd;
+        -webkit-transition:all 0.3s ease;
+        -moz-transition:all 0.3s ease;
+        -o-transition:all 0.83 ease;
+        -ms-transition:all 0.3s ease;
+        transition:all 0.3s ease;
+	}
+
+	#concrete-scheme .select2-container-multi.select2-container-active .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+/******* Media Gallery ********/
+	#concrete-scheme .media-filter li a:hover, .media-filter li a:focus{
+        background: #95A5A6;
+        color: #fff;
+    }
+
+/******* Timeline ********/
+	#concrete-scheme .timeline-1 > li > .timeline-badge i:hover {
+        color: #95A5A6;
+    }
+
+    #concrete-scheme .timeline-1 .timeline-footer .likes:hover i {
+        color: #95A5A6;
+    }
+
+
+/******* Boxed Content ********/
+	#concrete-scheme .boxed-content>i {
+        font-size: 3em;
+        color: #95A5A6;
+    }
+
+	#concrete-scheme .boxed-content.left-boxed-icon i {
+        padding: 10px;
+        width: 60px;
+        height: 60px;
+        background: #95A5A6;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+    }
+
+ /******* Hover Boxed Icon Content **********/
+	 #concrete-scheme .hover-boxed-icon-content i {
+	 	color: #95A5A6;
+	 }
+
+
+/*********** Owl Carousel **************/
+	#concrete-scheme .owl-btn:hover {
+      color: #fff;
+      background: #95A5A6;
+    }
+
+/********** Profile Sidebar *************/
+	#concrete-scheme .profile-page .profile-sidebar > li.active,
+    #concrete-scheme .profile-page .profile-sidebar > li.active:hover {
+      background: #95A5A6;
+    } 
+
+    #concrete-scheme .profile-page .profile-sidebar > li.active:hover a {
+    	color: #fff;
+    }
+
+    #concrete-scheme .profile-page .profile-sidebar > li a:hover {
+    	color: #95A5A6;
+    }
+
+    #concrete-scheme .profile-page .date-formats {
+    	background: #95A5A6;
+    }
+
+    #concrete-scheme .profile-page .profile-post:hover span.profile-post-numb {
+    	color: #95A5A6;
+    }
+
+    #concrete-scheme .profile-page .name-location span i {
+    	color: #95A5A6;
+    }
+
+    #concrete-scheme .profile-page .profile-about .social i {
+    	color: #95A5A6;
+    }
+
+    #concrete-scheme .projects .project-box .project-edited span a {
+    	color: #95A5A6;
+    }
+
+    #concrete-scheme .projects .project-box .project-status {
+    	color: #95A5A6;
+    }
+    
+    #concrete-scheme .projects .project-box .project-status i{
+        color: #95A5A6;
+    }
+
+/********************* Users ************************/
+	#concrete-scheme .users  .caption .user-task-info i {
+	 	color: #95A5A6;
+	 }
+
+/******************** Projects *****************/
+	#concrete-scheme .all-projects .sidebar > li.active,
+    #concrete-scheme .all-projects .sidebar > li.active:hover {
+      background: #95A5A6;
+    } 
+
+    #concrete-scheme .view-project .project-details .add-assignee:hover {
+        color: #95A5A6;
+    }
+
+    #concrete-scheme .view-project .project-tag-list li a:hover {
+        background: #95A5A6;
+        border-color: #fff;
+        color:#fff;
+    }
+
+    #concrete-scheme .view-project .sidebar li a:hover {
+    	color: #95A5A6;
+    }
+
+/******************** Full Calendar *****************/
+    #concrete-scheme .fc .fc-button-group .fc-prev-button {
+        background: #95A5A6 !important;
+        color: #ffffff;
+    }
+
+    #concrete-scheme .fc .fc-button-group .fc-prev-button:hover {
+    	background: #7F8C8D !important;
+    	color: #ffffff !important;
+    }
+
+    #concrete-scheme .fc .fc-button-group .fc-next-button {
+        background: #95A5A6 !important;
+        color: #ffffff !important;
+    }
+
+    #concrete-scheme .fc .fc-button-group .fc-next-button:hover {
+    	background: #7F8C8D !important;
+    	color: #ffffff !important;
+    }
+
+    #concrete-scheme .fc-toolbar .fc-state-active {
+    	background: #95A5A6 !important;
+    	color: #ffffff !important;
+    }
+
+
+    /***Forum Section ***/
+    #concrete-scheme .page-forum .attachement-list ul li .attachment-thumb a {
+        color: #95A5A6;
+    }
+
+    #concrete-scheme .page-forum .attachement-list ul li .attachment-thumb a:hover {
+        background-color: #95A5A6;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+        color: #fff;
+    }
+
+    #concrete-scheme .page-forum .attachement-list a:hover,
+   #concrete-scheme  .page-forum .attachement-list a:focus {
+        text-decoration: none;
+        color: #95A5A6;
+    }
+
+    /***Drop Section ***/
+    #concrete-scheme .dropcap {
+        background: #95A5A6 !important;
+    }
+
+    /*** Teams ***/
+    #concrete-scheme .team-1 small {
+        color: #95A5A6;
+    }
+
+
+    /**** 404 Page ****/
+    #concrete-scheme .error_page em {
+        color: #95A5A6;
+    }
+
+    /***** eCommerce ******/
+    #concrete-scheme .page-ecommerce .ecommerce-content .ecommerce-slider .prices .present-price {
+        color: #95A5A6;
+    }
+
+    #concrete-scheme .page-ecommerce #ecommerce-view .caption .item-price {
+        color: #95A5A6;
+    }
+
+    #concrete-scheme .page-ecommerce .sidebar .display-types #ecommerce-grid-view.active, .page-ecommerce .sidebar .display-types #ecommerce-list-view.active {
+        color: #95A5A6;    
+    }
+
+    #concrete-scheme .page-ecommerce .owl-theme .owl-controls.clickable .owl-buttons div:hover{
+        background: #95A5A6;
+        opacity: 1;
+        text-decoration: none;
+    }
+
+    /** Remove Cart **/
+    #concrete-scheme .page-ecommerce .btn-remove-cart:hover {
+        color: #95A5A6
+    }
+
+    /** Product Envoice **/
+    #concrete-scheme .page-ecommerce .top-header-envoice h2 {
+        color: #95A5A6
+    }
+
+    /***** Contact Form ******/
+    #concrete-scheme .page-contact-form .contact-info li:hover i.fa {
+        color: #95A5A6
+    }
+
+
+    /***** Widgets Todo List ******/
+
+
+
+    /***** People Directory ******/
+    #concrete-scheme .page-people-directory .contact-group .fa:before {
+        color: #95A5A6;
+    }
+
+
+
+    /***** Header top menus sub items ******/
+    #concrete-scheme .top-nav .navbar-nav .open .dropdown-menu {
+        border-top: 2px solid #95A5A6;
+    }

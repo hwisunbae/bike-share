@@ -1,0 +1,683 @@
+/*
+
+*Project Name: Thema Admin Bootstrap Template;
+*Author: Lancecoder;
+*Website: lancecoder.com;
+
+Content
+ - Header Section
+ - Left Sidebar Section
+ - Content Section
+ - Footer Section
+ - Progress Bar
+ - Small box
+ - Hover Plugin
+ - Daterange picker
+ - Panels
+ - Todo lists
+ - Mailbox
+ - Datepicker
+ - Jquery Multi Select
+ - Typeahead
+ - Select2
+ - Gallery Media
+ - Timeline
+ - Boxed Content
+ - Hover Boxed Icon Content
+ - Owl Carousel
+ - Profile
+ - Users
+ - Projects
+ - Ecommerce
+ - Contact Form
+ - Widgets
+ - People Directory
+ - Header top menus sub items
+*/
+
+#default-scheme ::selection {
+    background:#2ECC71;
+    color:#fff;
+}
+#default-scheme ::-moz-selection {
+    background:#2ECC71;
+    color:#fff;
+}
+
+/*** Header Section ***/
+	
+	/** Start of tap nav menu **/
+		
+		#default-scheme .top-nav .dropdown-menu:after {
+			border-bottom: 10px solid #2ECC71;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            content: "";
+            display: inline-block;
+            right: 6%;
+            position: absolute;
+            top: -10px;
+		}
+
+		#default-scheme .top-nav .nav>li>a:hover,#default-scheme .nav>li>a:focus {
+		    background-color: white;
+		    color: #2ECC71;
+		}
+	/** End of tap nav menu **/
+
+
+	/** Start of sidebar toggle **/
+		#default-scheme .sidebar-toggle-box {
+		    float:left;
+		    margin-top:13px;
+		    margin-left:15px !important;
+		    background:#2ECC71 !important;
+		    border-radius:2%;
+		    -webkit-border-radius:2%;
+		    width:32px;
+		    height:32px;
+		    position:absolute;
+		    right:-15px;
+		    -webkit-transition: all 0.7s ease;
+			transition: all 0.7s ease;
+			-o-transition: all 0.7s ease;
+            border-radius: 100%;
+		}
+
+		#default-scheme .sidebar-toggle-box .fa-bars {
+		    cursor:pointer;
+		    display:inline-block;
+		    font-size:15px;
+		    padding:8px 8px 8px 9px;
+		    color:white;
+		}
+		#default-scheme .sidebar-toggle-box:hover {
+		    background:#27AE60 !important;
+		    -webkit-transform:scale(1.3);
+			transform:scale(1.3);
+		}
+
+        /*** Right Sidebar Toggle ***/
+        #default-scheme .right-sidebar-toggle-box {
+            float:left;
+            margin-top:13px;
+            margin-left:15px !important;
+            background:#2ECC71 !important;
+            border-radius:2%;
+            -webkit-border-radius:2%;
+            width:32px;
+            height:32px;
+            position:absolute;
+            right:-15px;
+            -webkit-transition: all 0.7s ease;
+            transition: all 0.7s ease;
+            -o-transition: all 0.7s ease;
+            border-radius: 100%;
+        }
+
+        #default-scheme .right-sidebar-toggle-box .fa-bars {
+            cursor:pointer;
+            display:inline-block;
+            font-size:15px;
+            padding:8px 8px 8px 9px;
+            color:white;
+        }
+        #default-scheme .right-sidebar-toggle-box:hover {
+            background:#27AE60 !important;
+            -webkit-transform:scale(1.3);
+            transform:scale(1.3);
+        }
+
+
+	/** Start of sidebar toggle **/
+
+/*** Left Sidebar Section ***/
+
+	/** Start of Profile Sidebar **/
+		#default-scheme.theme-sidebar-2 ul.sidebar-menu li.sidebar-profile {
+			background-color: #3e313c;
+			border-bottom: 10px solid #83697F !important;
+		}
+
+        #default-scheme ul.sidebar-menu li.sidebar-profile {
+            background-color: #3A434D;
+            padding: 10px;
+            color: #fff;
+            text-align: center;
+            border-bottom: 10px solid #2ECC71 !important;
+        }
+
+		#default-scheme ul.sidebar-menu li.sidebar-profile .name {
+			margin-top: 10px;
+		}
+
+		#default-scheme ul.sidebar-menu li.sidebar-profile .image img {
+			border-radius: 60%;
+		}
+
+		#default-scheme ul.sidebar-menu li.sidebar-profile .status {
+			margin-top: -10px;
+			font-size: 7;
+		}
+
+		#default-scheme ul.sidebar-menu li.sidebar-profile .status small i {
+			color:  #76CF1C;
+		}
+	/** End of Profile Sidebar **/
+
+
+
+	#default-scheme ul.sidebar-menu li a.active span.icon-sidebar:first-child,
+    #default-scheme ul.sidebar-menu li a:hover span.icon-sidebar:first-child,
+    #default-scheme ul.sidebar-menu li a:focus span.icon-sidebar:first-child {
+
+	    background:#2ECC71 !important;
+	    color:#ffffff;
+	    padding: 5px;
+	    -webkit-transition: all 0.4s ease-in-out 0.1s;
+	    -moz-transition: all 0.4s ease-in-out 0.1s;
+	    -o-transition: all 0.4s ease-in-out 0.1s;
+	    -ms-transition:all 0.4s ease-in-out 0.1;
+	    transition: all 0.4s ease-in-out 0.1s;
+        -webkit-transform:scale(.8);
+        transform:scale(.8);
+        border-radius: 100%;
+        box-shadow: 0 1px 4px rgba(0,0,0,-0.84),0 1px 4px rgba(0,0,0,.20);
+
+	}
+
+    
+
+/*** Content Section ***/
+
+
+/*** Footer Section ***/
+
+/*** Small Box ***/
+	#default-scheme .small-box {
+	  	color: #878d93;
+	}
+
+	#default-scheme .small-box:hover {
+	  	text-decoration: none;
+	  	color: #b8babb;
+	}
+
+	#default-scheme .small-box .small-box-footer {
+	  	position: relative;
+	  	text-align: center;
+	  	color: #fff;
+	  	display: block;
+	  	z-index: 10;
+	  	background: #2ECC71;
+	  	text-decoration: none;
+	}
+
+	#default-scheme .small-box .small-box-footer:hover {
+	  	background: #2ECC71;
+	  	text-decoration: none;
+	}
+
+
+/*** Hover Plugin ***/
+	/** Hover Plugin for small box **/
+	#default-scheme .small-box .hvr-bounce-to-right:before {
+	    background: #27AE60 !important;
+	}
+
+	#default-scheme .hvr-underline-from-center-global:before {
+	  	content: "";
+	  	position: absolute;
+	  	z-index: -1;
+	  	left: 50%;
+	  	right: 50%;
+	  	bottom: 0;
+	  	background: #2ECC71 !important;
+	  	height: 4px;
+	  	-webkit-transition-property: left, right;
+	  	transition-property: left, right;
+	  	-webkit-transition-duration: 0.3s;
+	  	transition-duration: 0.3s;
+	  	-webkit-transition-timing-function: ease-out;
+	  	transition-timing-function: ease-out;
+	}
+
+
+/***  Skin Bacground Color Level  ***/
+	#default-scheme .bg-color-1 {
+		background: #86F7B6 !important;
+	    color: #fff;
+	}
+
+	#default-scheme .bg-color-2  {
+		background: #77F2AB !important;
+	    color: #fff;
+	}
+
+	#default-scheme .bg-color-3  {
+		background: #61E89B !important;
+	    color: #fff;
+	}
+
+	#default-scheme .bg-color-4  {
+		background: #4EDE8B !important;
+	    color: #fff;
+	}
+
+	#default-scheme .bg-color-5  {
+		background: #2ECC71 !important;
+	    color: #fff;
+	}
+/***  Skin Bacground Color Level  ***/
+
+
+/*********** Daterange picker **********/
+
+#default-scheme .daterangepicker .ranges li {
+    font-size: 13px;
+    background: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    color: #536A7F;
+    padding: 3px 12px;
+    margin-bottom: 8px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    cursor: pointer;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+
+#default-scheme .daterangepicker .ranges li.active,
+#default-scheme .daterangepicker .ranges li:hover {
+    background: #27AE60;
+    border: 1px solid #27AE60;
+    color: #fff;
+}
+
+#default-scheme .daterangepicker td.active,
+#default-scheme .daterangepicker td.active:hover {
+    background-color: #27AE60;
+    color: #fff;
+}
+
+#default-scheme .daterangepicker td.available:hover,
+#default-scheme .daterangepicker th.available:hover {
+    background: #27AE60;
+    color: #ffffff;
+}
+
+#default-scheme .range_inputs .applyBtn{
+	background-color: #2ECC71;
+	-webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: 1px solid #2ECC71;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+#default-scheme .range_inputs .applyBtn:hover, 
+#default-scheme .range_inputs .applyBtn:focus{
+	background-color: #27AE60;
+}
+
+#default-scheme .range_inputs .cancelBtn{
+	-webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+
+
+/*********** Panels **********/
+#default-scheme .c_panel .line-tabs.bottom .active a {
+    border-bottom: 1px solid #27AE60;
+    padding-top:10px;
+    padding-bottom:11px;
+}
+
+
+/*********** Todo Lists **********/
+
+
+
+/***************** Datepicker Section **************/
+	#default-scheme .datepicker table tr td.active:hover,
+    #default-scheme .datepicker table tr td.active:hover:hover,
+    #default-scheme .datepicker table tr td.active.disabled:hover,
+    #default-scheme .datepicker table tr td.active.disabled:hover:hover,
+    #default-scheme .datepicker table tr td.active:focus,
+    #default-scheme .datepicker table tr td.active:hover:focus,
+    #default-scheme .datepicker table tr td.active.disabled:focus,
+    #default-scheme .datepicker table tr td.active.disabled:hover:focus,
+    #default-scheme .datepicker table tr td.active:active,
+    #default-scheme .datepicker table tr td.active:hover:active,
+    #default-scheme .datepicker table tr td.active.disabled:active,
+    #default-scheme .datepicker table tr td.active.disabled:hover:active,
+    #default-scheme .datepicker table tr td.active.active,
+    #default-scheme .datepicker table tr td.active:hover.active,
+    #default-scheme .datepicker table tr td.active.disabled.active,
+    #default-scheme .datepicker table tr td.active.disabled:hover.active,
+    #default-scheme .open .dropdown-toggle.datepicker table tr td.active,
+    #default-scheme .open .dropdown-toggle.datepicker table tr td.active:hover,
+    #default-scheme .open .dropdown-toggle.datepicker table tr td.active.disabled,
+    #default-scheme .open .dropdown-toggle.datepicker table tr td.active.disabled:hover {
+        color: #ffffff;
+        background-color: #2ECC71;
+        border: 0;
+    }
+
+    #default-scheme .datepicker table tr td span.active:hover,
+    #default-scheme .datepicker table tr td span.active:hover:hover,
+    #default-scheme .datepicker table tr td span.active.disabled:hover,
+    #default-scheme .datepicker table tr td span.active.disabled:hover:hover,
+    #default-scheme .datepicker table tr td span.active:focus,
+    #default-scheme .datepicker table tr td span.active:hover:focus,
+    #default-scheme .datepicker table tr td span.active.disabled:focus,
+    #default-scheme .datepicker table tr td span.active.disabled:hover:focus,
+    #default-scheme .datepicker table tr td span.active:active,
+    #default-scheme .datepicker table tr td span.active:hover:active,
+    #default-scheme .datepicker table tr td span.active.disabled:active, 
+    #default-scheme .datepicker table tr td span.active.disabled:hover:active, 
+    #default-scheme .datepicker table tr td span.active.active,
+    #default-scheme .datepicker table tr td span.active:hover.active, 
+    #default-scheme .datepicker table tr td span.active.disabled.active, 
+    #default-scheme .datepicker table tr td span.active.disabled:hover.active, 
+    #default-scheme .open .dropdown-toggle.datepicker table tr td span.active, 
+    #default-scheme .open .dropdown-toggle.datepicker table tr td span.active:hover,
+    #default-scheme .open .dropdown-toggle.datepicker table tr td span.active.disabled,
+    #default-scheme .open .dropdown-toggle.datepicker table tr td span.active.disabled:hover {
+        color: #ffffff;
+        background-color: #2ECC71;
+        border: 0;
+    }
+
+
+/********* jQuery Multi Select ************/
+	#default-scheme .ms-container .ms-selectable li.ms-hover, .ms-container .ms-selection li.ms-hover {
+		background-color: #2ECC71;
+	}
+
+	#default-scheme .ms-container .ms-list.ms-focus{
+		border-color: #2ECC71;
+	}
+
+
+/********* Typeahead ************/
+	#default-scheme .tt-suggestion.tt-cursor {
+	  color: #fff;
+	  background-color: #2ECC71;
+	  cursor: hand;
+	  cursor: pointer;
+	}
+
+
+/******* Select2 ********/
+	#default-scheme .select2-drop-active {
+		border: 1px solid #ddd;
+	}
+
+	#default-scheme .select2-drop.select2-drop-above.select2-drop-active {
+		border: 1px solid #ddd;
+	}
+
+	#default-scheme .select2-container-active .select2-choice,
+	#default-scheme .select2-container-active .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+	#default-scheme .select2-dropdown-open.select2-drop-above .select2-choice,
+	#default-scheme .select2-dropdown-open.select2-drop-above .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+	#default-scheme .select2-results .select2-highlighted {
+		background: #ddd;
+        -webkit-transition:all 0.3s ease;
+        -moz-transition:all 0.3s ease;
+        -o-transition:all 0.83 ease;
+        -ms-transition:all 0.3s ease;
+        transition:all 0.3s ease;
+	}
+
+	#default-scheme .select2-container-multi.select2-container-active .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+/******* Media Gallery ********/
+	#default-scheme .media-filter li a:hover, .media-filter li a:focus{
+        background: #2ECC71;
+        color: #fff;
+    }
+
+/******* Timeline ********/
+	#default-scheme .timeline-1 > li > .timeline-badge i:hover {
+        color: #2ECC71;
+    }
+
+    .timeline-1 .timeline-footer .likes:hover i {
+        color: #2ECC71;
+    }
+
+
+/******* Boxed Content ********/
+	#default-scheme .boxed-content>i {
+        font-size: 3em;
+        color: #2ECC71;
+    }
+
+	#default-scheme .boxed-content.left-boxed-icon i {
+        padding: 10px;
+        width: 60px;
+        height: 60px;
+        background: #2ECC71;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+    }
+
+ /******* Hover Boxed Icon Content **********/
+	#default-scheme .hover-boxed-icon-content i {
+	 	color: #2ECC71;
+	 }
+
+
+/*********** Owl Carousel **************/
+	#default-scheme .owl-btn:hover {
+      color: #fff;
+      background: #2ECC71;
+    }
+
+/********** Profile Sidebar *************/
+	#default-scheme .profile-page .profile-sidebar > li.active,
+    #default-scheme .profile-page .profile-sidebar > li.active:hover {
+      background: #2ECC71;
+    } 
+
+    #default-scheme .profile-page .profile-sidebar > li.active:hover a {
+    	color: #fff;
+    }
+
+    #default-scheme .profile-page .profile-sidebar > li a:hover {
+    	color: #2ECC71;
+    }
+
+    #default-scheme .profile-page .date-formats {
+    	background: #2ECC71;
+    }
+
+    #default-scheme .profile-page .profile-post:hover span.profile-post-numb {
+    	color: #2ECC71;
+    }
+
+    #default-scheme .profile-page .name-location span i {
+    	color: #2ECC71;
+    }
+
+    #default-scheme .profile-page .profile-about .social i {
+    	color: #2ECC71;
+    }
+
+    #default-scheme .projects .project-box .project-edited span a {
+    	color: #2ECC71;
+    }
+
+    #default-scheme .projects .project-box .project-status {
+    	color: #2ECC71;
+    }
+    
+    #default-scheme .projects .project-box .project-status i{
+        color: #2ECC71;
+    }
+
+/********************* Users ************************/
+	#default-scheme .users  .caption .user-task-info i {
+	 	color: #2ECC71;
+	 }
+
+/******************** Projects *****************/
+	#default-scheme .all-projects .sidebar > li.active,
+    #default-scheme .all-projects .sidebar > li.active:hover {
+      background: #2ECC71;
+    } 
+
+    #default-scheme .view-project .project-details .add-assignee:hover {
+        color: #2ECC71;
+    }
+
+    #default-scheme .view-project .project-tag-list li a:hover {
+        background: #2ECC71;
+        border-color: #fff;
+        color:#fff;
+    }
+
+    #default-scheme .view-project .sidebar li a:hover {
+    	color: #2ECC71;
+    }
+
+/******************** Full Calendar *****************/
+    #default-scheme .fc .fc-button-group .fc-prev-button {
+        background: #2ECC71 !important;
+        color: #ffffff;
+    }
+
+    #default-scheme .fc .fc-button-group .fc-prev-button:hover {
+    	background: #27AE60 !important;
+    	color: #ffffff !important;
+    }
+
+    #default-scheme .fc .fc-button-group .fc-next-button {
+        background: #2ECC71 !important;
+        color: #ffffff !important;
+    }
+
+    #default-scheme .fc .fc-button-group .fc-next-button:hover {
+    	background: #27AE60 !important;
+    	color: #ffffff !important;
+    }
+
+    #default-scheme .fc-toolbar .fc-state-active {
+    	background: #2ECC71 !important;
+    	color: #ffffff !important;
+    }
+
+
+    /***Forum Section ***/
+    #default-scheme .page-forum .attachement-list ul li .attachment-thumb a {
+        color: #2ECC71;
+    }
+
+    #default-scheme .page-forum .attachement-list ul li .attachment-thumb a:hover {
+        background-color: #2ECC71;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+        color: #fff;
+    }
+
+    #default-scheme .page-forum .attachement-list a:hover,
+    #default-scheme .page-forum .attachement-list a:focus {
+        text-decoration: none;
+        color: #2ECC71;
+    }
+
+    /***Drop Section ***/
+    #default-scheme .dropcap {
+        background: #2ECC71 !important;
+    }
+
+    /*** Teams ***/
+    #default-scheme .team-1 small {
+        color: #2ECC71;
+    }
+
+
+    /**** 404 Page ****/
+    #default-scheme .error_page em {
+        color: #2ECC71;
+    }
+
+    /***** eCommerce ******/
+    #default-scheme .page-ecommerce .ecommerce-content .ecommerce-slider .prices .present-price {
+        color: #2ECC71;
+    }
+
+    #default-scheme .page-ecommerce #ecommerce-view .caption .item-price {
+        color: #2ECC71;
+    }
+
+    #default-scheme .page-ecommerce .sidebar .display-types #ecommerce-grid-view.active, .page-ecommerce .sidebar .display-types #ecommerce-list-view.active {
+        color: #2ECC71;    
+    }
+
+    #default-scheme .page-ecommerce .owl-theme .owl-controls.clickable .owl-buttons div:hover{
+        background: #2ECC71;
+        opacity: 1;
+        text-decoration: none;
+    }
+
+    /** Remove Cart **/
+    #default-scheme .page-ecommerce .btn-remove-cart:hover {
+        color: #2ECC71
+    }
+
+    /** Product Envoice **/
+    #default-scheme .page-ecommerce .top-header-envoice h2 {
+        color: #2ECC71
+    }
+
+    /***** Contact Form ******/
+    #default-scheme .page-contact-form .contact-info li:hover i.fa {
+        color: #2ECC71
+    }
+
+
+    /***** Widgets Todo List ******/
+
+
+
+    /***** People Directory ******/
+    #default-scheme .page-people-directory .contact-group .fa:before {
+        color: #2ECC71;
+    }
+
+
+
+    /***** PHeader top menus sub items ******/
+    #default-scheme .top-nav .navbar-nav .open .dropdown-menu {
+        border-top: 2px solid #2ECC71;
+    }

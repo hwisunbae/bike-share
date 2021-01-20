@@ -1,0 +1,176 @@
+{% include 'user/u_header.html' %}
+
+<!-- //about breadcrumb -->
+ <section class="w3l-contact-11 py-5" id="contact">
+     <div class="contacts-main py-lg-5 py-md-4">
+         <div class="form-41-mian mt-5 pt-lg-5 pt-md-4">
+             <div class="container">
+                 <div class="d-grid align-form-map">
+                     <div class="form-inner-cont">
+                              <div class="form-input">
+                                 <label>Name</label>
+                                 <input type="text" name="Name" id="name" placeholder="" />
+                             </div>
+							 <div class="form-input">
+                                 <label>Telephone</label>
+                                 <input type="email" name="Telephone" id="telephone" placeholder="" required="" />
+                             </div>
+                             <div class="form-input">
+                                 <label>Email(Required)*</label>
+                                 <input type="email" name="Email" id="email" value="1398641557@qq.com"placeholder="" required="" />
+                             </div>
+							 <div class="form-input">
+                                 <label>Confirm Email Code</label>
+                                 <input type="email" name="Email" id="conEmail" placeholder="" required="" />
+                             </div>
+							 <button type="button" id="sendCode" class="btn btn-primary btn-style">Send Code</button>
+                     </div>
+                      <div class="form-inner-cont">
+                              <div class="form-input">
+                                 <label>Password</label>
+                                 <input type="text" name="Password" id="password" maxlength="20" placeholder="the length must between 6-20" />
+                             </div>
+							 <div class="form-input">
+                                 <label>Confirm Password</label>
+                                 <input type="email" name="ConPassword" id="conPassword" placeholder="the same as password" required="" />
+                             </div>
+                             <div class="form-input">
+                                 <label>Pay Password</label>
+                                 <input type="email" name="paypassword" id="payPassword" placeholder="the length must be 6" required="" />
+                             </div>
+							 <div class="form-input">
+                                 <label>Confirm Pay Password</label>
+                                 <input type="email" name="conpay" id="conPay" placeholder="the same as paypassword" required="" />
+                             </div>
+							 <button type="button" id="submit" class="btn btn-primary btn-style">Submit</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </section>
+
+<input type="hidden" id="confirmCode" value="">
+
+<script>
+ $(document).ready(function(){
+        $("#sendCode").click(function(){
+            var email = $("#email").val().trim();
+            if(email==""){
+                alert("please input your email");
+                return;
+            }
+            alert("we send you an email,please check!")
+            $.ajax({
+                url:"/u_register/send",
+                type:"POST",
+                data:{
+                    email:email
+                },
+                success:function(data){
+                    $("#confirmCode").val(data)
+                    alert("email is ok");
+                },
+                fail:function(data){
+                    alert("false")
+                }
+            })
+        })
+    })
+
+  $(document).ready(function(){
+        $("#submit").click(function(){
+             var confirmCodeSession = $("#confirmCode").val()
+             var confirmCode = $.md5($("#sendCode").val().trim());
+
+             if(confirmCodeSession != confirmCode){
+                alert("please input correct code")
+                return;
+             }
+
+            var name = $("#name").val().trim();
+            var telephone = $("#telephone").val().trim();
+            var email = $("#email").val().trim();
+            var password = $("#password").val().trim();
+            var conPassword = $("#conPassword").val().trim();
+            var payPassword = $("#payPassword").val().trim();
+            var conPay = $("#conPay").val().trim();
+            if(name==""){
+                alert("please input name");
+                return;
+            }
+            if(telephone==""){
+                alert("please input telephone");
+                return;
+            }
+            if(email==""){
+                alert("please input email");
+                return;
+            }
+            if(telephone==""){
+                alert("please input telephone");
+                return;
+            }
+            if(password==""){
+                alert("please input the password");
+                return;
+            }
+            if(password.length<6){
+                alert("the length must between 6-20");
+                return;
+            }
+            if(conPassword == ""){
+                alert("please input conPassword")
+            }
+            if(password != conPassword){
+                alert("two inputs are inconsistent ")
+                return;
+            }
+
+
+             if(payPassword==""){
+                alert("please input the password");
+                return;
+            }
+            if(payPassword.length<6){
+                alert("the length must be 6");
+                return;
+            }
+            if(conPay == ""){
+                alert("please input conPay")
+            }
+            if(payPassword != conPay){
+                alert("two inputs are inconsistent ")
+                return;
+            }
+            $.ajax({
+                url:"../u_register/check",
+                type:"POST",
+                data:{
+                    name:name,
+                    telephone:telephone,
+                    email:email,
+                    password:password,
+                    payPassword:payPassword
+                },
+                success:function(data){
+                    if(data=="success"){
+                        alert("success");
+                        window.location.replace("../admin/manageuser?pageNumber=1")
+                    }
+                    else if(data=="repeat"){
+                        alert("email is repeat")
+                    }
+                    else{
+                        alert("false");
+                    }
+
+                },
+                fail:function(data){
+                    alert("false")
+                }
+            })
+        })
+    })
+</script>
+{% include 'user/u_footer.html' %}

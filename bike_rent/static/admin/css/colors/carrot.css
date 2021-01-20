@@ -1,0 +1,684 @@
+/*
+
+*Project Name: Thema Admin Bootstrap Template;
+*Author: Lancecoder;
+*Website: lancecoder.com;
+
+Content
+ - Header Section
+ - Left Sidebar Section
+ - Content Section
+ - Footer Section
+ - Progress Bar
+ - Small box
+ - Hover Plugin
+ - Daterange picker
+ - Panels
+ - Todo lists
+ - Mailbox
+ - Datepicker
+ - Jquery Multi Select
+ - Typeahead
+ - Select2
+ - Gallery Media
+ - Timeline
+ - Boxed Content
+ - Hover Boxed Icon Content
+ - Owl Carousel
+ - Profile
+ - Users
+ - Projects
+ - Ecommerce
+ - Contact Form
+ - Widgets
+ - People Directory
+ - Header top menus sub items
+*/
+
+#carrot-scheme ::selection {
+    background:#E67E22;
+    color:#fff;
+}
+#carrot-scheme ::-moz-selection {
+    background:#E67E22;
+    color:#fff;
+}
+
+/*** Header Section ***/
+	
+	/** Start of tap nav menu **/
+		
+		#carrot-scheme .top-nav .dropdown-menu:after {
+			border-bottom: 10px solid #E67E22;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            content: "";
+            display: inline-block;
+            right: 6%;
+            position: absolute;
+            top: -10px;
+		}
+
+		#carrot-scheme .top-nav .nav>li>a:hover,#carrot-scheme .nav>li>a:focus {
+		    background-color: white;
+		    color: #E67E22;
+		}
+	/** End of tap nav menu **/
+
+
+	/** Start of sidebar toggle **/
+		#carrot-scheme .sidebar-toggle-box {
+		    float:left;
+		    margin-top:13px;
+		    margin-left:15px !important;
+		    background:#E67E22 !important;
+		    border-radius:2%;
+		    -webkit-border-radius:2%;
+		    width:32px;
+		    height:32px;
+		    position:absolute;
+		    right:-15px;
+		    -webkit-transition: all 0.7s ease;
+			transition: all 0.7s ease;
+			-o-transition: all 0.7s ease;
+            border-radius: 100%;
+		}
+
+		#carrot-scheme .sidebar-toggle-box .fa-bars {
+		    cursor:pointer;
+		    display:inline-block;
+		    font-size:15px;
+		    padding:8px 8px 8px 9px;
+		    color:white;
+		}
+		#carrot-scheme .sidebar-toggle-box:hover {
+		    background:#D35400 !important;
+		    -webkit-transform:scale(1.3);
+			transform:scale(1.3);
+		}
+
+        /*** Right Sidebar Toggle ***/
+        #carrot-scheme .right-sidebar-toggle-box {
+            float:left;
+            margin-top:13px;
+            margin-left:15px !important;
+            background:#E67E22 !important;
+            border-radius:2%;
+            -webkit-border-radius:2%;
+            width:32px;
+            height:32px;
+            position:absolute;
+            right:-15px;
+            -webkit-transition: all 0.7s ease;
+            transition: all 0.7s ease;
+            -o-transition: all 0.7s ease;
+            border-radius: 100%;
+        }
+
+        #carrot-scheme .right-sidebar-toggle-box .fa-bars {
+            cursor:pointer;
+            display:inline-block;
+            font-size:15px;
+            padding:8px 8px 8px 9px;
+            color:white;
+        }
+        #carrot-scheme .right-sidebar-toggle-box:hover {
+            background:#D35400 !important;
+            -webkit-transform:scale(1.3);
+            transform:scale(1.3);
+        }
+
+
+	/** Start of sidebar toggle **/
+
+/*** Left Sidebar Section ***/
+
+	/** Start of Profile Sidebar **/
+		#carrot-scheme ul.sidebar-menu li.sidebar-profile {
+			background-color: #3A434D;
+			padding: 10px;
+			color: #fff;
+			text-align: center;
+			border-bottom: 10px solid #E67E22 !important;
+		}
+
+        #carrot-scheme.theme-sidebar-2 ul.sidebar-menu li.sidebar-profile {
+            background-color: #3e313c;
+            border-bottom: 10px solid #83697F !important;
+        }
+        
+		#carrot-scheme ul.sidebar-menu li.sidebar-profile .name {
+			margin-top: 10px;
+		}
+
+		#carrot-scheme ul.sidebar-menu li.sidebar-profile .image img {
+			border-radius: 60%;
+		}
+
+		#carrot-scheme ul.sidebar-menu li.sidebar-profile .status {
+			margin-top: -10px;
+			font-size: 7;
+		}
+
+		#carrot-scheme ul.sidebar-menu li.sidebar-profile .status small i {
+			color:  #76CF1C;
+		}
+	/** End of Profile Sidebar **/
+
+
+
+	#carrot-scheme ul.sidebar-menu li a.active span.icon-sidebar:first-child,
+    #carrot-scheme ul.sidebar-menu li a:hover span.icon-sidebar:first-child,
+    #carrot-scheme ul.sidebar-menu li a:focus span.icon-sidebar:first-child {
+
+	    background:#E67E22 !important;
+	    color:#ffffff;
+	    padding: 5px;
+	    -webkit-transition: all 0.4s ease-in-out 0.1s;
+	    -moz-transition: all 0.4s ease-in-out 0.1s;
+	    -o-transition: all 0.4s ease-in-out 0.1s;
+	    -ms-transition:all 0.4s ease-in-out 0.1;
+	    transition: all 0.4s ease-in-out 0.1s;
+        -webkit-transform:scale(.8);
+        transform:scale(.8);
+        border-radius: 100%;
+        box-shadow: 0 1px 4px rgba(0,0,0,-0.84),0 1px 4px rgba(0,0,0,.20);
+
+	}
+
+    
+
+/*** Content Section ***/
+
+
+/*** Footer Section ***/
+
+/*** Small Box ***/
+	#carrot-scheme .small-box {
+	  	color: #878d93;
+	}
+
+	#carrot-scheme .small-box:hover {
+	  	text-decoration: none;
+	  	color: #b8babb;
+	}
+
+	#carrot-scheme .small-box .small-box-footer {
+	  	position: relative;
+	  	text-align: center;
+	  	color: #fff;
+	  	display: block;
+	  	z-index: 10;
+	  	background: #E67E22;
+	  	text-decoration: none;
+	}
+
+	#carrot-scheme .small-box .small-box-footer:hover {
+	  	background: #E67E22;
+	  	text-decoration: none;
+	}
+
+
+/*** Hover Plugin ***/
+	/** Hover Plugin for small box **/
+	#carrot-scheme .small-box .hvr-bounce-to-right:before {
+	    background: #D35400 !important;
+	}
+
+	#carrot-scheme .hvr-underline-from-center-global:before {
+	  	content: "";
+	  	position: absolute;
+	  	z-index: -1;
+	  	left: 50%;
+	  	right: 50%;
+	  	bottom: 0;
+	  	background: #E67E22 !important;
+	  	height: 4px;
+	  	-webkit-transition-property: left, right;
+	  	transition-property: left, right;
+	  	-webkit-transition-duration: 0.3s;
+	  	transition-duration: 0.3s;
+	  	-webkit-transition-timing-function: ease-out;
+	  	transition-timing-function: ease-out;
+	}
+
+
+/***  Skin Bacground Color Level  ***/
+	#carrot-scheme .bg-color-1 {
+		background: #86F7B6 !important;
+	    color: #fff;
+	}
+
+	#carrot-scheme .bg-color-2  {
+		background: #77F2AB !important;
+	    color: #fff;
+	}
+
+	#carrot-scheme .bg-color-3  {
+		background: #61E89B !important;
+	    color: #fff;
+	}
+
+	#carrot-scheme .bg-color-4  {
+		background: #4EDE8B !important;
+	    color: #fff;
+	}
+
+	#carrot-scheme .bg-color-5  {
+		background: #E67E22 !important;
+	    color: #fff;
+	}
+/***  Skin Bacground Color Level  ***/
+
+
+/*********** Daterange picker **********/
+
+#carrot-scheme .daterangepicker .ranges li {
+    font-size: 13px;
+    background: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    color: #536A7F;
+    padding: 3px 12px;
+    margin-bottom: 8px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    cursor: pointer;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+
+#carrot-scheme .daterangepicker .ranges li.active,
+#carrot-scheme .daterangepicker .ranges li:hover {
+    background: #D35400;
+    border: 1px solid #D35400;
+    color: #fff;
+}
+
+#carrot-scheme .daterangepicker td.active,
+#carrot-scheme .daterangepicker td.active:hover {
+    background-color: #D35400;
+    color: #fff;
+}
+
+#carrot-scheme .daterangepicker td.available:hover,
+#carrot-scheme .daterangepicker th.available:hover {
+    background: #D35400;
+    color: #ffffff;
+}
+
+#carrot-scheme .range_inputs .applyBtn{
+	background-color: #E67E22;
+	-webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: 1px solid #E67E22;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+#carrot-scheme .range_inputs .applyBtn:hover, 
+#carrot-scheme .range_inputs .applyBtn:focus{
+	background-color: #D35400;
+}
+
+#carrot-scheme .range_inputs .cancelBtn{
+	-webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+
+
+/*********** Panels **********/
+#carrot-scheme .c_panel .line-tabs.bottom .active a {
+    border-bottom: 1px solid #D35400;
+    padding-top:10px;
+    padding-bottom:11px;
+}
+
+
+/*********** Todo Lists **********/
+
+
+
+/***************** Datepicker Section **************/
+	#carrot-scheme .datepicker table tr td.active:hover,
+    #carrot-scheme .datepicker table tr td.active:hover:hover,
+    #carrot-scheme .datepicker table tr td.active.disabled:hover,
+    #carrot-scheme .datepicker table tr td.active.disabled:hover:hover,
+    #carrot-scheme .datepicker table tr td.active:focus,
+    #carrot-scheme .datepicker table tr td.active:hover:focus,
+    #carrot-scheme .datepicker table tr td.active.disabled:focus,
+    #carrot-scheme .datepicker table tr td.active.disabled:hover:focus,
+    #carrot-scheme .datepicker table tr td.active:active,
+    #carrot-scheme .datepicker table tr td.active:hover:active,
+    #carrot-scheme .datepicker table tr td.active.disabled:active,
+    #carrot-scheme .datepicker table tr td.active.disabled:hover:active,
+    #carrot-scheme .datepicker table tr td.active.active,
+    #carrot-scheme .datepicker table tr td.active:hover.active,
+    #carrot-scheme .datepicker table tr td.active.disabled.active,
+    #carrot-scheme .datepicker table tr td.active.disabled:hover.active,
+    #carrot-scheme .open .dropdown-toggle.datepicker table tr td.active,
+    #carrot-scheme .open .dropdown-toggle.datepicker table tr td.active:hover,
+    #carrot-scheme .open .dropdown-toggle.datepicker table tr td.active.disabled,
+    #carrot-scheme .open .dropdown-toggle.datepicker table tr td.active.disabled:hover {
+        color: #ffffff;
+        background-color: #E67E22;
+        border: 0;
+    }
+
+    #carrot-scheme .datepicker table tr td span.active:hover,
+    #carrot-scheme .datepicker table tr td span.active:hover:hover,
+    #carrot-scheme .datepicker table tr td span.active.disabled:hover,
+    #carrot-scheme .datepicker table tr td span.active.disabled:hover:hover,
+    #carrot-scheme .datepicker table tr td span.active:focus,
+    #carrot-scheme .datepicker table tr td span.active:hover:focus,
+    #carrot-scheme .datepicker table tr td span.active.disabled:focus,
+    #carrot-scheme .datepicker table tr td span.active.disabled:hover:focus,
+    #carrot-scheme .datepicker table tr td span.active:active,
+    #carrot-scheme .datepicker table tr td span.active:hover:active,
+    #carrot-scheme .datepicker table tr td span.active.disabled:active, 
+    #carrot-scheme .datepicker table tr td span.active.disabled:hover:active, 
+    #carrot-scheme .datepicker table tr td span.active.active,
+    #carrot-scheme .datepicker table tr td span.active:hover.active, 
+    #carrot-scheme .datepicker table tr td span.active.disabled.active, 
+    #carrot-scheme .datepicker table tr td span.active.disabled:hover.active, 
+    #carrot-scheme .open .dropdown-toggle.datepicker table tr td span.active, 
+    #carrot-scheme .open .dropdown-toggle.datepicker table tr td span.active:hover,
+    #carrot-scheme .open .dropdown-toggle.datepicker table tr td span.active.disabled,
+    #carrot-scheme .open .dropdown-toggle.datepicker table tr td span.active.disabled:hover {
+        color: #ffffff;
+        background-color: #E67E22;
+        border: 0;
+    }
+
+
+/********* jQuery Multi Select ************/
+	#carrot-scheme .ms-container .ms-selectable li.ms-hover, 
+    #carrot-scheme .ms-container .ms-selection li.ms-hover {
+		background-color: #E67E22;
+	}
+
+	#carrot-scheme .ms-container .ms-list.ms-focus{
+		border-color: #E67E22;
+	}
+
+
+/********* Typeahead ************/
+	#carrot-scheme .tt-suggestion.tt-cursor {
+	  color: #fff;
+	  background-color: #E67E22;
+	  cursor: hand;
+	  cursor: pointer;
+	}
+
+
+/******* Select2 ********/
+	#carrot-scheme .select2-drop-active {
+		border: 1px solid #ddd;
+	}
+
+	#carrot-scheme .select2-drop.select2-drop-above.select2-drop-active {
+		border: 1px solid #ddd;
+	}
+
+	#carrot-scheme .select2-container-active .select2-choice,
+	#carrot-scheme .select2-container-active .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+	#carrot-scheme .select2-dropdown-open.select2-drop-above .select2-choice,
+	#carrot-scheme .select2-dropdown-open.select2-drop-above .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+	#carrot-scheme .select2-results .select2-highlighted {
+		background: #ddd;
+        -webkit-transition:all 0.3s ease;
+        -moz-transition:all 0.3s ease;
+        -o-transition:all 0.83 ease;
+        -ms-transition:all 0.3s ease;
+        transition:all 0.3s ease;
+	}
+
+	#carrot-scheme .select2-container-multi.select2-container-active .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+/******* Media Gallery ********/
+	#carrot-scheme .media-filter li a:hover, .media-filter li a:focus{
+        background: #E67E22;
+        color: #fff;
+    }
+
+/******* Timeline ********/
+	#carrot-scheme .timeline-1 > li > .timeline-badge i:hover {
+        color: #E67E22;
+    }
+
+    #carrot-scheme .timeline-1 .timeline-footer .likes:hover i {
+        color: #E67E22;
+    }
+
+
+/******* Boxed Content ********/
+	#carrot-scheme .boxed-content>i {
+        font-size: 3em;
+        color: #E67E22;
+    }
+
+	#carrot-scheme .boxed-content.left-boxed-icon i {
+        padding: 10px;
+        width: 60px;
+        height: 60px;
+        background: #E67E22;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+    }
+
+ /******* Hover Boxed Icon Content **********/
+	#carrot-scheme .hover-boxed-icon-content i {
+	 	color: #E67E22;
+	}
+
+
+/*********** Owl Carousel **************/
+	#carrot-scheme .owl-btn:hover {
+      color: #fff;
+      background: #E67E22;
+    }
+
+/********** Profile Sidebar *************/
+	#carrot-scheme .profile-page .profile-sidebar > li.active,
+    #carrot-scheme .profile-page .profile-sidebar > li.active:hover {
+      background: #E67E22;
+    } 
+
+    #carrot-scheme .profile-page .profile-sidebar > li.active:hover a {
+    	color: #fff;
+    }
+
+    #carrot-scheme .profile-page .profile-sidebar > li a:hover {
+    	color: #E67E22;
+    }
+
+    #carrot-scheme .profile-page .date-formats {
+    	background: #E67E22;
+    }
+
+    #carrot-scheme .profile-page .profile-post:hover span.profile-post-numb {
+    	color: #E67E22;
+    }
+
+    #carrot-scheme .profile-page .name-location span i {
+    	color: #E67E22;
+    }
+
+    #carrot-scheme .profile-page .profile-about .social i {
+    	color: #E67E22;
+    }
+
+    #carrot-scheme .projects .project-box .project-edited span a {
+    	color: #E67E22;
+    }
+
+    #carrot-scheme .projects .project-box .project-status {
+    	color: #E67E22;
+    }
+    
+    #carrot-scheme .projects .project-box .project-status i{
+        color: #E67E22;
+    }
+
+/********************* Users ************************/
+	#carrot-scheme .users  .caption .user-task-info i {
+	 	color: #E67E22;
+	 }
+
+/******************** Projects *****************/
+	#carrot-scheme .all-projects .sidebar > li.active,
+    #carrot-scheme .all-projects .sidebar > li.active:hover {
+      background: #E67E22;
+    } 
+
+    #carrot-scheme .view-project .project-details .add-assignee:hover {
+        color: #E67E22;
+    }
+
+    #carrot-scheme .view-project .project-tag-list li a:hover {
+        background: #E67E22;
+        border-color: #fff;
+        color:#fff;
+    }
+
+    #carrot-scheme .view-project .sidebar li a:hover {
+    	color: #E67E22;
+    }
+
+/******************** Full Calendar *****************/
+    #carrot-scheme .fc .fc-button-group .fc-prev-button {
+        background: #E67E22 !important;
+        color: #ffffff;
+    }
+
+    #carrot-scheme .fc .fc-button-group .fc-prev-button:hover {
+    	background: #D35400 !important;
+    	color: #ffffff !important;
+    }
+
+    #carrot-scheme .fc .fc-button-group .fc-next-button {
+        background: #E67E22 !important;
+        color: #ffffff !important;
+    }
+
+    #carrot-scheme .fc .fc-button-group .fc-next-button:hover {
+    	background: #D35400 !important;
+    	color: #ffffff !important;
+    }
+
+    #carrot-scheme .fc-toolbar .fc-state-active {
+    	background: #E67E22 !important;
+    	color: #ffffff !important;
+    }
+
+
+    /***Forum Section ***/
+    #carrot-scheme .page-forum .attachement-list ul li .attachment-thumb a {
+        color: #E67E22;
+    }
+
+    #carrot-scheme .page-forum .attachement-list ul li .attachment-thumb a:hover {
+        background-color: #E67E22;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+        color: #fff;
+    }
+
+    #carrot-scheme .page-forum .attachement-list a:hover,
+    #carrot-scheme .page-forum .attachement-list a:focus {
+        text-decoration: none;
+        color: #E67E22;
+    }
+
+    /***Drop Section ***/
+    #carrot-scheme .dropcap {
+        background: #E67E22 !important;
+    }
+
+    /*** Teams ***/
+    #carrot-scheme .team-1 small {
+        color: #E67E22;
+    }
+
+
+    /**** 404 Page ****/
+    #carrot-scheme .error_page em {
+        color: #E67E22;
+    }
+
+    /***** eCommerce ******/
+    #carrot-scheme .page-ecommerce .ecommerce-content .ecommerce-slider .prices .present-price {
+        color: #E67E22;
+    }
+
+    #carrot-scheme .page-ecommerce #ecommerce-view .caption .item-price {
+        color: #E67E22;
+    }
+
+    #carrot-scheme .page-ecommerce .sidebar .display-types #ecommerce-grid-view.active, 
+    #carrot-scheme .page-ecommerce .sidebar .display-types #ecommerce-list-view.active {
+        color: #E67E22;    
+    }
+
+    #carrot-scheme .page-ecommerce .owl-theme .owl-controls.clickable .owl-buttons div:hover{
+        background: #E67E22;
+        opacity: 1;
+        text-decoration: none;
+    }
+
+    /** Remove Cart **/
+    #carrot-scheme .page-ecommerce .btn-remove-cart:hover {
+        color: #E67E22
+    }
+
+    /** Product Envoice **/
+    #carrot-scheme .page-ecommerce .top-header-envoice h2 {
+        color: #E67E22
+    }
+
+    /***** Contact Form ******/
+    #carrot-scheme .page-contact-form .contact-info li:hover i.fa {
+        color: #E67E22
+    }
+
+
+    /***** Widgets Todo List ******/
+
+
+
+    /***** People Directory ******/
+    #carrot-scheme .page-people-directory .contact-group .fa:before {
+        color: #E67E22;
+    }
+
+
+    /***** Header top menus sub items ******/
+    #carrot-scheme .top-nav .navbar-nav .open .dropdown-menu {
+        border-top: 2px solid #E67E22;
+    }

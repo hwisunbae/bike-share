@@ -1,0 +1,683 @@
+/*
+
+*Project Name: Thema Admin Bootstrap Template;
+*Author: Lancecoder;
+*Website: lancecoder.com;
+
+Content
+ - Header Section
+ - Left Sidebar Section
+ - Content Section
+ - Footer Section
+ - Progress Bar
+ - Small box
+ - Hover Plugin
+ - Daterange picker
+ - Panels
+ - Todo lists
+ - Mailbox
+ - Datepicker
+ - Jquery Multi Select
+ - Typeahead
+ - Select2
+ - Gallery Media
+ - Timeline
+ - Boxed Content
+ - Hover Boxed Icon Content
+ - Owl Carousel
+ - Profile
+ - Users
+ - Projects
+ - Ecommerce
+ - Contact Form
+ - Widgets
+ - People Directory
+ - Header top menus sub items
+*/
+
+#turquoise-scheme ::selection {
+    background:#1ABC9C;
+    color:#fff;
+}
+#turquoise-scheme ::-moz-selection {
+    background:#1ABC9C;
+    color:#fff;
+}
+
+/*** Header Section ***/
+	
+	/** Start of tap nav menu **/
+		
+		#turquoise-scheme .top-nav .dropdown-menu:after {
+			border-bottom: 10px solid #1ABC9C;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            content: "";
+            display: inline-block;
+            right: 6%;
+            position: absolute;
+            top: -10px;
+		}
+
+		#turquoise-scheme .top-nav .nav>li>a:hover,#turquoise-scheme .nav>li>a:focus {
+		    background-color: white;
+		    color: #1ABC9C;
+		}
+	/** End of tap nav menu **/
+
+
+	/** Start of sidebar toggle **/
+		#turquoise-scheme .sidebar-toggle-box {
+		    float:left;
+		    margin-top:13px;
+		    margin-left:15px !important;
+		    background:#1ABC9C !important;
+		    border-radius:2%;
+		    -webkit-border-radius:2%;
+		    width:32px;
+		    height:32px;
+		    position:absolute;
+		    right:-15px;
+		    -webkit-transition: all 0.7s ease;
+			transition: all 0.7s ease;
+			-o-transition: all 0.7s ease;
+            border-radius: 100%;
+		}
+
+		#turquoise-scheme .sidebar-toggle-box .fa-bars {
+		    cursor:pointer;
+		    display:inline-block;
+		    font-size:15px;
+		    padding:8px 8px 8px 9px;
+		    color:white;
+		}
+		#turquoise-scheme .sidebar-toggle-box:hover {
+		    background:#16A085 !important;
+		    -webkit-transform:scale(1.3);
+			transform:scale(1.3);
+		}
+
+        /*** Right Sidebar Toggle ***/
+        #turquoise-scheme .right-sidebar-toggle-box {
+            float:left;
+            margin-top:13px;
+            margin-left:15px !important;
+            background:#1ABC9C !important;
+            border-radius:2%;
+            -webkit-border-radius:2%;
+            width:32px;
+            height:32px;
+            position:absolute;
+            right:-15px;
+            -webkit-transition: all 0.7s ease;
+            transition: all 0.7s ease;
+            -o-transition: all 0.7s ease;
+            border-radius: 100%;
+        }
+
+        #turquoise-scheme .right-sidebar-toggle-box .fa-bars {
+            cursor:pointer;
+            display:inline-block;
+            font-size:15px;
+            padding:8px 8px 8px 9px;
+            color:white;
+        }
+        #turquoise-scheme .right-sidebar-toggle-box:hover {
+            background:#16A085 !important;
+            -webkit-transform:scale(1.3);
+            transform:scale(1.3);
+        }
+
+
+	/** Start of sidebar toggle **/
+
+/*** Left Sidebar Section ***/
+
+	/** Start of Profile Sidebar **/
+		#turquoise-scheme ul.sidebar-menu li.sidebar-profile {
+			background-color: #3A434D;
+			padding: 10px;
+			color: #fff;
+			text-align: center;
+			border-bottom: 10px solid #1ABC9C !important;
+		}
+
+        #turquoise-scheme.theme-sidebar-2 ul.sidebar-menu li.sidebar-profile {
+            background-color: #3e313c;
+            border-bottom: 10px solid #83697F !important;
+        }
+
+		#turquoise-scheme ul.sidebar-menu li.sidebar-profile .name {
+			margin-top: 10px;
+		}
+
+		#turquoise-scheme ul.sidebar-menu li.sidebar-profile .image img {
+			border-radius: 60%;
+		}
+
+		#turquoise-scheme ul.sidebar-menu li.sidebar-profile .status {
+			margin-top: -10px;
+			font-size: 7;
+		}
+
+		#turquoise-scheme ul.sidebar-menu li.sidebar-profile .status small i {
+			color:  #76CF1C;
+		}
+	/** End of Profile Sidebar **/
+
+
+
+	#turquoise-scheme ul.sidebar-menu li a.active span.icon-sidebar:first-child,
+    #turquoise-scheme ul.sidebar-menu li a:hover span.icon-sidebar:first-child,
+    #turquoise-scheme ul.sidebar-menu li a:focus span.icon-sidebar:first-child {
+
+	    background:#1ABC9C !important;
+	    color:#ffffff;
+	    padding: 5px;
+	    -webkit-transition: all 0.4s ease-in-out 0.1s;
+	    -moz-transition: all 0.4s ease-in-out 0.1s;
+	    -o-transition: all 0.4s ease-in-out 0.1s;
+	    -ms-transition:all 0.4s ease-in-out 0.1;
+	    transition: all 0.4s ease-in-out 0.1s;
+        -webkit-transform:scale(.8);
+        transform:scale(.8);
+        border-radius: 100%;
+        box-shadow: 0 1px 4px rgba(0,0,0,-0.84),0 1px 4px rgba(0,0,0,.20);
+
+	}
+
+    
+
+/*** Content Section ***/
+
+
+/*** Footer Section ***/
+
+/*** Small Box ***/
+	#turquoise-scheme .small-box {
+	  	color: #878d93;
+	}
+
+	#turquoise-scheme .small-box:hover {
+	  	text-decoration: none;
+	  	color: #b8babb;
+	}
+
+	#turquoise-scheme .small-box .small-box-footer {
+	  	position: relative;
+	  	text-align: center;
+	  	color: #fff;
+	  	display: block;
+	  	z-index: 10;
+	  	background: #1ABC9C;
+	  	text-decoration: none;
+	}
+
+	#turquoise-scheme .small-box .small-box-footer:hover {
+	  	background: #1ABC9C;
+	  	text-decoration: none;
+	}
+
+
+/*** Hover Plugin ***/
+	/** Hover Plugin for small box **/
+	#turquoise-scheme .small-box .hvr-bounce-to-right:before {
+	    background: #16A085 !important;
+	}
+
+	#turquoise-scheme .hvr-underline-from-center-global:before {
+	  	content: "";
+	  	position: absolute;
+	  	z-index: -1;
+	  	left: 50%;
+	  	right: 50%;
+	  	bottom: 0;
+	  	background: #1ABC9C !important;
+	  	height: 4px;
+	  	-webkit-transition-property: left, right;
+	  	transition-property: left, right;
+	  	-webkit-transition-duration: 0.3s;
+	  	transition-duration: 0.3s;
+	  	-webkit-transition-timing-function: ease-out;
+	  	transition-timing-function: ease-out;
+	}
+
+
+/***  Skin Bacground Color Level  ***/
+	#turquoise-scheme .bg-color-1 {
+		background: #86F7B6 !important;
+	    color: #fff;
+	}
+
+	#turquoise-scheme .bg-color-2  {
+		background: #77F2AB !important;
+	    color: #fff;
+	}
+
+	#turquoise-scheme .bg-color-3  {
+		background: #61E89B !important;
+	    color: #fff;
+	}
+
+	#turquoise-scheme .bg-color-4  {
+		background: #4EDE8B !important;
+	    color: #fff;
+	}
+
+	#turquoise-scheme .bg-color-5  {
+		background: #1ABC9C !important;
+	    color: #fff;
+	}
+/***  Skin Bacground Color Level  ***/
+
+
+/*********** Daterange picker **********/
+
+#turquoise-scheme .daterangepicker .ranges li {
+    font-size: 13px;
+    background: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    color: #536A7F;
+    padding: 3px 12px;
+    margin-bottom: 8px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    cursor: pointer;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+
+#turquoise-scheme .daterangepicker .ranges li.active,
+#turquoise-scheme .daterangepicker .ranges li:hover {
+    background: #16A085;
+    border: 1px solid #16A085;
+    color: #fff;
+}
+
+#turquoise-scheme .daterangepicker td.active,
+#turquoise-scheme .daterangepicker td.active:hover {
+    background-color: #16A085;
+    color: #fff;
+}
+
+#turquoise-scheme .daterangepicker td.available:hover,
+#turquoise-scheme .daterangepicker th.available:hover {
+    background: #16A085;
+    color: #ffffff;
+}
+
+#turquoise-scheme .range_inputs .applyBtn{
+	background-color: #1ABC9C;
+	-webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: 1px solid #1ABC9C;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+#turquoise-scheme .range_inputs .applyBtn:hover, 
+#turquoise-scheme .range_inputs .applyBtn:focus{
+	background-color: #16A085;
+}
+
+#turquoise-scheme .range_inputs .cancelBtn{
+	-webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+
+
+/*********** Panels **********/
+#turquoise-scheme .c_panel .line-tabs.bottom .active a {
+    border-bottom: 1px solid #16A085;
+    padding-top:10px;
+    padding-bottom:11px;
+}
+
+
+/*********** Todo Lists **********/
+
+
+
+/***************** Datepicker Section **************/
+	#turquoise-scheme .datepicker table tr td.active:hover,
+    #turquoise-scheme .datepicker table tr td.active:hover:hover,
+    #turquoise-scheme .datepicker table tr td.active.disabled:hover,
+    #turquoise-scheme .datepicker table tr td.active.disabled:hover:hover,
+    #turquoise-scheme .datepicker table tr td.active:focus,
+    #turquoise-scheme .datepicker table tr td.active:hover:focus,
+    #turquoise-scheme .datepicker table tr td.active.disabled:focus,
+    #turquoise-scheme .datepicker table tr td.active.disabled:hover:focus,
+    #turquoise-scheme .datepicker table tr td.active:active,
+    #turquoise-scheme .datepicker table tr td.active:hover:active,
+    #turquoise-scheme .datepicker table tr td.active.disabled:active,
+    #turquoise-scheme .datepicker table tr td.active.disabled:hover:active,
+    #turquoise-scheme .datepicker table tr td.active.active,
+    #turquoise-scheme .datepicker table tr td.active:hover.active,
+    #turquoise-scheme .datepicker table tr td.active.disabled.active,
+    #turquoise-scheme .datepicker table tr td.active.disabled:hover.active,
+    #turquoise-scheme .open .dropdown-toggle.datepicker table tr td.active,
+    #turquoise-scheme .open .dropdown-toggle.datepicker table tr td.active:hover,
+    #turquoise-scheme .open .dropdown-toggle.datepicker table tr td.active.disabled,
+    #turquoise-scheme .open .dropdown-toggle.datepicker table tr td.active.disabled:hover {
+        color: #ffffff;
+        background-color: #1ABC9C;
+        border: 0;
+    }
+
+    #turquoise-scheme .datepicker table tr td span.active:hover,
+    #turquoise-scheme .datepicker table tr td span.active:hover:hover,
+    #turquoise-scheme .datepicker table tr td span.active.disabled:hover,
+    #turquoise-scheme .datepicker table tr td span.active.disabled:hover:hover,
+    #turquoise-scheme .datepicker table tr td span.active:focus,
+    #turquoise-scheme .datepicker table tr td span.active:hover:focus,
+    #turquoise-scheme .datepicker table tr td span.active.disabled:focus,
+    #turquoise-scheme .datepicker table tr td span.active.disabled:hover:focus,
+    #turquoise-scheme .datepicker table tr td span.active:active,
+    #turquoise-scheme .datepicker table tr td span.active:hover:active,
+    #turquoise-scheme .datepicker table tr td span.active.disabled:active, 
+    #turquoise-scheme .datepicker table tr td span.active.disabled:hover:active, 
+    #turquoise-scheme .datepicker table tr td span.active.active,
+    #turquoise-scheme .datepicker table tr td span.active:hover.active, 
+    #turquoise-scheme .datepicker table tr td span.active.disabled.active, 
+    #turquoise-scheme .datepicker table tr td span.active.disabled:hover.active, 
+    #turquoise-scheme .open .dropdown-toggle.datepicker table tr td span.active, 
+    #turquoise-scheme .open .dropdown-toggle.datepicker table tr td span.active:hover,
+    #turquoise-scheme .open .dropdown-toggle.datepicker table tr td span.active.disabled,
+    #turquoise-scheme .open .dropdown-toggle.datepicker table tr td span.active.disabled:hover {
+        color: #ffffff;
+        background-color: #1ABC9C;
+        border: 0;
+    }
+
+
+/********* jQuery Multi Select ************/
+	#turquoise-scheme .ms-container .ms-selectable li.ms-hover, 
+    #turquoise-scheme .ms-container .ms-selection li.ms-hover {
+		background-color: #1ABC9C;
+	}
+
+	#turquoise-scheme .ms-container .ms-list.ms-focus{
+		border-color: #1ABC9C;
+	}
+
+
+/********* Typeahead ************/
+	#turquoise-scheme .tt-suggestion.tt-cursor {
+	  color: #fff;
+	  background-color: #1ABC9C;
+	  cursor: hand;
+	  cursor: pointer;
+	}
+
+
+/******* Select2 ********/
+	#turquoise-scheme .select2-drop-active {
+		border: 1px solid #ddd;
+	}
+
+	#turquoise-scheme .select2-drop.select2-drop-above.select2-drop-active {
+		border: 1px solid #ddd;
+	}
+
+	#turquoise-scheme .select2-container-active .select2-choice,
+	#turquoise-scheme .select2-container-active .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+	#turquoise-scheme .select2-dropdown-open.select2-drop-above .select2-choice,
+	#turquoise-scheme .select2-dropdown-open.select2-drop-above .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+	#turquoise-scheme .select2-results .select2-highlighted {
+		background: #ddd;
+        -webkit-transition:all 0.3s ease;
+        -moz-transition:all 0.3s ease;
+        -o-transition:all 0.83 ease;
+        -ms-transition:all 0.3s ease;
+        transition:all 0.3s ease;
+	}
+
+	#turquoise-scheme .select2-container-multi.select2-container-active .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+/******* Media Gallery ********/
+	#turquoise-scheme .media-filter li a:hover, .media-filter li a:focus{
+        background: #1ABC9C;
+        color: #fff;
+    }
+
+/******* Timeline ********/
+	#turquoise-scheme .timeline-1 > li > .timeline-badge i:hover {
+        color: #1ABC9C;
+    }
+
+    #turquoise-scheme .timeline-1 .timeline-footer .likes:hover i {
+        color: #1ABC9C;
+    }
+
+
+/******* Boxed Content ********/
+	#turquoise-scheme .boxed-content>i {
+        font-size: 3em;
+        color: #1ABC9C;
+    }
+
+	#turquoise-scheme .boxed-content.left-boxed-icon i {
+        padding: 10px;
+        width: 60px;
+        height: 60px;
+        background: #1ABC9C;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+    }
+
+ /******* Hover Boxed Icon Content **********/
+	#turquoise-scheme .hover-boxed-icon-content i {
+	 	color: #1ABC9C;
+	 }
+
+
+/*********** Owl Carousel **************/
+	#turquoise-scheme .owl-btn:hover {
+      color: #fff;
+      background: #1ABC9C;
+    }
+
+/********** Profile Sidebar *************/
+	#turquoise-scheme .profile-page .profile-sidebar > li.active,
+    #turquoise-scheme .profile-page .profile-sidebar > li.active:hover {
+      background: #1ABC9C;
+    } 
+
+    #turquoise-scheme .profile-page .profile-sidebar > li.active:hover a {
+    	color: #fff;
+    }
+
+    #turquoise-scheme .profile-page .profile-sidebar > li a:hover {
+    	color: #1ABC9C;
+    }
+
+    #turquoise-scheme .profile-page .date-formats {
+    	background: #1ABC9C;
+    }
+
+    #turquoise-scheme .profile-page .profile-post:hover span.profile-post-numb {
+    	color: #1ABC9C;
+    }
+
+    #turquoise-scheme .profile-page .name-location span i {
+    	color: #1ABC9C;
+    }
+
+    #turquoise-scheme .profile-page .profile-about .social i {
+    	color: #1ABC9C;
+    }
+
+    #turquoise-scheme .projects .project-box .project-edited span a {
+    	color: #1ABC9C;
+    }
+
+    #turquoise-scheme .projects .project-box .project-status {
+    	color: #1ABC9C;
+    }
+    
+    #turquoise-scheme .projects .project-box .project-status i{
+        color: #1ABC9C;
+    }
+
+/********************* Users ************************/
+	#turquoise-scheme .users  .caption .user-task-info i {
+	 	color: #1ABC9C;
+	 }
+
+/******************** Projects *****************/
+	#turquoise-scheme .all-projects .sidebar > li.active,
+    #turquoise-scheme .all-projects .sidebar > li.active:hover {
+      background: #1ABC9C;
+    } 
+
+    #turquoise-scheme .view-project .project-details .add-assignee:hover {
+        color: #1ABC9C;
+    }
+
+    #turquoise-scheme .view-project .project-tag-list li a:hover {
+        background: #1ABC9C;
+        border-color: #fff;
+        color:#fff;
+    }
+
+    #turquoise-scheme .view-project .sidebar li a:hover {
+    	color: #1ABC9C;
+    }
+
+/******************** Full Calendar *****************/
+    #turquoise-scheme .fc .fc-button-group .fc-prev-button {
+        background: #1ABC9C !important;
+        color: #ffffff;
+    }
+
+    #turquoise-scheme .fc .fc-button-group .fc-prev-button:hover {
+    	background: #16A085 !important;
+    	color: #ffffff !important;
+    }
+
+    #turquoise-scheme .fc .fc-button-group .fc-next-button {
+        background: #1ABC9C !important;
+        color: #ffffff !important;
+    }
+
+    #turquoise-scheme .fc .fc-button-group .fc-next-button:hover {
+    	background: #16A085 !important;
+    	color: #ffffff !important;
+    }
+
+    #turquoise-scheme .fc-toolbar .fc-state-active {
+    	background: #1ABC9C !important;
+    	color: #ffffff !important;
+    }
+
+
+    /***Forum Section ***/
+    #turquoise-scheme .page-forum .attachement-list ul li .attachment-thumb a {
+        color: #1ABC9C;
+    }
+
+    #turquoise-scheme .page-forum .attachement-list ul li .attachment-thumb a:hover {
+        background-color: #1ABC9C;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+        color: #fff;
+    }
+
+    #turquoise-scheme .page-forum .attachement-list a:hover,
+    #turquoise-scheme .page-forum .attachement-list a:focus {
+        text-decoration: none;
+        color: #1ABC9C;
+    }
+
+    /***Drop Section ***/
+    #turquoise-scheme .dropcap {
+        background: #1ABC9C !important;
+    }
+
+    /*** Teams ***/
+    #turquoise-scheme .team-1 small {
+        color: #1ABC9C;
+    }
+
+
+    /**** 404 Page ****/
+    #turquoise-scheme .error_page em {
+        color: #1ABC9C;
+    }
+
+    /***** eCommerce ******/
+    #turquoise-scheme .page-ecommerce .ecommerce-content .ecommerce-slider .prices .present-price {
+        color: #1ABC9C;
+    }
+
+    #turquoise-scheme .page-ecommerce #ecommerce-view .caption .item-price {
+        color: #1ABC9C;
+    }
+
+    #turquoise-scheme .page-ecommerce .sidebar .display-types #ecommerce-grid-view.active, .page-ecommerce .sidebar .display-types #ecommerce-list-view.active {
+        color: #1ABC9C;    
+    }
+
+    #turquoise-scheme .page-ecommerce .owl-theme .owl-controls.clickable .owl-buttons div:hover{
+        background: #1ABC9C;
+        opacity: 1;
+        text-decoration: none;
+    }
+
+    /** Remove Cart **/
+    #turquoise-scheme .page-ecommerce .btn-remove-cart:hover {
+        color: #1ABC9C
+    }
+
+    /** Product Envoice **/
+    #turquoise-scheme .page-ecommerce .top-header-envoice h2 {
+        color: #1ABC9C
+    }
+
+    /***** Contact Form ******/
+    #turquoise-scheme .page-contact-form .contact-info li:hover i.fa {
+        color: #1ABC9C
+    }
+
+
+    /***** Widgets Todo List ******/
+
+
+
+    /***** People Directory ******/
+    #turquoise-scheme .page-people-directory .contact-group .fa:before {
+        color: #1ABC9C;
+    }
+
+
+    /***** Header top menus sub items ******/
+    #turquoise-scheme .top-nav .navbar-nav .open .dropdown-menu {
+        border-top: 2px solid #1ABC9C;
+    }

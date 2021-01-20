@@ -1,0 +1,62 @@
+{% include 'user/u_header.html' %}
+       <!--谷歌地图调用api-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw" async defer></script>
+
+	<script>
+
+    function initialize()
+    {
+      var mapProp = {
+        center: new google.maps.LatLng(55.87189,-4.28922),
+        zoom:7,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    }
+
+    function loadScript()
+    {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&sensor=false&callback=initialize";
+      document.body.appendChild(script);
+    }
+
+
+    window.onload = loadScript;
+
+    </script>
+
+<!-- //about breadcrumb -->
+ <section class="w3l-contact-11 py-5" id="contact">
+     <div class="contacts-main py-lg-5 py-md-4">
+         <div class="form-41-mian mt-5 pt-lg-5 pt-md-4">
+             <div class="container">
+                 <div class="d-grid align-form-map">
+
+                    <div class="map" id = "googleMap" style="width:100%;height:500px;border: 200px;padding:100px;">
+                     </div>
+                     <div class="form-inner-cont">
+                         <form method="post" class="signin-form">
+                             <div class="form-input">
+                                 <label>Bike Id</label>
+                                 <input type="text" name="BikeName" id="BikeName" placeholder="" />
+                             </div>
+                             <div class="form-input">
+                                 <label>Bike Password</label>
+                                 <input type="text" name="BikeName" id="BikePassword" placeholder="" />
+                             </div>
+                             <div class="form-input">
+                                 <label>Rent</label>
+                                 <h2>2￡/h</h2>
+                             </div>
+                             <button type="button" class="btn btn-primary btn-style">Send Code</button>
+                             <button type="button" class="btn btn-primary btn-style">Confirm</button>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </section>
+{% include 'user/u_footer.html' %}

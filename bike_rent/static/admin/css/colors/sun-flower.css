@@ -1,0 +1,683 @@
+/*
+
+*Project Name: Thema Admin Bootstrap Template;
+*Author: Lancecoder;
+*Website: lancecoder.com;
+
+Content
+ - Header Section
+ - Left Sidebar Section
+ - Content Section
+ - Footer Section
+ - Progress Bar
+ - Small box
+ - Hover Plugin
+ - Daterange picker
+ - Panels
+ - Todo lists
+ - Mailbox
+ - Datepicker
+ - Jquery Multi Select
+ - Typeahead
+ - Select2
+ - Gallery Media
+ - Timeline
+ - Boxed Content
+ - Hover Boxed Icon Content
+ - Owl Carousel
+ - Profile
+ - Users
+ - Projects
+ - Ecommerce
+ - Contact Form
+ - Widgets
+ - People Directory
+ - Header top menus sub items
+*/
+
+#sun-flower-scheme ::selection {
+    background:#F1C40F;
+    color:#fff;
+}
+#sun-flower-scheme ::-moz-selection {
+    background:#F1C40F;
+    color:#fff;
+}
+
+/*** Header Section ***/
+	
+	/** Start of tap nav menu **/
+		
+		#sun-flower-scheme .top-nav .dropdown-menu:after {
+			border-bottom: 10px solid #F1C40F;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            content: "";
+            display: inline-block;
+            right: 6%;
+            position: absolute;
+            top: -10px;
+		}
+
+		#sun-flower-scheme .top-nav .nav>li>a:hover,#sun-flower-scheme .nav>li>a:focus {
+		    background-color: white;
+		    color: #F1C40F;
+		}
+	/** End of tap nav menu **/
+
+
+	/** Start of sidebar toggle **/
+		#sun-flower-scheme .sidebar-toggle-box {
+		    float:left;
+		    margin-top:13px;
+		    margin-left:15px !important;
+		    background:#F1C40F !important;
+		    border-radius:2%;
+		    -webkit-border-radius:2%;
+		    width:32px;
+		    height:32px;
+		    position:absolute;
+		    right:-15px;
+		    -webkit-transition: all 0.7s ease;
+			transition: all 0.7s ease;
+			-o-transition: all 0.7s ease;
+            border-radius: 100%;
+		}
+
+		#sun-flower-scheme .sidebar-toggle-box .fa-bars {
+		    cursor:pointer;
+		    display:inline-block;
+		    font-size:15px;
+		    padding:8px 8px 8px 9px;
+		    color:white;
+		}
+		#sun-flower-scheme .sidebar-toggle-box:hover {
+		    background:#F39C12 !important;
+		    -webkit-transform:scale(1.3);
+			transform:scale(1.3);
+		}
+
+        /*** Right Sidebar Toggle ***/
+        #sun-flower-scheme .right-sidebar-toggle-box {
+            float:left;
+            margin-top:13px;
+            margin-left:15px !important;
+            background:#F1C40F !important;
+            border-radius:2%;
+            -webkit-border-radius:2%;
+            width:32px;
+            height:32px;
+            position:absolute;
+            right:-15px;
+            -webkit-transition: all 0.7s ease;
+            transition: all 0.7s ease;
+            -o-transition: all 0.7s ease;
+            border-radius: 100%;
+        }
+
+        #sun-flower-scheme .right-sidebar-toggle-box .fa-bars {
+            cursor:pointer;
+            display:inline-block;
+            font-size:15px;
+            padding:8px 8px 8px 9px;
+            color:white;
+        }
+        #sun-flower-scheme .right-sidebar-toggle-box:hover {
+            background:#F39C12 !important;
+            -webkit-transform:scale(1.3);
+            transform:scale(1.3);
+        }
+
+
+	/** Start of sidebar toggle **/
+
+/*** Left Sidebar Section ***/
+
+	/** Start of Profile Sidebar **/
+		#sun-flower-scheme ul.sidebar-menu li.sidebar-profile {
+			background-color: #3A434D;
+			padding: 10px;
+			color: #fff;
+			text-align: center;
+			border-bottom: 10px solid #F1C40F !important;
+		}
+
+        #sun-flower-scheme.theme-sidebar-2 ul.sidebar-menu li.sidebar-profile {
+            background-color: #3e313c;
+            border-bottom: 10px solid #83697F !important;
+        }
+
+		#sun-flower-scheme ul.sidebar-menu li.sidebar-profile .name {
+			margin-top: 10px;
+		}
+
+		#sun-flower-scheme ul.sidebar-menu li.sidebar-profile .image img {
+			border-radius: 60%;
+		}
+
+		#sun-flower-scheme ul.sidebar-menu li.sidebar-profile .status {
+			margin-top: -10px;
+			font-size: 7;
+		}
+
+		#sun-flower-scheme ul.sidebar-menu li.sidebar-profile .status small i {
+			color:  #76CF1C;
+		}
+	/** End of Profile Sidebar **/
+
+
+
+	#sun-flower-scheme ul.sidebar-menu li a.active span.icon-sidebar:first-child,
+    #sun-flower-scheme ul.sidebar-menu li a:hover span.icon-sidebar:first-child,
+    #sun-flower-scheme ul.sidebar-menu li a:focus span.icon-sidebar:first-child {
+
+	    background:#F1C40F !important;
+	    color:#ffffff;
+	    padding: 5px;
+	    -webkit-transition: all 0.4s ease-in-out 0.1s;
+	    -moz-transition: all 0.4s ease-in-out 0.1s;
+	    -o-transition: all 0.4s ease-in-out 0.1s;
+	    -ms-transition:all 0.4s ease-in-out 0.1;
+	    transition: all 0.4s ease-in-out 0.1s;
+        -webkit-transform:scale(.8);
+        transform:scale(.8);
+        border-radius: 100%;
+        box-shadow: 0 1px 4px rgba(0,0,0,-0.84),0 1px 4px rgba(0,0,0,.20);
+
+	}
+
+    
+
+/*** Content Section ***/
+
+
+/*** Footer Section ***/
+
+/*** Small Box ***/
+	#sun-flower-scheme .small-box {
+	  	color: #878d93;
+	}
+
+	#sun-flower-scheme .small-box:hover {
+	  	text-decoration: none;
+	  	color: #b8babb;
+	}
+
+	#sun-flower-scheme .small-box .small-box-footer {
+	  	position: relative;
+	  	text-align: center;
+	  	color: #fff;
+	  	display: block;
+	  	z-index: 10;
+	  	background: #F1C40F;
+	  	text-decoration: none;
+	}
+
+	#sun-flower-scheme .small-box .small-box-footer:hover {
+	  	background: #F1C40F;
+	  	text-decoration: none;
+	}
+
+
+/*** Hover Plugin ***/
+	/** Hover Plugin for small box **/
+	#sun-flower-scheme .small-box .hvr-bounce-to-right:before {
+	    background: #F39C12 !important;
+	}
+
+	#sun-flower-scheme .hvr-underline-from-center-global:before {
+	  	content: "";
+	  	position: absolute;
+	  	z-index: -1;
+	  	left: 50%;
+	  	right: 50%;
+	  	bottom: 0;
+	  	background: #F1C40F !important;
+	  	height: 4px;
+	  	-webkit-transition-property: left, right;
+	  	transition-property: left, right;
+	  	-webkit-transition-duration: 0.3s;
+	  	transition-duration: 0.3s;
+	  	-webkit-transition-timing-function: ease-out;
+	  	transition-timing-function: ease-out;
+	}
+
+
+/***  Skin Bacground Color Level  ***/
+	#sun-flower-scheme .bg-color-1 {
+		background: #86F7B6 !important;
+	    color: #fff;
+	}
+
+	#sun-flower-scheme .bg-color-2  {
+		background: #77F2AB !important;
+	    color: #fff;
+	}
+
+	#sun-flower-scheme .bg-color-3  {
+		background: #61E89B !important;
+	    color: #fff;
+	}
+
+	#sun-flower-scheme .bg-color-4  {
+		background: #4EDE8B !important;
+	    color: #fff;
+	}
+
+	#sun-flower-scheme .bg-color-5  {
+		background: #F1C40F !important;
+	    color: #fff;
+	}
+/***  Skin Bacground Color Level  ***/
+
+
+/*********** Daterange picker **********/
+
+#sun-flower-scheme .daterangepicker .ranges li {
+    font-size: 13px;
+    background: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    color: #536A7F;
+    padding: 3px 12px;
+    margin-bottom: 8px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    cursor: pointer;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+
+#sun-flower-scheme .daterangepicker .ranges li.active,
+#sun-flower-scheme .daterangepicker .ranges li:hover {
+    background: #F39C12;
+    border: 1px solid #F39C12;
+    color: #fff;
+}
+
+#sun-flower-scheme .daterangepicker td.active,
+#sun-flower-scheme .daterangepicker td.active:hover {
+    background-color: #F39C12;
+    color: #fff;
+}
+
+#sun-flower-scheme .daterangepicker td.available:hover,
+#sun-flower-scheme .daterangepicker th.available:hover {
+    background: #F39C12;
+    color: #ffffff;
+}
+
+#sun-flower-scheme .range_inputs .applyBtn{
+	background-color: #F1C40F;
+	-webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: 1px solid #F1C40F;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+#sun-flower-scheme .range_inputs .applyBtn:hover, 
+#sun-flower-scheme .range_inputs .applyBtn:focus{
+	background-color: #F39C12;
+}
+
+#sun-flower-scheme .range_inputs .cancelBtn{
+	-webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-transition:all 0.8s ease;
+	-moz-transition:all 0.8s ease;
+    -o-transition:all 0.8s ease;
+    -ms-transition:all 0.8s ease;
+    transition:all 0.8s ease;
+}
+
+
+
+/*********** Panels **********/
+#sun-flower-scheme .c_panel .line-tabs.bottom .active a {
+    border-bottom: 1px solid #F39C12;
+    padding-top:10px;
+    padding-bottom:11px;
+}
+
+
+/*********** Todo Lists **********/
+
+
+
+/***************** Datepicker Section **************/
+	#sun-flower-scheme .datepicker table tr td.active:hover,
+    #sun-flower-scheme .datepicker table tr td.active:hover:hover,
+    #sun-flower-scheme .datepicker table tr td.active.disabled:hover,
+    #sun-flower-scheme .datepicker table tr td.active.disabled:hover:hover,
+    #sun-flower-scheme .datepicker table tr td.active:focus,
+    #sun-flower-scheme .datepicker table tr td.active:hover:focus,
+    #sun-flower-scheme .datepicker table tr td.active.disabled:focus,
+    #sun-flower-scheme .datepicker table tr td.active.disabled:hover:focus,
+    #sun-flower-scheme .datepicker table tr td.active:active,
+    #sun-flower-scheme .datepicker table tr td.active:hover:active,
+    #sun-flower-scheme .datepicker table tr td.active.disabled:active,
+    #sun-flower-scheme .datepicker table tr td.active.disabled:hover:active,
+    #sun-flower-scheme .datepicker table tr td.active.active,
+    #sun-flower-scheme .datepicker table tr td.active:hover.active,
+    #sun-flower-scheme .datepicker table tr td.active.disabled.active,
+    #sun-flower-scheme .datepicker table tr td.active.disabled:hover.active,
+    #sun-flower-scheme .open .dropdown-toggle.datepicker table tr td.active,
+    #sun-flower-scheme .open .dropdown-toggle.datepicker table tr td.active:hover,
+    #sun-flower-scheme .open .dropdown-toggle.datepicker table tr td.active.disabled,
+    #sun-flower-scheme .open .dropdown-toggle.datepicker table tr td.active.disabled:hover {
+        color: #ffffff;
+        background-color: #F1C40F;
+        border: 0;
+    }
+
+    #sun-flower-scheme .datepicker table tr td span.active:hover,
+    #sun-flower-scheme .datepicker table tr td span.active:hover:hover,
+    #sun-flower-scheme .datepicker table tr td span.active.disabled:hover,
+    #sun-flower-scheme .datepicker table tr td span.active.disabled:hover:hover,
+    #sun-flower-scheme .datepicker table tr td span.active:focus,
+    #sun-flower-scheme .datepicker table tr td span.active:hover:focus,
+    #sun-flower-scheme .datepicker table tr td span.active.disabled:focus,
+    #sun-flower-scheme .datepicker table tr td span.active.disabled:hover:focus,
+    #sun-flower-scheme .datepicker table tr td span.active:active,
+    #sun-flower-scheme .datepicker table tr td span.active:hover:active,
+    #sun-flower-scheme .datepicker table tr td span.active.disabled:active, 
+    #sun-flower-scheme .datepicker table tr td span.active.disabled:hover:active, 
+    #sun-flower-scheme .datepicker table tr td span.active.active,
+    #sun-flower-scheme .datepicker table tr td span.active:hover.active, 
+    #sun-flower-scheme .datepicker table tr td span.active.disabled.active, 
+    #sun-flower-scheme .datepicker table tr td span.active.disabled:hover.active, 
+    #sun-flower-scheme .open .dropdown-toggle.datepicker table tr td span.active, 
+    #sun-flower-scheme .open .dropdown-toggle.datepicker table tr td span.active:hover,
+    #sun-flower-scheme .open .dropdown-toggle.datepicker table tr td span.active.disabled,
+    #sun-flower-scheme .open .dropdown-toggle.datepicker table tr td span.active.disabled:hover {
+        color: #ffffff;
+        background-color: #F1C40F;
+        border: 0;
+    }
+
+
+/********* jQuery Multi Select ************/
+	#sun-flower-scheme .ms-container .ms-selectable li.ms-hover, 
+    #sun-flower-scheme .ms-container .ms-selection li.ms-hover {
+		background-color: #F1C40F;
+	}
+
+	#sun-flower-scheme .ms-container .ms-list.ms-focus{
+		border-color: #F1C40F;
+	}
+
+
+/********* Typeahead ************/
+	#sun-flower-scheme .tt-suggestion.tt-cursor {
+	  color: #fff;
+	  background-color: #F1C40F;
+	  cursor: hand;
+	  cursor: pointer;
+	}
+
+
+/******* Select2 ********/
+	#sun-flower-scheme .select2-drop-active {
+		border: 1px solid #ddd;
+	}
+
+	#sun-flower-scheme .select2-drop.select2-drop-above.select2-drop-active {
+		border: 1px solid #ddd;
+	}
+
+	#sun-flower-scheme .select2-container-active .select2-choice,
+	#sun-flower-scheme .select2-container-active .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+	#sun-flower-scheme .select2-dropdown-open.select2-drop-above .select2-choice,
+	#sun-flower-scheme .select2-dropdown-open.select2-drop-above .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+	#sun-flower-scheme .select2-results .select2-highlighted {
+		background: #ddd;
+        -webkit-transition:all 0.3s ease;
+        -moz-transition:all 0.3s ease;
+        -o-transition:all 0.83 ease;
+        -ms-transition:all 0.3s ease;
+        transition:all 0.3s ease;
+	}
+
+	#sun-flower-scheme .select2-container-multi.select2-container-active .select2-choices {
+		border: 1px solid #ddd;
+	}
+
+/******* Media Gallery ********/
+	#sun-flower-scheme .media-filter li a:hover, .media-filter li a:focus{
+        background: #F1C40F;
+        color: #fff;
+    }
+
+/******* Timeline ********/
+	#sun-flower-scheme .timeline-1 > li > .timeline-badge i:hover {
+        color: #F1C40F;
+    }
+
+    #sun-flower-scheme .timeline-1 .timeline-footer .likes:hover i {
+        color: #F1C40F;
+    }
+
+
+/******* Boxed Content ********/
+	#sun-flower-scheme .boxed-content>i {
+        font-size: 3em;
+        color: #F1C40F;
+    }
+
+	#sun-flower-scheme .boxed-content.left-boxed-icon i {
+        padding: 10px;
+        width: 60px;
+        height: 60px;
+        background: #F1C40F;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+    }
+
+ /******* Hover Boxed Icon Content **********/
+	#sun-flower-scheme .hover-boxed-icon-content i {
+	 	color: #F1C40F;
+	}
+
+
+/*********** Owl Carousel **************/
+	#sun-flower-scheme .owl-btn:hover {
+      color: #fff;
+      background: #F1C40F;
+    }
+
+/********** Profile Sidebar *************/
+	#sun-flower-scheme .profile-page .profile-sidebar > li.active,
+    #sun-flower-scheme .profile-page .profile-sidebar > li.active:hover {
+      background: #F1C40F;
+    } 
+
+    #sun-flower-scheme .profile-page .profile-sidebar > li.active:hover a {
+    	color: #fff;
+    }
+
+    #sun-flower-scheme .profile-page .profile-sidebar > li a:hover {
+    	color: #F1C40F;
+    }
+
+    #sun-flower-scheme .profile-page .date-formats {
+    	background: #F1C40F;
+    }
+
+    #sun-flower-scheme .profile-page .profile-post:hover span.profile-post-numb {
+    	color: #F1C40F;
+    }
+
+    #sun-flower-scheme .profile-page .name-location span i {
+    	color: #F1C40F;
+    }
+
+    #sun-flower-scheme .profile-page .profile-about .social i {
+    	color: #F1C40F;
+    }
+
+    #sun-flower-scheme .projects .project-box .project-edited span a {
+    	color: #F1C40F;
+    }
+
+    #sun-flower-scheme .projects .project-box .project-status {
+    	color: #F1C40F;
+    }
+    
+    #sun-flower-scheme .projects .project-box .project-status i{
+        color: #F1C40F;
+    }
+
+/********************* Users ************************/
+	#sun-flower-scheme .users  .caption .user-task-info i {
+	 	color: #F1C40F;
+	 }
+
+/******************** Projects *****************/
+	#sun-flower-scheme .all-projects .sidebar > li.active,
+    #sun-flower-scheme .all-projects .sidebar > li.active:hover {
+      background: #F1C40F;
+    } 
+
+    #sun-flower-scheme .view-project .project-details .add-assignee:hover {
+        color: #F1C40F;
+    }
+
+    #sun-flower-scheme .view-project .project-tag-list li a:hover {
+        background: #F1C40F;
+        border-color: #fff;
+        color:#fff;
+    }
+
+    #sun-flower-scheme .view-project .sidebar li a:hover {
+    	color: #F1C40F;
+    }
+
+/******************** Full Calendar *****************/
+    #sun-flower-scheme .fc .fc-button-group .fc-prev-button {
+        background: #F1C40F !important;
+        color: #ffffff;
+    }
+
+    #sun-flower-scheme .fc .fc-button-group .fc-prev-button:hover {
+    	background: #F39C12 !important;
+    	color: #ffffff !important;
+    }
+
+    #sun-flower-scheme .fc .fc-button-group .fc-next-button {
+        background: #F1C40F !important;
+        color: #ffffff !important;
+    }
+
+    #sun-flower-scheme .fc .fc-button-group .fc-next-button:hover {
+    	background: #F39C12 !important;
+    	color: #ffffff !important;
+    }
+
+    #sun-flower-scheme .fc-toolbar .fc-state-active {
+    	background: #F1C40F !important;
+    	color: #ffffff !important;
+    }
+
+
+    /***Forum Section ***/
+    #sun-flower-scheme .page-forum .attachement-list ul li .attachment-thumb a {
+        color: #F1C40F;
+    }
+
+    #sun-flower-scheme .page-forum .attachement-list ul li .attachment-thumb a:hover {
+        background-color: #F1C40F;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+        color: #fff;
+    }
+
+    #sun-flower-scheme .page-forum .attachement-list a:hover,
+    #sun-flower-scheme .page-forum .attachement-list a:focus {
+        text-decoration: none;
+        color: #F1C40F;
+    }
+
+    /***Drop Section ***/
+    #sun-flower-scheme .dropcap {
+        background: #F1C40F !important;
+    }
+
+    /*** Teams ***/
+    #sun-flower-scheme .team-1 small {
+        color: #F1C40F;
+    }
+
+
+    /**** 404 Page ****/
+    #sun-flower-scheme .error_page em {
+        color: #F1C40F;
+    }
+
+    /***** eCommerce ******/
+    #sun-flower-scheme .page-ecommerce .ecommerce-content .ecommerce-slider .prices .present-price {
+        color: #F1C40F;
+    }
+
+    #sun-flower-scheme .page-ecommerce #ecommerce-view .caption .item-price {
+        color: #F1C40F;
+    }
+
+    #sun-flower-scheme .page-ecommerce .sidebar .display-types #ecommerce-grid-view.active, 
+    #sun-flower-scheme .page-ecommerce .sidebar .display-types #ecommerce-list-view.active {
+        color: #F1C40F;    
+    }
+
+    #sun-flower-scheme .page-ecommerce .owl-theme .owl-controls.clickable .owl-buttons div:hover{
+        background: #F1C40F;
+        opacity: 1;
+        text-decoration: none;
+    }
+
+    /** Remove Cart **/
+    #sun-flower-scheme .page-ecommerce .btn-remove-cart:hover {
+        color: #F1C40F
+    }
+
+    /** Product Envoice **/
+    #sun-flower-scheme .page-ecommerce .top-header-envoice h2 {
+        color: #F1C40F
+    }
+
+    /***** Contact Form ******/
+    #sun-flower-scheme .page-contact-form .contact-info li:hover i.fa {
+        color: #F1C40F
+    }
+
+
+    /***** Widgets Todo List ******/
+
+
+
+    /***** People Directory ******/
+    #sun-flower-scheme .page-people-directory .contact-group .fa:before {
+        color: #F1C40F;
+    }
+
+    /***** Header top menus sub items ******/
+    #sun-flower-scheme .top-nav .navbar-nav .open .dropdown-menu {
+        border-top: 2px solid #F1C40F;
+    }
