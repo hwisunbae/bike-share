@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class user_account(models.Model):  # 车辆基本情况
+class user_account(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=50)
     password = models.CharField(max_length=32)

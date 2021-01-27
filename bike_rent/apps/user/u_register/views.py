@@ -29,7 +29,7 @@ def index(request):
 
 # Create your views here.
 
-@csrf_exempt
+@csrf_exempt  # when you need ajax you must use it! to skip from verification
 def check_mail(request):
     # print(request.POST)
     # print(request.GET)
@@ -52,6 +52,7 @@ def check_mail(request):
         # data["data"] = "success"
         # data["confirmCode"] = code
         # data1 = json.dump(data)
+        # print(code)
         return HttpResponse(md5code)
 
 

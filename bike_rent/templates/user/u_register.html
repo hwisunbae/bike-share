@@ -13,15 +13,15 @@
                              </div>
 							 <div class="form-input">
                                  <label>Telephone</label>
-                                 <input type="email" name="Telephone" id="telephone" placeholder="" required="" />
+                                 <input type="text" name="Telephone" id="telephone" placeholder="" required="" />
                              </div>
                              <div class="form-input">
                                  <label>Email(Required)*</label>
-                                 <input type="email" name="Email" id="email" value="1398641557@qq.com"placeholder="" required="" />
+                                 <input type="text" name="Email" id="email" value="1398641557@qq.com"placeholder="" required="" />
                              </div>
 							 <div class="form-input">
                                  <label>Confirm Email Code</label>
-                                 <input type="email" name="Email" id="conEmail" placeholder="" required="" />
+                                 <input type="text" name="Email" id="conEmail" placeholder="" required="" />
                              </div>
 							 <button type="button" id="sendCode" class="btn btn-primary btn-style">Send Code</button>
                      </div>
@@ -32,15 +32,15 @@
                              </div>
 							 <div class="form-input">
                                  <label>Confirm Password</label>
-                                 <input type="email" name="ConPassword" id="conPassword" placeholder="the same as password" required="" />
+                                 <input type="text" name="ConPassword" id="conPassword" placeholder="the same as password" required="" />
                              </div>
                              <div class="form-input">
                                  <label>Pay Password</label>
-                                 <input type="email" name="paypassword" id="payPassword" placeholder="the length must be 6" required="" />
+                                 <input type="text" name="paypassword" id="payPassword" placeholder="the length must be 6" required="" />
                              </div>
 							 <div class="form-input">
                                  <label>Confirm Pay Password</label>
-                                 <input type="email" name="conpay" id="conPay" placeholder="the same as paypassword" required="" />
+                                 <input type="text" name="conpay" id="conPay" placeholder="the same as paypassword" required="" />
                              </div>
 							 <button type="button" id="submit" class="btn btn-primary btn-style">Submit</button>
                      </div>
@@ -80,8 +80,8 @@
 
   $(document).ready(function(){
         $("#submit").click(function(){
-             var confirmCodeSession = $("#confirmCode").val()
-             var confirmCode = $.md5($("#sendCode").val().trim());
+             var confirmCodeSession = $("#confirmCode").val().trim()
+             var confirmCode = $.md5($("#conEmail").val().trim());
 
              if(confirmCodeSession != confirmCode){
                 alert("please input correct code")
