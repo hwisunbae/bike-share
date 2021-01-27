@@ -82,12 +82,10 @@
         $("#submit").click(function(){
              var confirmCodeSession = $("#confirmCode").val().trim()
              var confirmCode = $.md5($("#conEmail").val().trim());
-
              if(confirmCodeSession != confirmCode){
                 alert("please input correct code")
                 return;
              }
-
             var name = $("#name").val().trim();
             var telephone = $("#telephone").val().trim();
             var email = $("#email").val().trim();
