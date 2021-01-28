@@ -48,4 +48,22 @@ What you need for this system is your credential id/pw with credit card. It is e
     ```
 
 ### Windows version
-1. blahblah
+
+In order to build this project on Windows we will use GitBash
+
+1. Run the following command to clone the repo
+    ```
+    git clone https://stgit.dcs.gla.ac.uk/psdm/2020/lab-02-1c/lab02_group_1c_bike_share_system.git
+    ```
+    
+2. Navigate into the repository folder and create a virtual environment to host the application
+    ```
+    python3 -m venv venv
+    source env/Scripts/activate
+    pip install -r requirements.txt
+    ```
+    
+3. Run the server
+    ```
+    python manage.py runserver
+    ```
