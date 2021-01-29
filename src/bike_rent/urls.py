@@ -25,7 +25,7 @@ urlpatterns = [
     path('u_login/', include('u_login.urls')),
     path('u_register/', include('u_register.urls')),
     path('u_rent_bike/', include('u_rent_bike.urls')),
-    path('u_user_information/', include('u_user_information.urls')),
+    path('u_history/', include('u_history.urls')),
     path('u_biking/', include('u_biking.urls')),
     path('u_bike_question/', include('u_bike_question.urls')),
     path('u_map_show_services/', include('u_map_show_services.urls')),
