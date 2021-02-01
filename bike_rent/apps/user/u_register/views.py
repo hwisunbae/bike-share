@@ -8,7 +8,7 @@ import numpy as np
 from django.views.decorators.csrf import csrf_exempt
 import json
 import hashlib
-
+from u_login.models import *
 
 
 def index(request):

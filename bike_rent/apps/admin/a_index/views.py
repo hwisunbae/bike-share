@@ -7,8 +7,8 @@ def index(request):
     if request.GET:
         pass
     else:
-        userid = request.COOKIES.get("userid")
-        # userid = None
+        # userid = request.COOKIES.get("userid")
+        userid = None
         if userid:
             context = {}
             context['login'] = 'hello'
