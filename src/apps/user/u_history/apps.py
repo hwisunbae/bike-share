@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class UUserInformationConfig(AppConfig):
-    name = 'u_user_information'
+    name = 'u_history'
