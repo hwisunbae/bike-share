@@ -28,6 +28,10 @@
     <link href="../../static/admin/fonts/Indie-Flower/indie-flower.css" rel="stylesheet" />
     <link href="../../static/admin/fonts/Open-Sans/open-sans.css?family=Open+Sans:300,400,700" rel="stylesheet" />
 
+
+      <script src="../../static/user/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+  <script src="../../static/user/js/jquery.js"></script> <!-- Common jquery plugin -->
+  <script src="../../static/user/js/jquery.md5.js"></script> <!-- Common jquery plugin -->
 </head>
 <body id="default-scheme" class="form-background">
 
@@ -52,23 +56,23 @@
                             <form>
                                 <div class="inner-addon right-addon margin-bottom-15">
                                     <i class="fa fa-envelope"></i>
-                                    <input type="text" class="form-control" placeholder="Email" />
+                                    <input type="text" class="form-control" id="username" placeholder="Email" />
                                 </div>
 
                                 <div class="inner-addon right-addon margin-bottom-15">
                                     <i class="fa fa-lock"></i>
-                                    <input type="password" class="form-control" placeholder="Password" />
+                                    <input type="password" class="form-control" id="password" placeholder="Password" />
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 text-center">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" class="icheck-aero"> Remember me
+                                                <input type="checkbox" id= "remember" class="icheck-aero"> Remember me
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-md-6 text-center">
-                                        <button type="button" onclick="window.location.replace('../a_index/index')" class="btn btn-green btn-raised btn-flat">Access Account</button>
+                                        <button type="button" id="submit" class="btn btn-green btn-raised btn-flat">Access Account</button>
                                     </div>
                                 </div>
 
@@ -106,5 +110,50 @@
 
     </section>
 </body>
-
+<script>
+ $(document).ready(function(){
+        $("#submit").click(function(){
+            var username = $("#username").val().trim();
+            var password = $.md5($("#password").val().trim());
+            var remember = $("#remember").val()
+            alert(username)
+<!--            alert(remember)-->
+            if(username==""){
+                alert("please input your username");
+                return;
+            }
+            if(password==""){
+                alert("please input your password");
+                return;
+            }
+            $.ajax({
+                url:"/a_login/login",
+                type:"POST",
+                data:{
+                    username:username,
+                    password:password,
+                    remember:remember
+                },
+                success:function(data){
+                    if(data == "success"){
+                        alert("login successfully")
+                        window.location.href = "../a_index/index"
+                    }
+                    else if(data == "usernameerror"){
+                        alert("username false")
+                    }
+                    else if(data == "passworderror"){
+                        alert("password false")
+                    }
+                    else{
+                        alert("false")
+                    }
+                },
+                fail:function(data){
+                    alert("false")
+                }
+            })
+        })
+    })
+</script>
 </html>

@@ -10,11 +10,6 @@ import json
 import hashlib
 
 
-def md5value(s):
-    md5 = hashlib.md5()
-    md5.update(s)
-    return md5.hexdigest()
-
 
 def index(request):
     if request.GET:
@@ -57,3 +52,7 @@ def check_mail(request):
 
 
 
+def md5value(s):
+    md5 = hashlib.md5()
+    md5.update(s)
+    return md5.hexdigest()
