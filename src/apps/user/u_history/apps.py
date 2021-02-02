@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class UUserInformationConfig(AppConfig):
+class UHistoryConfig(AppConfig):
     name = 'u_history'

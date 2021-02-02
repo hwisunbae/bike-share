@@ -7,6 +7,11 @@ def index(request):
     if request.GET:
         pass
     else:
-        context = {}
-        context['login'] = 'hello'
-        return render(request,'admin/a_index.html',context)
+        # userid = request.COOKIES.get("userid")
+        userid = None
+        if userid:
+            context = {}
+            context['login'] = 'hello'
+            return render(request,'admin/a_index.html',context)
+        else:
+            return render(request, 'admin/a_login.html')
