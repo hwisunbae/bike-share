@@ -43,14 +43,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'a_index',
     'a_login',
-    'a_manage_bike_map',
+    'a_manage_bike',
+    'a_manage_location',
+    'o_bike_history',
+    'o_login',
+    'o_index',
+    'o_manage_bike',
+    'u_bike_question',
+    'u_biking',
+    'u_history',
     'u_login',
     'u_index',
+    'u_register',
     'u_rent_bike',
-    'u_biking',
-    'u_user_information',
-    'u_bike_question',
-    'u_map_show_services',
+    'u_user_information'
 ]
 
 MIDDLEWARE = [

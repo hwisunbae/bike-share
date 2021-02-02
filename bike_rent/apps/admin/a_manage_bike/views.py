@@ -9,4 +9,4 @@ def index(request):
     else:
         context = {}
         context['login'] = 'hello'
-        return render(request,'admin/a_manage_bike_map.html',context)
+        return render(request,'admin/a_manage_bike.html',context)
