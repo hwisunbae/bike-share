@@ -18,6 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps/admin'))
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps/user'))
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps/operator'))
 # sys.path.insert(0, os.path.join(BASE_DIR, 'apps\\operator'))
 # print(sys.path)
 # Quick-start development settings - unsuitable for production
