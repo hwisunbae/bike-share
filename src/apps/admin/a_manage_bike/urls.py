@@ -1,3 +1,4 @@
+
 """bike_rent URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -19,5 +20,6 @@ from. import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index',views.index),
-    path('addNewBike',views.addNewBike)
+    path('addNewBike',views.addNewBike),
+    path('index',views.index)
 ]

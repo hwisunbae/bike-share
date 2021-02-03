@@ -1,12 +1,10 @@
 # Getting Started With Bike Share System
 
----
 With this bike share system, You will experience how easy to find out where the bikes are around you and check in/out whenever needed.
 What you need for this system is your credential id/pw with credit card. It is easy pay-and-go system.
 
 ## How To Set Up For Bike Share System
 
----
 ### Mac version
 
 1. Run the followings to clone the repo
@@ -69,3 +67,19 @@ In order to build this project on Windows we will use GitBash and Python
     cd src
     python manage.py runserver
     ```
+
+## Entity Relationship Diagram (ERD)
+![alt ERD](src/img/screenshot/ERD.png)
+
+ ```mysql
+Enum operator_type {
+    repair_man
+    porter
+}
+Enum admin_type {
+    full_access_admin
+    admin_user
+    admin_operator
+    admin_bike
+}
+ ```

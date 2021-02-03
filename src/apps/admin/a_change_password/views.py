@@ -10,3 +10,4 @@ def index(request):
         context = {}
         context['login'] = 'hello'
         return render(request,'admin/a_change_password.html',context)
+
