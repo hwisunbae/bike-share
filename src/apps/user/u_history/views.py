@@ -10,4 +10,3 @@ def index(request):
         context = {}
         context['login'] = 'hello'
         return render(request,'user/u_biking.html',context)
-

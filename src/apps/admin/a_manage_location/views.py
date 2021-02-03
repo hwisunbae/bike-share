@@ -9,8 +9,7 @@ def index(request):
     else:
         context = {}
         context['login'] = 'hello'
-        return render(request,'admin/a_manage_location.html',context)
-
+        return render(request,'admin/a_manage_bike.html',context)
 
 def addNewLocation(request):
     if request.GET:

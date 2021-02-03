@@ -28,6 +28,7 @@ urlpatterns = [
     path('a_manage_operator/', include('a_manage_operator.urls')),
 
 
+
     path('o_bike_history/', include('o_bike_history.urls')),
     path('o_login/', include('o_login.urls')),
     path('o_index/', include('o_index.urls')),
