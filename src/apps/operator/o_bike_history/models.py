@@ -1,8 +1,8 @@
 
 from django.db import models
 
-from src.apps.admin.a_manage_bike.models import bike
-from src.apps.operator.o_login.models import operator_account
+from a_manage_bike.models import bike
+from o_login.models import operator_account
 
 # Create your models here.
 class operator_port_history(models.Model):
@@ -11,8 +11,8 @@ class operator_port_history(models.Model):
     operator_id = models.ForeignKey(operator_account, on_delete=models.CASCADE)
     time = models.TimeField()
     location = models.CharField(max_length=500, null=True)
-    image1 = models.CharField()
-    image2 = models.CharField()
-    image3 = models.CharField()
-    image4 = models.CharField()
-    image5 = models.CharField()
+    image1 = models.CharField(max_length=200, null=True)
+    image2 = models.CharField(max_length=200, null=True)
+    image3 = models.CharField(max_length=200, null=True)
+    image4 = models.CharField(max_length=200, null=True)
+    image5 = models.CharField(max_length=200, null=True)
