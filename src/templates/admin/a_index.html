@@ -1,378 +1,60 @@
-{% include 'admin/header.html' %}
-        <!--main content start-->
-        <section id="main-content">
-            <section class="wrapper">
-                <!--======== Grid Menu Start ========-->
-                <div id="grid-menu">
-                    <div class="color-overlay grid-menu-overlay">
-                        <div class="grid-icon-wrap grid-icon-effect-8">
-                            <a href="#" class="grid-icon icon-envelope font-size-50 turquoise"></a>
-                            <a href="#" class="grid-icon icon-user font-size-50 teal"></a>
-                            <a href="#" class="grid-icon icon-support font-size-50 peter-river"></a>
-                            <a href="#" class="grid-icon icon-settings font-size-50 light-blue"></a>
-                            <a href="#" class="grid-icon icon-picture font-size-50 orange"></a>
-                            <a href="#" class="grid-icon icon-camrecorder font-size-50 light-orange"></a>
-                        </div>
-                    </div>
-                </div>                
-                <!--======== Grid Menu End ========-->
+{% include 'admin/a_header.html' %}
+       <!--谷歌地图调用api-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw" async defer></script>
 
-                <!--======== Page Title and Breadcrumbs Start ========-->
-                <div class="top-page-header">
-                    
-                    <div class="page-title">
-                        <h2>Index</h2>
-                        <small>Your admin center</small>
-                    </div>
-                    <div class="page-breadcrumb">
-                        <nav class="c_breadcrumbs">
-                            <ul>
-                                <li class="active"><a href="#">Index</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="right-menu pull-right">
-                        Reporting Period
-                        <div class="btn-group">
-                          <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">Last 10 days <span class="caret"></span></button>
-                          <ul class="dropdown-menu bullet pull-middle animated pulse">
-                            <li>
-                              <input type="radio" id="ex1_1" name="ex1" value="1" checked>
-                              <label for="ex1_1">Last 10 days</label>
-                            </li>
-                            <li>
-                              <input type="radio" id="ex1_2" name="ex1" value="2">
-                              <label for="ex1_2">Last 20 days</label>
-                            </li>
-                            <li>
-                              <input type="radio" id="ex1_3" name="ex1" value="3">
-                              <label for="ex1_3">Last 30 days</label>
-                            </li>
-                          </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--======== Page Title and Breadcrumbs End ========-->
+	<script>
+
+    function initialize()
+    {
+      var mapProp = {
+        center: new google.maps.LatLng(55.87189,-4.28922),
+        zoom:7,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    }
+
+    function loadScript()
+    {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&sensor=false&callback=initialize";
+      document.body.appendChild(script);
+    }
 
 
-                <div class="row">
+    window.onload = loadScript;
 
-                    <div class="col-md-3">
-
-                        <div class="widget">
-                            <div class="widget-content bg-white">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3 class="counter font-bold font-size-38">231</h3>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <p class="font-size-38"><span class="icon-people pull-right"></span></p>
-                                    </div>
-                                </div>
-                                <p>Users Registered</p>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="74"></div>
-                                </div>
-                                <a href="#" class="padding-8 hvr-bounce-to-right bg-green" style="width:100%;">Read full report <i class="fa fa-arrow-circle-right"></i></a>
-                            </div><!--/widget-content--> 
-                        </div><!--/widget-->
-
-                    </div>
-
-                    <div class="col-md-3">
-
-                        <div class="widget">
-                            <div class="widget-content bg-white">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3 class="counter font-bold font-size-38">60</h3>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <p class="font-size-38"><span class="icon-user-follow pull-right"></span></p>
-                                    </div>
-                                </div>
-                                <p>Subscribers Request</p>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar bg-green-sea" role="progressbar" data-transitiongoal="57"></div>
-                                </div>
-                                <a href="#" class="padding-8 hvr-bounce-to-right bg-green-sea" style="width:100%;">Read full report <i class="fa fa-arrow-circle-right"></i></a>
-                            </div><!--/widget-content--> 
-                        </div><!--/widget-->
-
-                        
-                    </div>
-
-                    <div class="col-md-3">
-
-                        <div class="widget">
-                            <div class="widget-content bg-white">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3 class="counter font-bold font-size-38">84</h3>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <p class="font-size-38"><span class="icon-book-open pull-right"></span></p>
-                                    </div>
-                                </div>
-                                <p>Orders</p>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar bg-sun-flower" role="progressbar" data-transitiongoal="90"></div>
-                                </div>
-                                <a href="#" class="padding-8 hvr-bounce-to-right bg-sun-flower" style="width:100%;">Read full report <i class="fa fa-arrow-circle-right"></i></a>
-                            </div><!--/widget-content--> 
-                        </div><!--/widget-->
-                        
-                    </div>
-
-                    <div class="col-md-3">
-
-                        <div class="widget">
-                            <div class="widget-content bg-white">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3 class="counter font-bold font-size-38">341</h3>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <p class="font-size-38"><span class="icon-basket-loaded pull-right"></span></p>
-                                    </div>
-                                </div>
-                                <p>Sales</p>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar bg-alizarin" role="progressbar" data-transitiongoal="45"></div>
-                                </div>
-                                <a href="#" class="padding-8 hvr-bounce-to-right bg-alizarin" style="width:100%;">Read full report <i class="fa fa-arrow-circle-right"></i></a>
-                            </div><!--/widget-content--> 
-                        </div><!--/widget-->
-                        
-                    </div>
-
-                </div><!-- .row -->
+    </script>
+    <link rel='stylesheet' type='text/css' href='../../static/admin/css/a_index.css' />
 
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <!--======== Todo List Start ========-->
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="widget">
-                                    <div class="widget-header bg-white">
-                                        <h3 class="fg-gray">TODO LIST</h3>
-                                        <span class="fa fa-plus fg-gray pull-right btn-todo-add" data-toggle="modal" data-target="#modal-add-todo"></span>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="widget-content bg-white">
+    <div class="layout_m_content">
+        <div class="layout_m_contitle">index</div>
+            <table class="layout_m_table1" border="0" cellspacing="" cellpadding="">
+                <tr>
+                    <td>location id:</td>
+                    <td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
+                    <td>bike id:</td>
+                    <td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
+                    <td>operator id:</td>
+                    <td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
 
-                                        <div class="todo-list">
-                                            <ul class="sortable-container">
-                                                <li class="sortable-item">
-                                                    <div style="float:left;" class="todo-actions">
-                                                        <div class="wrapper-actions">
-                                                            <div style="float:left">
-                                                                <span class='fa fa-square-o bg-success padding-top-12 btn-todo-check' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div style="float:right;">
-                                                                <span class='fa fa-times bg-danger padding-top-12 btn-todo-remove' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div style="float:right; float:left" class="todo-title">
-                                                        <span>CSS: Additional Widget</span>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="layout_button_layer"><a href="javasrcipt:void(0)" class="layout_button1">reset</a></div>
+                    </td>
+                    <td></td>
+                    <td>
+                        <div class="layout_button_layer"><a href="javasrcipt:void(0)" class="layout_button1">search</a></div>
+                    </td>
+                    <td></td>
 
-                                                <li class="sortable-item">
-                                                    <div style="float:left;" class="todo-actions">
-                                                        <div class="wrapper-actions">
-                                                            <div style="float:left">
-                                                                <span class='fa fa-square-o bg-success padding-top-12 btn-todo-check' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div style="float:right;">
-                                                                <span class='fa fa-times bg-danger padding-top-12 btn-todo-remove' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div style="float:right; float:left" class="todo-title">
-                                                        <span>Javascript: UI Fixes</span>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
+                </tr>
+            </table>
+             <div class="map" id = "googleMap"></div>
+    </div>
 
-                                                <li class="sortable-item">
-                                                    <div style="float:left;" class="todo-actions">
-                                                        <div class="wrapper-actions">
-                                                            <div style="float:left">
-                                                                <span class='fa fa-square-o bg-success padding-top-12 btn-todo-check' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div style="float:right;">
-                                                                <span class='fa fa-times bg-danger padding-top-12 btn-todo-remove' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div style="float:right; float:left" class="todo-title">
-                                                        <span>User Login and Registrat...</span>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
-
-                                                <li class="sortable-item">
-                                                    <div style="float:left;" class="todo-actions">
-                                                        <div class="wrapper-actions">
-                                                            <div style="float:left">
-                                                                <span class='fa fa-square-o bg-success padding-top-12 btn-todo-check' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div style="float:right;">
-                                                                <span class='fa fa-times bg-danger padding-top-12 btn-todo-remove' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div style="float:right; float:left" class="todo-title">
-                                                        <span>Bootstrap Panel Customiz...</span>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
-
-
-                                                <li class="sortable-item">
-                                                    <div style="float:left;" class="todo-actions">
-                                                        <div class="wrapper-actions">
-                                                            <div style="float:left">
-                                                                <span class='fa fa-square-o bg-success padding-top-12 btn-todo-check' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div style="float:right;">
-                                                                <span class='fa fa-times bg-danger padding-top-12 btn-todo-remove' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div style="float:right; float:left" class="todo-title">
-                                                        <span>Bootstrap Panel Customiz...</span>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
-
-                                                <li class="sortable-item">
-                                                    <div style="float:left;" class="todo-actions">
-                                                        <div class="wrapper-actions">
-                                                            <div style="float:left">
-                                                                <span class='fa fa-square-o bg-success padding-top-12 btn-todo-check' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div style="float:right;">
-                                                                <span class='fa fa-times bg-danger padding-top-12 btn-todo-remove' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div style="float:right; float:left" class="todo-title">
-                                                        <span>Elementum excepturi so...</span>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
-
-                                                <li class="sortable-item">
-                                                    <div style="float:left;" class="todo-actions">
-                                                        <div class="wrapper-actions">
-                                                            <div style="float:left">
-                                                                <span class='fa fa-square-o bg-success padding-top-12 btn-todo-check' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div style="float:right;">
-                                                                <span class='fa fa-times bg-danger padding-top-12 btn-todo-remove' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div style="float:right; float:left" class="todo-title">
-                                                        <span>Bootstrap Panel Customiz...</span>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
-
-                                                <li class="sortable-item">
-                                                    <div style="float:left;" class="todo-actions">
-                                                        <div class="wrapper-actions">
-                                                            <div style="float:left">
-                                                                <span class='fa fa-square-o bg-success padding-top-12 btn-todo-check' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div style="float:right;">
-                                                                <span class='fa fa-times bg-danger padding-top-12 btn-todo-remove' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div style="float:right; float:left" class="todo-title">
-                                                        <span>Minima aliquam elit nequ...</span>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
-
-                                                <li class="sortable-item">
-                                                    <div style="float:left;" class="todo-actions">
-                                                        <div class="wrapper-actions">
-                                                            <div style="float:left">
-                                                                <span class='fa fa-square-o bg-success padding-top-12 btn-todo-check' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div style="float:right;">
-                                                                <span class='fa fa-times bg-danger padding-top-12 btn-todo-remove' style="width:40px; height:40px;"></span>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div style="float:right; float:left" class="todo-title">
-                                                        <span>Cursus voluptas conseq...</span>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </li>
-                                            </ul>
-
-                                            <!--****** Start Add Task Modal ******-->
-                                            <div class="modal" id="modal-add-todo" tabindex="-1" role="dialog" aria-hidden="true"  data-easein="fadeInDown" data-easeout="fadeOutDown">
-                                                <div class="modal-dialog">
-                                                  <div class="modal-content">
-                                                    <div class="modal-header">
-                                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-                                                      <h4 class="modal-title"><strong>Add</strong> new task</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form>
-                                                            <div class="form-group">
-                                                                <label for="title">Title</label>
-                                                                <input type="text" class="form-control txtTitleTodo">
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                      <button type="button" class="btn btn-default btn-raised rippler rippler-default" data-dismiss="modal">Close</button>
-                                                      <button type="button" class="btn btn-primary btn-raised rippler rippler-default btn-save-new-task">Save task</button>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                            </div>
-                                            <!--****** End Add Task Modal ******-->
-
-
-                                        </div><!--/todo-list-->
-
-                                    </div><!--/widget-content-->
-                                    <div class="widget-footer padding-10 text-center">
-                                        <a href="#">View all <i class="fa fa-arrow-right"></i></a>
-                                    </div>
-                                </div><!--/widget-->
-                            </div>
-                        </div><!--/.row-->
-                        <!--======== Todo List End ========-->
-                    </div><!--/.col-md-8-->
-                </div><!--/.row-->
-            </section>
-        </section>
-        <!--======== Main Content End ========-->
-    </section><!--/.container-->
-
-</body>
-
-</html>
-
-<!--===== Footer End ========-->
+<!--{% include 'admin/a_foot.html' %}-->

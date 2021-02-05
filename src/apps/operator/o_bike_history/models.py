@@ -1,3 +1,4 @@
+
 from django.db import models
 
 from src.apps.admin.a_manage_bike.models import bike

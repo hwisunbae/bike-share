@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.db import models
 
 from src.apps.admin.a_manage_bike.models import bike
@@ -12,3 +13,8 @@ class operator_route(models.Model):
     lng = models.CharField(max_length=50)
     start_time = models.TimeField(auto_now_add=True)
     end_time = models.TimeField()
+=======
+from django.db import models
+
+# Create your models here.
+>>>>>>> 75a4e83582d870a2abd73c318918ebb990421c13

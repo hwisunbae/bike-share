@@ -1,0 +1,78 @@
+
+.layout_m_contentm td {
+	border: 1px solid #D3D3D3;
+}
+
+.layout_m_contentm thead p {
+	height: 35px;
+	line-height: 35px;
+}
+.layout_m_contentm tbody p {
+	height: 25px;
+	line-height: 25px;
+}
+
+.layout_m_contentm tbody tr:nth-child(even){
+	background: #f3f4f5;
+}
+.layout_m_contentm tbody tr:hover {
+	background-color: #DDE1EA;
+}
+
+.layout_m_contentm thead td,
+.layout_m_contentm tbody td:nth-child(1),
+.layout_m_contentm tbody td:nth-child(2) {
+	text-align: center;
+}
+
+.layout_m_contentm tbody td:nth-child(3) p {
+	margin-left: 10px;
+}
+
+
+
+.layout_m_table {
+	margin: 0 auto;
+	border: 1px solid #eaeaea;
+	position: relative;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	font-size: 14px;
+	width: 96%;
+}
+.layout_m_table thead {
+	background: #ffdcc4;
+}
+.layout_m_table thead th p {
+	font-weight: bold;
+	text-align: center;
+	height: 35px;
+	line-height: 35px;
+}
+.layout_m_table tbody td p {
+	text-align: center;
+	height: 25px;
+	line-height: 25px;
+}
+
+.layout_m_table tbody tr:nth-child(even){
+	background: #f3f4f5;
+}
+.layout_m_table tbody tr:hover {
+	background-color: #DDE1EA;
+}
+
+.layout_m_table thead td,
+.layout_m_table tbody td:nth-child(1),
+.layout_m_table tbody td:nth-child(2) {
+	text-align: center;
+}
+
+.layout_m_table tbody td:nth-child(3) p {
+	margin-left: 10px;
+}
+
+.layout_m_table th,
+.layout_m_table td {
+	border: 1px solid #D3D3D3;
+}

@@ -10,3 +10,4 @@ def index(request):
         context = {}
         context['login'] = 'hello'
         return render(request,'user/u_index.html',context)
+
