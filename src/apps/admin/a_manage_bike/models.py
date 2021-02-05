@@ -8,7 +8,7 @@ class bike(models.Model):
     bike_id = models.AutoField(primary_key=True)
     type = models.TextField()
     rent_money = models.FloatField()
-    image = models.ImageField()
+    image = models.CharField()
     open_password = models.CharField()
     original_lat = models.CharField(max_length=50)
     original_lng = models.CharField(max_length=50)
