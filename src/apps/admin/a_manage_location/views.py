@@ -10,3 +10,11 @@ def index(request):
         context = {}
         context['login'] = 'hello'
         return render(request,'admin/a_manage_bike.html',context)
+
+def addNewLocation(request):
+    if request.GET:
+        pass
+    else:
+        context = {}
+        context['login'] = 'hello'
+        return render(request,'admin/a_add_location.html',context)

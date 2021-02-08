@@ -21,3 +21,4 @@ urlpatterns = [
     path('index',views.index),
     path('send',views.check_mail)
 ]
+

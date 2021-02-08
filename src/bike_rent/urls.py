@@ -1,3 +1,4 @@
+
 """bike_rent URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,10 +19,14 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('a_change_password/', include('a_change_password.urls')),
     path('a_login/', include('a_login.urls')),
     path('a_index/', include('a_index.urls')),
     path('a_manage_bike/', include('a_manage_bike.urls')),
     path('a_manage_location/', include('a_manage_location.urls')),
+    path('a_manage_user/', include('a_manage_user.urls')),
+    path('a_manage_operator/', include('a_manage_operator.urls')),
+
 
 
     path('o_bike_history/', include('o_bike_history.urls')),

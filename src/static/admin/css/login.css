@@ -1,0 +1,117 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: url(../img/ymbg12.jpg);
+	background-size: 100% 100%;
+	/* background-attachment: fixed; */
+	background-repeat: no-repeat;
+}
+
+header,
+footer {
+	width: 100%;
+	height: 80px;
+	background-color: white;
+}
+
+/*取消A标签下划线*/
+a {
+	text-decoration: none;
+	color: #696969;
+}
+
+.layout_content {
+	width: 100%;
+	height: 750px;
+	margin: 0 auto;
+}
+
+.layout_login {
+	/* 宽高 */
+	width: 400px;
+	height: 230px;
+	/* 居中 */
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	/* 边框 */
+	border: 1px solid lightgray;
+	border-radius: 25px;
+	/* 背景 */
+	background-color: #FFFFFF;
+}
+
+table {
+	width: 90%;
+	margin: 5% 5% 0%;
+}
+
+/* 按钮样式 */
+.layout_button {
+	/* float: left; */
+	margin: 0 auto;
+	width: 120px;
+	height: 35px;
+	color: white;
+	background-color: #FF6600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+}
+
+.layout_button:hover {
+	background-color: #ffaa72;
+	color: #FFFFFF;
+}
+
+tr {
+	height: 60px;
+}
+
+tr:first-child td:first-child {
+	width: 35%;
+	background-image: url(../img/dl_06.jpg);
+	background-size: 100% 80%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+td input {
+	outline: none;
+	height: 30px;
+	width: 150px;
+	padding-left: 40px;
+}
+
+.layout_login_in img {
+	position: absolute;
+	border: 1px solid #a9a9a9;
+	width: 32px;
+	height: 32px;
+}
+
+.layout_login_in {
+	margin-left: 30px;
+	width: 100px;
+	height: 35px;
+}
+.layout_pagemiddle {
+	margin: 0 auto;
+	width: 1200px;
+	height: 80px;
+	overflow: hidden;
+}
+/*页面顶部logo*/
+.layout_pagemiddle img {
+	width: 195px;
+	height: 67px;
+	/* 居中 */
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}

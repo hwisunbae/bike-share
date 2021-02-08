@@ -1,0 +1,48 @@
+/*内容标题*/
+.layout_m_contitle{
+	position: relative;
+	padding: 30px 0px 30px 50px;
+}
+.layout_button_layer{
+	margin-top: 10px;
+}
+.layout_button_layer,
+.layout_button1{
+	width: 80px;
+	height: 30px;
+	float: right;
+	color: white;
+	background-color: #FF6600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+}
+.map{
+	width: 92%;
+	height:500px;
+	margin: 0 auto 20px auto;
+}
+.layout_m_table1{
+	font-size: 14px;
+	width: 92%;
+	margin: 0 auto 20px auto;
+}
+.layout_m_table1 td{
+	height: 30px;
+}
+.layout_m_table1 td:nth-child(odd){
+	width: 8%;
+	text-align: right;
+}
+
+.layout_m_infotext1 {
+	padding-left: 5%;
+	height: 22px;
+	padding-right: 5%;
+	/* border: none; */
+	width: 70%;
+	color: #696969;
+	outline: none;
+}
+

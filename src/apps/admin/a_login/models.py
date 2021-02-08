@@ -1,3 +1,4 @@
+
 from django.db import models
 
 
@@ -18,3 +19,4 @@ class admin_account(models.Model):
     type = models.CharField(max_length=20,null= True)
     telephone = models.CharField(max_length=50,null= True)
     location = models.CharField(max_length=500,null= True)
+
