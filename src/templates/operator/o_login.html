@@ -1,10 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
+<!doctype html>
+<html  lang="en">
+
+    <head>
+        <!-- meta data -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <!--font-family-->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
+
+        <!-- title of site -->
+        <title>Sign in</title>
+
+        <!-- For favicon png -->
+		<link rel="shortcut icon" type="image/icon" href="../../static/login/logo/favicon.png"/>
+
+        <!--控制线长短-->
+        <link rel="stylesheet" href="../../static/login/css/bootstrap.min.css">
+
+        <!--style.css-->
+        <link rel="stylesheet" href="../../static/login/css/style.css">
+
+        <!--responsive.css 自适应 屏幕-->
+        <link rel="stylesheet" href="../../static/login/css/responsive.css">
+
+
+    </head>
+
+	<body>
+
+		<section class="signin">
+			<div class="container">
+
+				<div class="sign-content">
+					<h2>operator sign in</h2>
+
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="signin-form">
+								<form action="signin.html">
+									<div class="form-group">
+									    <label for="signin_form">Email</label>
+									    <input type="email" class="form-control" id="signin_form" placeholder="Email">
+									</div><!--/.form-group -->
+									<div class="form-group">
+										<label for="signin_form">passward</label>
+									    <input type="password" class="form-control" id="signin_form" placeholder="Enter your password">
+									</div><!--/.form-group -->
+								</form><!--/form -->
+							</div><!--/.signin-form -->
+						</div><!--/.col -->
+					</div><!--/.row -->
+
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="signin-password">
+								<div class="password-circle">
+									<div class="single-password-circle">
+										<input type="radio" id="radio01" name="radio">
+											<label for="radio01">
+												<span class="round-boarder">
+													<span class="round-boarder1"></span>
+												</span>remember password
+											</label>
+									</div><!--/.single-password-circle-->
+									<div class="single-forgot-password-circle text-right">
+										<a href="signin.html">Forgot email or password</a>
+									</div><!--/.single-password-circle-->
+								</div><!--/.password-circle-->
+							</div><!--/.signin-password -->
+						</div><!--/.col -->
+					</div><!--/.row -->
+
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="signin-footer">
+								<button type="submit" class="btn signin_btn signin_btn_two" onclick="window.location.replace('../o_index/index')" data-toggle="modal" data-target=".signin_modal">
+								sign in
+								</button>
+							</div><!--/.signin-footer -->
+						</div><!--/.col -->
+					</div><!--/.row -->
+
+				</div><!--/.sign-content -->
+
+			</div><!--/.container -->
+
+		</section><!--/.signin -->
+
+		<!-- signin end -->
+
+    </body>
+
 </html>
