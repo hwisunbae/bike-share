@@ -6,8 +6,8 @@ from u_login.models import user_account
 
 # Create your models here.
 class bike(models.Model):
-    bike_id = models.AutoField(primary_key=True)
-    type = models.TextField()
+    id = models.AutoField(primary_key=True)
+    type = models.CharField(max_length=20, null=True)
     rent_money = models.FloatField()
     image = models.CharField(max_length=200, null=True)
     open_password = models.CharField(max_length=10, null=True)
