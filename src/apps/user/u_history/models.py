@@ -6,6 +6,7 @@ from u_login.models import user_account
 
 # Create your models here.
 class user_history(models.Model):
+    id = models.AutoField(primary_key=True)
     user_id = models.ForeignKey(user_account, on_delete=models.CASCADE)
     bike_id = models.ForeignKey(bike, on_delete=models.CASCADE)
     # rent_location_id = models.ForeignKey(location, on_delete=models.CASCADE)
@@ -18,7 +19,7 @@ class user_history(models.Model):
     reason_not_finished = models.TextField()
 
 class user_repair_history(models.Model):
-    user_repair_history_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     user_id = models.ForeignKey(user_account, on_delete=models.CASCADE)
     bike_id = models.ForeignKey(bike, on_delete=models.CASCADE)
     question_type = models.CharField(max_length=50, null=True)
