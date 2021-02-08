@@ -1,0 +1,110 @@
+{% include 'operator/o_header.html' %}
+
+<!-- banner section -->
+   <!--谷歌地图调用api-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw" async defer></script>
+
+	<script>
+
+    function initialize()
+    {
+      var mapProp = {
+        center: new google.maps.LatLng(55.87189,-4.28922),
+        zoom:7,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    }
+
+    function loadScript()
+    {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&sensor=false&callback=initialize";
+      document.body.appendChild(script);
+    }
+
+
+    window.onload = loadScript;
+
+    </script>
+
+<section id="home" class="w3l-banner py-5">
+    <div class="container py-lg-5 py-md-4">
+       <div class="map" id = "googleMap" style="width:100%;height:500px;border: 200px;padding:100px;">
+    </div>
+</section>
+<!-- //banner section -->
+
+<!-- //banner section -->
+<section class="w3l-homeblock1" id="features">
+    <div class="w3-services-ab py-5">
+        <div class="container py-lg-5 py-md-4">
+            <span class="title-small text-center mb-2">work space</span>
+            <h3 class="title-big text-center mb-5">For Your Own Work</h3>
+            <div class="w3-services-grids">
+                <div class="row w3-services-right-grid">
+                    <div class="col-lg-4">
+                        <img src="../../static/user/images/bike_index.jpg" alt="" class="img-fluid" />
+                    </div>
+
+                    <div class="col-lg-8 mt-lg-0 mt-5">
+                        <div class="fea-gd-vv row">
+                            <div class="col-md-6" onclick="window.location.href='../o_manage_bike/findBike'">
+                            <div class="float-lt feature-gd color-orange">
+                                <div class="icon">
+                                    <img src="../../static/user/images/backup.png" alt="" class="img-fluid" />
+                                </div>
+                                <div class="icon-info">
+                                    <h5>Find Bike</h5>
+                                    <p>you can checkout a bike's status and places.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                            <div class="col-md-6 mt-md-0 mt-4" onclick="window.location.href='../o_manage_bike/repairBike'">
+                            <div class="float-mid feature-gd color-green">
+                                <div class="icon">
+                                    <img src="../../static/user/images/team.png" alt="" class="img-fluid" />
+                                </div>
+                                <div class="icon-info">
+                                    <h5>Repair Bike</h5>
+                                    <p>When you repair a bike,please record it.</p>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="col-md-6 mt-4 pt-md-2" onclick="window.location.href='../o_manage_bike/transportBike'">
+                            <div class="float-rt feature-gd color-blue">
+                                <div class="icon">
+                                    <img src="../../static/user/images/tags.png" alt="" class="img-fluid" />
+                                </div>
+                                <div class="icon-info">
+                                    <h5>Transport bike</h5>
+                                    <p>When you transport a bike,please record it.</p>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="col-md-6 mt-4 pt-md-2" onclick="window.location.href='../o_information/index'">
+                            <div class="float-lt feature-gd color-pink">
+                                <div class="icon">
+                                    <img src="../../static/user/images/support.png" alt="" class="img-fluid" />
+                                </div>
+                                <div class="icon-info">
+                                    <h5>Work History</h5>
+                                    <p>Your work and personal information history.</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- footer-28 block -->
+{% include 'operator/o_footer.html' %}
