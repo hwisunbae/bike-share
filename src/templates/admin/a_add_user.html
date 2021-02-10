@@ -1,40 +1,109 @@
 {% include 'admin/a_header.html' %}
 <link rel="stylesheet" type="text/css" href="../../static/admin/css/a_add_bike.css" />
-
+<script src="../../static/user/js/jquery.md5.js"></script> <!-- Common jquery plugin -->
 			<div class="layout_m_content">
 				<div class="layout_m_contitle">Add a New Bike</div>
 				<div class="layout_m_infoupcontent">
 					<table border="0">
 						<tr>
 							<td>UserName/Email:</td>
-							<td><input type="text" class=""  /></td>
+							<td><input type="text" class="" id="username"  /></td>
 						</tr>
 						<tr>
 							<td>Password:</td>
-							<td><input type="text" class=""  /></td>
+							<td><input type="password" class="" maxlength="20" id="password"/></td>
 						</tr>
 						<tr>
 							<td>RePassword:</td>
-							<td><input type="text" class=""  /></td>
+							<td><input type="password" class="" maxlength="20" id="repassword" /></td>
 						</tr>
                         <tr>
 							<td>Telephone:</td>
-							<td><input type="text" class=""  /></td>
+							<td><input type="text" class="" id="telephone" /></td>
 						</tr>
-                        <tr>
-							<td>Password:</td>
-							<td><input type="text" class=""  /></td>
+						 <tr>
+							<td>Money/￡:</td>
+							<td><input type="text" class="" id="money" /></td>
 						</tr>
 						<tr>
 							<td>Location:</td>
-							<td><input type="text" class="" id="xb" value="" /></td>
+							<td><input type="text" class=""  id="location" value="" /></td>
 						</tr>
 					</table>
 				</div>
 				<div class="layout_m_infobtnsave">
-					<a id="button_save" href="javasrcipt:void(0)" class="layout_button" title="Submit">Submit</a>
+					<a id="button_save" href="#" class="layout_button" title="Submit">Submit</a>
 				</div>
 			</div>
 		</div>
+ <script>
+  $(document).ready(function(){
+        $("#button_save").click(function(){
+        var username = $("#username").val().trim();
+        var password = $.md5($("#password").val().trim());
+        var repassword = $.md5($("#repassword").val().trim());
+        var telephone = $("#telephone").val().trim();
+        var money = $("#money").val().trim();
+        var location = $("#location").val().trim();
+        if(username==""){
+            alert("please input your username");
+            return;
+        }
+        if(password==""){
+            alert("please input your password");
+            return;
+        }
+        if(password!=repassword){
+            alert("Two inputs are inconsistent");
+            $("#repassword").val() = "";
+            return;
+        }
+        if(telephone==""){
+            alert("please input your telephone");
+            return;
+        }
+        if(money==""){
+            alert("please input your money");
+            return;
+        }
+
+        if(location==""){
+            alert("please input your location");
+            return;
+        }
+        $.ajax({
+        url:"/a_manage_user/addNewUserDo",
+        type:"POST",
+        data:{
+            username:username,
+            password:password,
+            telephone:telephone,
+            money:money,
+            location:location
+        },
+        success:function(data){
+            if(data == "success"){
+                alert("add successfully")
+                window.location.href = "../a_index/index"
+            }
+            else if(data == "repeat"){
+            	$("#username").val() = "";
+            	alert("email repeat")
+            }
+            else{
+                alert("error")
+            }
+        },
+        fail:function(data){
+            alert("false")
+        }
+    })
+    })
+    })
+
+
+
+
+    </script>
 
 <!--{% include 'admin/a_foot.html' %}-->

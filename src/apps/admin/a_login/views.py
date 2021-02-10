@@ -11,7 +11,7 @@ def index(request):
        pass
     # the first request, just show the pages
     else:
-        # saveAccount()
+        saveAccount()
         context = {}
         context['login'] = 'hello'
         return render(request,'admin/a_login.html',context)
@@ -21,9 +21,7 @@ def login(request):
     if request.POST:
         username = request.POST.get('username')
         password = request.POST.get('password')
-        remember = request.POST.get('remember')
         user = admin_account.objects.filter(username = username)
-
         if user:
             if user[0].password == password:
                 response = HttpResponse('success')
@@ -39,16 +37,9 @@ def login(request):
 
 # create a account by myself just a test
 def saveAccount():
-    # id
-    # name
-    # type(real admin/ manage_user/ manage_oprater/manage/bike)
-    # telephone
-    # username  (emain)
-    # password
-    # location
     password = '123456'
     md5code = md5value(str(password).encode())
-    admin = admin_account.admin_account(name='admin',type='admin',telephone='911911',username='139@qq.com',password=md5code,location='Glasgow')
+    admin = admin_account(name='admin',type='admin',telephone='911911',username='123@qq.com',password=md5code,location='Glasgow')
     admin.save()
 
 # do the md5

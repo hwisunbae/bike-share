@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('index',views.index),
     path('addNewUser',views.addNewUser),
+    path('addNewUserDo',views.addNewUser_do),
     path('userBikeHistory',views.userBikeHistory),
     path('userRepairHistory',views.userRepairHistory),
     path('userRecharge',views.userRecharge),
