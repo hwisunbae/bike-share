@@ -9,6 +9,7 @@ def index(request):
     else:
         userid = request.COOKIES.get("userid")
         # userid = None
+        print(userid)
         if userid:
             context = {}
             context['login'] = 'hello'
