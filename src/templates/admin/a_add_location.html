@@ -89,10 +89,11 @@
 			<div class="layout_m_content">
 				<div class="layout_m_contitle">Add a New Location</div>
 				<div class="layout_m_infoupcontent">
-					<table border="0">
+					<form name="new_location">
+						<table border="0">
 						<tr>
 							<td>Location Id:</td>
-							<td><input type="text" class=""  /></td>
+							<td><input type="text" class=""/></td>
 						</tr>
                         <tr>
 							<td>Location Name:</td>
@@ -106,10 +107,6 @@
 									<option value="">Bicycle</option>
 								</select>
 							</td>
-						</tr>
-                        <tr>
-							<td>Location Id:</td>
-							<td><input type="text" class=""  /></td>
 						</tr>
                         <tr>
 							<td>Longitude:</td>
@@ -131,10 +128,12 @@
 								<td colspan="4" width="50px"><a href="javasrcipt:void(0)" style="margin-left: 10px;">upload</a></td>
 					</table>
 
-					 <div class="map" id = "googleMap" style=""></div>
+					</form>
+
+					 <div class="map" id="googleMap" style=""></div>
 				</div>
 				<div class="layout_m_infobtnsave">
-					<a id="button_save" href="javasrcipt:void(0)" class="layout_button" title="Submit">Submit</a>
+					<a id="button_save" href="#" class="layout_button" title="Submit">Submit</a>
 				</div>
 			</div>
 		</div>
@@ -142,4 +141,22 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&callback=initMap&libraries=&v=weekly"
       async
     ></script>
+
+<script>
+	$(document).ready(function() {
+		$("#button_save").click(function(){
+			$('table input[type="text"]').each(function() { // all inputs
+				let values = $(this).val().trim()
+				if (values == '') alert('Please fill out all forms.')
+			})
+			$.ajax({
+
+				type:'POST',
+				data:{
+
+				}
+			})
+		})
+	})
+</script>
 <!--{% include 'admin/a_foot.html' %}-->
