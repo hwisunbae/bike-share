@@ -38,62 +38,61 @@
 
 
 <script>
-	$(function () {
-		$("#button_save").click(function() {
-			$("form[name='registration']").validate({
-				rules: {
-					email: {
-						required: true,
-						email: true
-					},
-					password: {
-						required: true,
-						minlength: 5
-					},
-					telephone: "required",
-					money: "required",
-					location: "required"
+$(function () {
+	$("#button_save").click(function() {
+		$("form[name='registration']").validate({
+			rules: {
+				email: {
+					required: true,
+					email: true
 				},
-				messages: {
-					email: "Please enter a valid email address",
-					password: {
-						required: "Please provide a password",
-						minlength: "Your password must be at least 5 characters long."
-					},
-					telephone: "Please enter your telephone",
-					money: "Please enter the amount of money",
-					location: "Please enter the name of location"
+				password: {
+					required: true,
+					minlength: 5
 				},
-				submitHandler: function (form) {
-					let username = $("#email").val(), password = $("#password").val(),
-							telephone = $("#telephone").val(), money = $("#money").val(),
-							location = $("#location").val();
-					$.post({
-						url:"/a_manage_user/addNewUserDo",
-						type:"POST",
-						data:{
-							username, password, telephone ,money, location
-						},
-						success:function(data){
-							if(data == "success"){
-								alert("add successfully")
-								window.location.href = "../a_index/index"
-							}
-							else if(data == "repeat"){
-								$("#username").val() = "";
-								alert("email repeat")
-							}
-							else{
-								alert("error")
-							}
-						},
-						fail:function(data) {
-							alert("false")
+				telephone: "required",
+				money: "required",
+				location: "required"
+			},
+			messages: {
+				email: "Please enter a valid email address",
+				password: {
+					required: "Please provide a password",
+					minlength: "Your password must be at least 5 characters long."
+				},
+				telephone: "Please enter your telephone",
+				money: "Please enter the amount of money",
+				location: "Please enter the name of location"
+			},
+			submitHandler: function (form) {
+				let username = $("#email").val(), password = $("#password").val(),
+					telephone = $("#telephone").val(), money = $("#money").val(),
+					location = $("#location").val();
+				$.post({
+					url:"/a_manage_user/addNewUserDo",
+					type:"POST",
+					data:{
+						username, password, telephone ,money, location
+					},
+					success:function(data){
+						if(data == "success"){
+							alert("Added successfully")
+							window.location.href = "../a_index/index"
 						}
-					})
-					form.submit();
-				}
-			})
+						else if(data == "repeat"){
+							$("#username").val() = "";
+							alert("Email is duplicated value")
+						}
+						else
+							alert("Error")
+					},
+					fail:function(data){
+						alert("false")
+					}
+				})
+				form.submit();
+			}
 		})
 	})
+})
 </script>

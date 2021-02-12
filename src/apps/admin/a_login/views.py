@@ -1,9 +1,10 @@
 import hashlib
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
-from a_login.models import *
 from django.views.decorators.csrf import csrf_exempt
+
+from a_login.models import *
+
 
 def index(request):
     # if get POST request

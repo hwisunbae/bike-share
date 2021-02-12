@@ -1,162 +1,149 @@
 {% include 'admin/a_header.html' %}
 <link rel="stylesheet" type="text/css" href="../../static/admin/css/a_add_bike.css" />
-    <link rel='stylesheet' type='text/css' href='../../static/admin/css/a_index.css' />
+<link rel='stylesheet' type='text/css' href='../../static/admin/css/a_index.css' />
 
-<!--   &lt;!&ndash;谷歌地图调用api&ndash;&gt;-->
-<!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw" async defer></script>-->
-
-<!--	<script>-->
-
-<!--    function initialize()-->
-<!--    {-->
-<!--      var mapProp = {-->
-<!--        center: new google.maps.LatLng(55.87189,-4.28922),-->
-<!--        zoom:7,-->
-<!--        mapTypeId: google.maps.MapTypeId.ROADMAP-->
-<!--      };-->
-<!--      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);-->
-<!--    }-->
-
-<!--    function loadScript()-->
-<!--    {-->
-<!--      var script = document.createElement("script");-->
-<!--      script.type = "text/javascript";-->
-<!--      script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&sensor=false&callback=initialize";-->
-<!--      document.body.appendChild(script);-->
-<!--    }-->
-
-
-<!--    window.onload = loadScript;-->
-
-<!--    </script>-->
-
-	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <style type="text/css">
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-
-      /* Optional: Makes the sample page fill the window. */
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-    <script>
-		//Initialize Marker
-		var marker;
-
-		function initMap() {
-			const glasgow = {
-				lat: 55.860916,
-				lng: -4.251433
-			};
-			const map = new google.maps.Map(document.getElementById("googleMap"), {
-				zoom: 12,
-				center: glasgow,
-			});
-
-			// This event listener calls addMarker() when the map is clicked.
-			google.maps.event.addListener(map, "click", (event) => {
-				placeMarker(event.latLng, map);
-				// get latitude and longitude of click
-				var clickLat = event.latLng.lat();
-				var clickLon = event.latLng.lng();
-
-				// place the values in the input box
-				document.getElementById("lat").value = clickLat.toFixed(5);
-				document.getElementById("lon").value = clickLon.toFixed(5);
-			});
-
-		}
-
-		// Add a marker to the map.
-		function placeMarker(location, map) {
-			if (marker) {
-				marker.setPosition(location);
-			} else {
-				marker = new google.maps.Marker({
-					position: location,
-					map: map
-				});
-			}
-		}
-    </script>
-			<div class="layout_m_content">
-				<div class="layout_m_contitle">Add a New Location</div>
-				<div class="layout_m_infoupcontent">
-					<form name="new_location">
-						<table border="0">
-						<tr>
-							<td>Location Id:</td>
-							<td><input type="text" class=""/></td>
-						</tr>
-                        <tr>
-							<td>Location Name:</td>
-							<td><input type="text" class=""  /></td>
-						</tr>
-						<tr>
-							<td>Location Type:</td>
-							<td>
-								<select name="" class="">
-									<option value="">City</option>
-									<option value="">Bicycle</option>
-								</select>
-							</td>
-						</tr>
-                        <tr>
-							<td>Longitude:</td>
-							<td><input type="text" id="lon" class=""  /></td>
-						</tr>
-                        <tr>
-							<td>Latitude:</td>
-							<td><input type="text" id="lat" class=""  /></td>
-						</tr>
-						<td width="70px" height="52px">
-									<div class="layout_m_infomcon">
-										<p style="color: #FF0000;">*&nbsp;</p>
-										<p>Image:</p>
-									</div>
-								</td>
-								<td>
-									<img class="layout_m_infoimg" src="../../static/admin/img/dl_06.jpg" />
-								</td>
-								<td colspan="4" width="50px"><a href="javasrcipt:void(0)" style="margin-left: 10px;">upload</a></td>
-					</table>
-
-					</form>
-
-					 <div class="map" id="googleMap" style=""></div>
-				</div>
-				<div class="layout_m_infobtnsave">
-					<a id="button_save" href="#" class="layout_button" title="Submit">Submit</a>
-				</div>
-			</div>
-		</div>
-	<script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&callback=initMap&libraries=&v=weekly" async></script>
 
 <script>
-	$(document).ready(function() {
-		$("#button_save").click(function(){
-			$('table input[type="text"]').each(function() { // all inputs
-				let values = $(this).val().trim()
-				if (values == '') alert('Please fill out all forms.')
-			})
-			$.ajax({
+	//Initialize Marker
+	let marker;
 
-				type:'POST',
-				data:{
+	function initMap() {
+		const glasgow = {
+			lat: 55.860916,
+			lng: -4.251433
+		};
+		const map = new google.maps.Map(document.getElementById("googleMap"), {
+			zoom: 12,
+			center: glasgow,
+		});
 
-				}
-			})
+		// This event listener calls addMarker() when the map is clicked.
+		google.maps.event.addListener(map, "click", (event) => {
+			placeMarker(event.latLng, map);
+			// get latitude and longitude of click
+			var clickLat = event.latLng.lat();
+			var clickLon = event.latLng.lng();
+
+			// place the values in the input box
+			document.getElementById("lat").value = clickLat.toFixed(5);
+			document.getElementById("lng").value = clickLon.toFixed(5);
+		});
+
+	}
+
+	// Add a marker to the map.
+	function placeMarker(location, map) {
+		if (marker) {
+			marker.setPosition(location);
+		} else {
+			marker = new google.maps.Marker({
+				position: location,
+				map: map
+			});
+		}
+	}
+</script>
+
+<div class="layout_m_content">
+	<div class="layout_m_contitle">Add a New Location</div>
+	<div class="layout_m_infoupcontent">
+		<form action="../a_manage_location/addNewLocation" method="post"
+			  name="add_location" id="add_location">
+			{% csrf_token %}
+			<table border="0">
+				<tr>
+					<td for="id">Location ID:</td>
+					<td><input type="number" class="" name="id" id="id"/></td>
+				</tr>
+				<tr>
+					<td for="name">Location Name:</td>
+					<td><input type="text" class="" name="name" id="name" /></td>
+				</tr>
+				<tr>
+					<td for="types">Location Type:</td>
+					<td>
+						<select name="types" id="types" class="">
+							<option value="city">City</option>
+							<option value="bicycle">Bicycle</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td for="lng">Longitude:</td>
+					<td><input type="number" name="lng" id="lng" class="" /></td>
+				</tr>
+				<tr>
+					<td for="lat">Latitude:</td>
+					<td><input type="number" name="lat" id="lat" class="" /></td>
+				</tr>
+				<tr>
+					<td class="layout_m_infomcon">
+						<span style="color: #FF0000;">*</span> Image:
+					</td>
+					<td><input  type="file" id="photo" name="photo" /></td>
+				</tr>
+			</table>
+			<div class="layout_m_infobtnsave">
+				<input id="button_save" href="#" class="layout_button" type="submit" value="Submit"/>
+			</div>
+		</form>
+
+		<div class="map" id="googleMap" style=""></div>
+	</div>
+</div>
+
+
+
+<script>
+$(function() {
+	$("#button_save").click(function(){
+		$("form[name='add_location']").validate({
+			rules: {
+				id: "required",
+				name: "required",
+				lng: "required",
+				lat: "required",
+				photo: "required"
+			},
+			messages: {
+				id: "Please enter ID",
+				name: "Please enter location name",
+				lng: "Please pick any point in map or enter any number",
+				lat: "Please pick any point in map or enter any number",
+				photo: "Please upload photo"
+			},
+			submitHandler: function (form) {
+				let id = $("#id").val(), name = $("#name").val(),
+					lng = $("#lng").val(), lat = $("#lat").val(),
+					types = $("#types").val();
+				$.post({
+					url:"/a_manage_location/addNewLocation_do",
+					type:"POST",
+					data:{
+						id, name, lng, lat, types
+					},
+					success:function(data){
+						if(data == "success"){
+							alert("Added successfully")
+							window.location.href = "../a_manage_location/addNewLocation"
+						}
+						else if(data == "repeat"){
+							$("#id").val() = "";
+							alert("ID is duplicated value")
+						}
+						else
+							alert("Error")
+					},
+					fail:function(data){
+						alert("false")
+					}
+				})
+				form.submit();
+			}
 		})
 	})
+})
 </script>
 <!--{% include 'admin/a_foot.html' %}-->
