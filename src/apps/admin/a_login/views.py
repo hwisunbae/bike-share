@@ -1,9 +1,10 @@
 import hashlib
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
-from a_login.models import *
 from django.views.decorators.csrf import csrf_exempt
+
+from a_login.models import *
+
 
 def index(request):
     # if get POST request
@@ -39,7 +40,13 @@ def login(request):
 def saveAccount():
     password = '123456'
     md5code = md5value(str(password).encode())
-    admin = admin_account(name='admin',type='admin',telephone='911911',username='123@qq.com',password=md5code,location='Glasgow')
+    admin = admin_account(
+        name='admin',
+        type='admin',
+        telephone='911911',
+        username='123@qq.com',
+        password=md5code,
+        location='Glasgow')
     admin.save()
 
 # do the md5
