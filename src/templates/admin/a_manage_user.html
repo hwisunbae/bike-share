@@ -8,17 +8,17 @@
         <div class="layout_m_contitle">Manage User</div>
             <table class="layout_m_table1" border="0" cellspacing="" cellpadding="">
                 <tr>
-                    <td>user id:</td>
-                    <td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
+                    <td>username:</td>
+                    <td><input type="text" class="layout_m_infotext1" id="username" value="{{username}}" /></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <div class="layout_button_layer"><a href="javasrcipt:void(0)" class="layout_button1">reset</a></div>
+                        <div class="layout_button_layer"><a href="#" onclick="reSet()" class="layout_button1">reset</a></div>
                     </td>
                     <td></td>
                     <td>
-                        <div class="layout_button_layer"><a href="javasrcipt:void(0)" class="layout_button1">search</a></div>
+                        <div class="layout_button_layer"><a href="#" onclick="searchUser()" class="layout_button1">search</a></div>
                     </td>
                     <td></td>
 
@@ -48,21 +48,22 @@
 						</tr>
 					</thead>
 					<tbody>
+					{% for user in users %}
 						<tr>
 							<td>
-								<p>001</p>
+								<p>{{user.id}}</p>
 							</td>
 							<td>
-								<p>139@qq.com</p>
+								<p>{{user.username}}</p>
 							</td>
 							<td>
-								<p>Glasgow</p>
+								<p>{{user.location}}</p>
 							</td>
 							<td>
-								<p>123456</p>
+								<p>{{user.telephone}}</p>
 							</td>
 							<td>
-								<p>100￡</p>
+								<p>{{user.money}}</p>
 							</td>
 							<td>
 								<p><a href="#">recharge</a></p>
@@ -70,59 +71,48 @@
 								<p><a href="#">change pass</a></p>
 							</td>
 						</tr>
-						<tr>
-							<td>
-								<p>001</p>
-							</td>
-							<td>
-								<p>139@qq.com</p>
-							</td>
-							<td>
-								<p>Glasgow</p>
-							</td>
-							<td>
-								<p>123456</p>
-							</td>
-							<td>
-								<p>100￡</p>
-							</td>
-							<td>
-								<p><a href="#">recharge</a></p>
-								<p><a href="#">delete</a></p>
-								<p><a href="#">change pass</a></p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<p>001</p>
-							</td>
-							<td>
-								<p>139@qq.com</p>
-							</td>
-							<td>
-								<p>Glasgow</p>
-							</td>
-							<td>
-								<p>123456</p>
-							</td>
-							<td>
-								<p>100￡</p>
-							</td>
-							<td>
-								<p><a href="#">recharge</a></p>
-								<p><a href="#">delete</a></p>
-								<p><a href="#">change pass</a></p>
-							</td>
-						</tr>
+					{% endfor %}
 					</tbody>
 				</table>
-				<div style="height:30px;margin:10px;line-height: 30px; text-align: center;color: #696969;">
-					<a href="javasrcipt:void(0)">first page</a>
-					<a href="javasrcipt:void(0)">previous page</a>
-					<a href="javasrcipt:void(0)">next page</a>
-					<a href="javasrcipt:void(0)">last pages</a>
-					no.<span id="">1</span>page/total<span id="">100</span>pages
-				</div>
-    </div>
+
+{% if totalCount %}
+ 	<div class='pagin' style="height:40px">
+		<div class='message'>total <i class='blue'>{{totalCount}}</i>datas,<i class='blue'>{{totalPageNum}}</i>pages,now<i class='blue'>no.{{pageNum}}&nbsp;</i>page</div>
+                         <ul class='paginList'>
+						 {% if pageNum > 1%}
+                         <li class='paginItem'><a href = 'javascript:;'  onclick='changePage({{pagePre}})' > <img  src='../../static/admin/img/pre.gif' ></a></li>
+                         {%endif%}
+							 {% for page in pages %}
+								 {%if page == pageNum%}
+									<li class='paginItem current'><a href = 'javascript:;' > {{page}} </a></li>
+								 {%else%}
+									 <li class='paginItem'><a href = 'javascript:;' onclick='changePage({{page}})'>{{page}}</a></li>
+								 {%endif%}
+							 {%endfor%}
+						 {% if pageNum != totalPageNum%}
+                         <li class='paginItem'><a href = 'javascript:;' onclick='changePage({{pageNext}})'><img  src='../../static/admin/img/next.gif'></a></li>
+                         {%endif%}
+						 </ul>
+	</div>
+{%endif%}
+
+		<script>
+			function changePage(page){
+				window.location.href = "../a_manage_user/index?pageNum="+page
+			}
+			function searchUser(){
+				username = $("#username").val()
+				if(username == ""|username == null)
+				{
+					alert("please input real username")
+					return;
+				}
+				window.location.href = "../a_manage_user/index?username="+username
+			}
+			function reSet(){
+				window.location.href = "../a_manage_user/index?pageNum=1&&isSet=true"
+			}
+
+		</script>
 
 <!--{% include 'admin/a_foot.html' %}-->
