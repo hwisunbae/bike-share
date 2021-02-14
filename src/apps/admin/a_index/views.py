@@ -13,6 +13,6 @@ def index(request):
         if userid:
             context = {}
             context['login'] = 'hello'
-            return render(request,'admin/a_index.html',context)
+            return render(request, 'admin/a_index.html', context)
         else:
             return render(request, 'admin/a_login.html')

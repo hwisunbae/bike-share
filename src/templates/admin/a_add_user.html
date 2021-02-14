@@ -1,109 +1,98 @@
 {% include 'admin/a_header.html' %}
 <link rel="stylesheet" type="text/css" href="../../static/admin/css/a_add_bike.css" />
 <script src="../../static/user/js/jquery.md5.js"></script> <!-- Common jquery plugin -->
-			<div class="layout_m_content">
-				<div class="layout_m_contitle">Add a New Bike</div>
-				<div class="layout_m_infoupcontent">
-					<table border="0">
-						<tr>
-							<td>UserName/Email:</td>
-							<td><input type="text" class="" id="username"  /></td>
-						</tr>
-						<tr>
-							<td>Password:</td>
-							<td><input type="password" class="" maxlength="20" id="password"/></td>
-						</tr>
-						<tr>
-							<td>RePassword:</td>
-							<td><input type="password" class="" maxlength="20" id="repassword" /></td>
-						</tr>
-                        <tr>
-							<td>Telephone:</td>
-							<td><input type="text" class="" id="telephone" /></td>
-						</tr>
-						 <tr>
-							<td>Money/￡:</td>
-							<td><input type="text" class="" id="money" /></td>
-						</tr>
-						<tr>
-							<td>Location:</td>
-							<td><input type="text" class=""  id="location" value="" /></td>
-						</tr>
-					</table>
-				</div>
-				<div class="layout_m_infobtnsave">
-					<a id="button_save" href="#" class="layout_button" title="Submit">Submit</a>
-				</div>
+
+<div class="layout_m_content">
+	<div class="layout_m_contitle">Add a New Bike</div>
+	<div class="layout_m_infoupcontent">
+		<form action="../a_index/index" method="post" name="registration" id="registration">
+			{% csrf_token %}
+			<table border="0">
+				<tr>
+					<td for="email">UserName/Email:</td>
+					<td><input type="email" name="email" id="email" placeholder="john@doe.com"/></td>
+				</tr>
+				<tr>
+					<td for="password">Password:</td>
+					<td><input type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"/></td>
+				</tr>
+				<tr>
+					<td for="telephone">Telephone:</td>
+					<td><input type="number" class="" name="telephone" id="telephone" /></td>
+				</tr>
+				 <tr>
+					<td for="money">Money/￡:</td>
+					<td><input type="number" class="" name="money" id="money" /></td>
+				</tr>
+				<tr>
+					<td for="location">Location:</td>
+					<td><input type="text" class="" name="location" id="location" value="" /></td>
+				</tr>
+			</table>
+			<div class="layout_m_infobtnsave">
+				<input id="button_save" href="#" class="layout_button" type="submit" value="Submit"/>
 			</div>
-		</div>
- <script>
-  $(document).ready(function(){
-        $("#button_save").click(function(){
-        var username = $("#username").val().trim();
-        var password = $.md5($("#password").val().trim());
-        var repassword = $.md5($("#repassword").val().trim());
-        var telephone = $("#telephone").val().trim();
-        var money = $("#money").val().trim();
-        var location = $("#location").val().trim();
-        if(username==""){
-            alert("please input your username");
-            return;
-        }
-        if(password==""){
-            alert("please input your password");
-            return;
-        }
-        if(password!=repassword){
-            alert("Two inputs are inconsistent");
-            $("#repassword").val() = "";
-            return;
-        }
-        if(telephone==""){
-            alert("please input your telephone");
-            return;
-        }
-        if(money==""){
-            alert("please input your money");
-            return;
-        }
-
-        if(location==""){
-            alert("please input your location");
-            return;
-        }
-        $.ajax({
-        url:"/a_manage_user/addNewUserDo",
-        type:"POST",
-        data:{
-            username:username,
-            password:password,
-            telephone:telephone,
-            money:money,
-            location:location
-        },
-        success:function(data){
-            if(data == "success"){
-                alert("add successfully")
-                window.location.href = "../a_index/index"
-            }
-            else if(data == "repeat"){
-            	$("#username").val() = "";
-            	alert("email repeat")
-            }
-            else{
-                alert("error")
-            }
-        },
-        fail:function(data){
-            alert("false")
-        }
-    })
-    })
-    })
+		</form>
+	</div>
+</div>
 
 
-
-
-    </script>
-
-<!--{% include 'admin/a_foot.html' %}-->
+<script>
+$(function () {
+	$("#button_save").click(function() {
+		$("form[name='registration']").validate({
+			rules: {
+				email: {
+					required: true,
+					email: true
+				},
+				password: {
+					required: true,
+					minlength: 5
+				},
+				telephone: "required",
+				money: "required",
+				location: "required"
+			},
+			messages: {
+				email: "Please enter a valid email address",
+				password: {
+					required: "Please provide a password",
+					minlength: "Your password must be at least 5 characters long."
+				},
+				telephone: "Please enter your telephone",
+				money: "Please enter the amount of money",
+				location: "Please enter the name of location"
+			},
+			submitHandler: function (form) {
+				let username = $("#email").val(), password = $("#password").val(),
+					telephone = $("#telephone").val(), money = $("#money").val(),
+					location = $("#location").val();
+				$.post({
+					url:"/a_manage_user/addNewUserDo",
+					type:"POST",
+					data:{
+						username, password, telephone ,money, location
+					},
+					success:function(data){
+						if(data == "success"){
+							alert("Added successfully")
+							window.location.href = "../a_index/index"
+						}
+						else if(data == "repeat"){
+							$("#username").val() = "";
+							alert("Email is duplicated value")
+						}
+						else
+							alert("Error")
+					},
+					fail:function(data){
+						alert("false")
+					}
+				})
+				form.submit();
+			}
+		})
+	})
+})
+</script>

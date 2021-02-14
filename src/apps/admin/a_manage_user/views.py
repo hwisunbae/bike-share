@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import math
 from u_login.models import *
+
 # Create your views here.
 from django.views.decorators.csrf import csrf_exempt
 
@@ -97,6 +98,7 @@ def index(request):
 
 
 
+
 # show the index pages of add new user
 def addNewUser(request):
     if request.GET:
@@ -114,8 +116,8 @@ def addNewUser_do(request):
     if request.POST:
         username = request.POST.get('username')
         # check email
-        isuser = user_account.objects.filter(username=username)
-        if isuser:
+        isUser = user_account.objects.filter(username=username)
+        if isUser:
             return HttpResponse("repeat")
         password = request.POST.get('password')
         telephone = request.POST.get('telephone')
@@ -151,7 +153,7 @@ def userBikeHistory(request):
     else:
         context = {}
         context['login'] = 'hello'
-        return render(request,'admin/a_user_bike_history.html',context)
+        return render(request, 'admin/a_user_bike_history.html', context)
 
 
 def userRepairHistory(request):
@@ -160,7 +162,7 @@ def userRepairHistory(request):
     else:
         context = {}
         context['login'] = 'hello'
-        return render(request,'admin/a_user_repair_history.html',context)
+        return render(request, 'admin/a_user_repair_history.html', context)
 
 
 def userRecharge(request):
@@ -169,7 +171,7 @@ def userRecharge(request):
     else:
         context = {}
         context['login'] = 'hello'
-        return render(request,'admin/a_user_recharge.html',context)
+        return render(request, 'admin/a_user_recharge.html', context)
 
 def userRechargeHistory(request):
     if request.GET:
@@ -177,4 +179,4 @@ def userRechargeHistory(request):
     else:
         context = {}
         context['login'] = 'hello'
-        return render(request,'admin/a_user_recharge_history.html',context)
+        return render(request, 'admin/a_user_recharge_history.html', context)
