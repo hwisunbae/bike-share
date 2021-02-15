@@ -1,58 +1,42 @@
 {% include 'admin/a_header.html' %}
 	<link rel="stylesheet" type="text/css" href="../../static/admin/css/a_add_bike.css" />
-				<div class="layout_m_content">
-					<div class="layout_m_contitle">Add a New Bike</div>
-					<div class="layout_m_infoupcontent">
-						<table border="0">
-							<tr>
-								<td>Bike Id:</td>
-								<td><input type="text" class=""  /></td>
-							</tr>
-							<tr>
-								<td>Location:</td>
-								<td>
-									<select name="" class="">
-										{% for location in locations%}
-										<option value="{{location.id}}">{{location.location_name}}</option>
-										{%endfor%}
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td>Bike Type:</td>
-								<td>
-									<select name="" class="">
-										<option value="">City</option>
-										<option value="">Bicycle</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td>Bike Type:</td>
-								<td><input type="text" class="" id="xb" value="" /></td>
-							</tr>
-							<td width="70px" height="52px">
-										<div class="layout_m_infomcon">
-											<p style="color: #FF0000;">*&nbsp;</p>
-											<p>Image:</p>
-										</div>
-									</td>
-									<td>
-										<img class="layout_m_infoimg" src="../../static/admin/img/dl_06.jpg" />
-									</td>
-									<td colspan="4" width="50px"><a href="javasrcipt:void(0)" style="margin-left: 10px;">upload</a></td>
-						</table>
-					</div>
-				</td>
-				<td>
-					<img class="layout_m_infoimg" src="../../static/admin/img/dl_06.jpg" />
-				</td>
-				<td colspan="4" width="50px"><a href="javasrcipt:void(0)" style="margin-left: 10px;">upload</a></td>
+	<div class="layout_m_content">
+		<div class="layout_m_contitle">Add a New Bike</div>
+		<div class="layout_m_infoupcontent">
+			<table border="0">
+				<tr>
+					<td>Bike Id:</td>
+					<td><input type="text" class=""  /></td>
+				</tr>
+				<tr>
+					<td>Location:</td>
+					<td>
+						<select name="" class="">
+							{% for location in locations%}
+							<option value="{{location.id}}">{{location.location_name}}</option>
+							{%endfor%}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Bike Password:</td>
+					<td><input type="text" class=""  /></td>
+				</tr>
+				<td width="70px" height="52px">
+							<div class="layout_m_infomcon">
+								<p style="color: #FF0000;">*&nbsp;</p>
+								<p>Image:</p>
+							</div>
+						</td>
+						<td>
+							<img class="layout_m_infoimg" src="../../static/admin/img/dl_06.jpg" />
+						</td>
+						<td colspan="4" width="50px"><a href="javasrcipt:void(0)" style="margin-left: 10px;">upload</a></td>
 			</table>
 		</div>
-		<div class="layout_m_infobtnsave">
-			<a id="button_save" href="javasrcipt:void(0)" class="layout_button" title="Submit">Submit</a>
-		</div>
+	<div class="layout_m_infobtnsave">
+		<a id="button_save" href="javasrcipt:void(0)" class="layout_button" title="Submit">Submit</a>
+	</div>
 	</div>
 
 <!--{% include 'admin/a_foot.html' %}-->
