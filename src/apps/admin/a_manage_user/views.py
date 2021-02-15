@@ -1,17 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
 from u_login.models import *
+from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
-    if request.GET:
-        pass
-    else:
-        context = {}
-        context['login'] = 'hello'
-        return render(request, 'admin/a_manage_user.html', context)
+    context = {}
+    users = user_account.objects.filter()
+    context['users'] = users
+    return render(request, 'admin/a_manage_user.html', context)
 
 
+# show the index pages of add new user
 def addNewUser(request):
     if request.GET:
         pass
@@ -20,6 +19,7 @@ def addNewUser(request):
         context['login'] = 'hello'
         return render(request, 'admin/a_add_user.html', context)
 
+# action of add a new user
 @csrf_exempt
 def addNewUser_do(request):
     if request.POST:
@@ -44,6 +44,15 @@ def addNewUser_do(request):
     else:
         return HttpResponse("error")
 
+# action of show manage user
+def manageUser(request):
+    if request.POST:
+        users = user_account.objects.filter().order_by("-id")[0:10]
+        context = {}
+        context['users'] = users
+        return render(request, 'admin/a_index.html', context)
+    else:
+        return HttpResponse("error")
 
 def userBikeHistory(request):
     if request.GET:
