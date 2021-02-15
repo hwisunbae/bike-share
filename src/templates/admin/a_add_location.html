@@ -6,18 +6,26 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&callback=initMap&libraries=&v=weekly" async></script>
 
 <script>
-	 // Get Locations from the DB  !!THESE VALUES ARE HARDCODED FOR TESTING!!
-	 var loc_lat = [55.860916, 55.875398, 55.869042];
-	 var loc_lon = [-4.251433, -4.248375, -4.212669];
 
-	 // Get number of bikes for each location from DB  !!THESE VALUES ARE HARDCODED FOR TESTING!!
-	 var bike_numbers = [10, 30, 0]; //number of bikes in the location
-	 // Transform numbers into string labels
-	 var labels = bike_numbers.map(String);
-     let labelIndex = 0;
+<!--	 $("document").ready(function(){-->
+<!--	 	var location = $("#locations").val()-->
+<!--	 	alert(location)-->
+<!--	 })-->
+		 // Get Locations from the DB  !!THESE VALUES ARE HARDCODED FOR TESTING!!
 
-	//Initialize Marker
-	let marker;
+<!--		 var loc_lat = $("#loc_lats").val();-->
+		 var loc_lat = {{loc_lats}}
+		 var loc_lon = {{loc_lons}};
+
+		 // Get number of bikes for each location from DB  !!THESE VALUES ARE HARDCODED FOR TESTING!!
+		 var bike_numbers = {{bike_numbers}}; //number of bikes in the location
+		 // Transform numbers into string labels
+		 var labels = bike_numbers.map(String);
+		 let labelIndex = 0;
+
+		//Initialize Marker
+		let marker;
+
 
 	function initMap() {
 		const glasgow = {
@@ -76,7 +84,9 @@
       });
     }
 </script>
-
+<input type="hidden" id="loc_lats" value="{{loc_lats}}">
+<input type="hidden" id="loc_lons" value="{{loc_lons}}">
+<input type="hidden" id="bike_numbers" value="{{bike_numbers}}">
 <div class="layout_m_content">
 	<div class="layout_m_contitle">Add a New Location</div>
 	<div class="layout_m_infoupcontent">
@@ -148,7 +158,6 @@ $(function() {
 			submitHandler: function (form) {
 				let name = $("#name").val(),
 					lng = $("#lng").val(), lat = $("#lat").val();
-					alert(name)
 				$.post({
 					url:"/a_manage_location/addNewLocationDo",
 					type:"POST",
@@ -158,6 +167,7 @@ $(function() {
 					success:function(data){
 						if(data == "success"){
 							alert("Added successfully")
+							window.location.href = "../a_manage_location/addNewLocation"
 						}
 						else{
 							alert("Error")

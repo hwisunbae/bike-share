@@ -13,9 +13,9 @@
 							<td>Location:</td>
 							<td>
 								<select name="" class="">
-									<option value="">Glasgow</option>
-									<option value="">DM</option>
-									<option value="">KC</option>
+									{% for location in locations%}
+									<option value="{{location.id}}">{{location.location_name}}</option>
+									{%endfor%}
 								</select>
 							</td>
 						</tr>

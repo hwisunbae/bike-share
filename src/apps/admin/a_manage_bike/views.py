@@ -1,4 +1,4 @@
-
+from a_manage_location.models import *
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
@@ -18,6 +18,8 @@ def addNewBike(request):
     if request.GET:
         pass
     else:
+        locations = location.objects.all()
         context = {}
-        context['login'] = 'hello'
+        context['locations'] = locations
+
         return render(request,'admin/a_add_bike.html',context)

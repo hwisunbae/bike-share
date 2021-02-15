@@ -75,12 +75,13 @@ $(function () {
 						username, password, telephone ,money, location
 					},
 					success:function(data){
+					alert(data)
 						if(data == "success"){
 							alert("Added successfully")
 							window.location.href = "../a_index/index"
 						}
 						else if(data == "repeat"){
-							$("#username").val() = "";
+							$("#email").val("");
 							alert("Email is duplicated value")
 						}
 						else
@@ -90,7 +91,6 @@ $(function () {
 						alert("false")
 					}
 				})
-<!--				form.submit();-->
 			}
 		})
 	})
