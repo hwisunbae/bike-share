@@ -1,54 +1,54 @@
 {% include 'user/u_header.html' %}
 
 <!-- //about breadcrumb -->
- <section class="w3l-contact-11 py-5" id="contact">
-     <div class="contacts-main py-lg-5 py-md-4">
-         <div class="form-41-mian mt-5 pt-lg-5 pt-md-4">
-             <div class="container">
-                 <div class="d-grid align-form-map">
-                     <div class="form-inner-cont">
-                              <div class="form-input">
-                                 <label>Name</label>
-                                 <input type="text" name="Name" id="name" placeholder="" />
-                             </div>
-							 <div class="form-input">
-                                 <label>Telephone</label>
-                                 <input type="text" name="Telephone" id="telephone" placeholder="" required="" />
-                             </div>
-                             <div class="form-input">
-                                 <label>Email(Required)*</label>
-                                 <input type="text" name="Email" id="email" value="1398641557@qq.com"placeholder="" required="" />
-                             </div>
-							 <div class="form-input">
-                                 <label>Confirm Email Code</label>
-                                 <input type="text" name="Email" id="conEmail" placeholder="" required="" />
-                             </div>
-							 <button type="button" id="sendCode" class="btn btn-primary btn-style">Send Code</button>
-                     </div>
-                      <div class="form-inner-cont">
-                              <div class="form-input">
-                                 <label>Password</label>
-                                 <input type="text" name="Password" id="password" maxlength="20" placeholder="the length must between 6-20" />
-                             </div>
-							 <div class="form-input">
-                                 <label>Confirm Password</label>
-                                 <input type="text" name="ConPassword" id="conPassword" placeholder="the same as password" required="" />
-                             </div>
-                             <div class="form-input">
-                                 <label>Pay Password</label>
-                                 <input type="text" name="paypassword" id="payPassword" placeholder="the length must be 6" required="" />
-                             </div>
-							 <div class="form-input">
-                                 <label>Confirm Pay Password</label>
-                                 <input type="text" name="conpay" id="conPay" placeholder="the same as paypassword" required="" />
-                             </div>
-							 <button type="button" id="submit" class="btn btn-primary btn-style">Submit</button>
-                     </div>
+<section class="w3l-contact-11 py-5" id="contact">
+    <div class="contacts-main py-lg-5 py-md-4">
+        <div class="form-41-mian mt-5 pt-lg-5 pt-md-4">
+            <div class="container">
+                <div class="d-grid align-form-map">
+                    <div class="form-inner-cont">
+                        <div class="form-input">
+                            <label>Name</label>
+                            <input type="text" name="Name" id="name" placeholder="" />
+                        </div>
+                        <div class="form-input">
+                            <label>Telephone</label>
+                            <input type="text" name="Telephone" id="telephone" placeholder="" required="" />
+                        </div>
+                        <div class="form-input">
+                            <label>Email(Required)<span style="color: red;">*</span></label>
+                            <input type="text" name="Email" id="email" value="1398641557@qq.com"placeholder="" required="" />
+                        </div>
+                        <div class="form-input">
+                            <label>Confirm Email Code</label>
+                            <input type="text" name="Email" id="conEmail" placeholder="" required="" />
+                        </div>
+                        <button type="button" id="sendCode" class="btn btn-primary btn-style">Send Code</button>
+                    </div>
+                  <div class="form-inner-cont">
+                          <div class="form-input">
+                             <label>Password</label>
+                             <input type="password" name="Password" id="password" maxlength="20" placeholder="the length must between 6-20" />
+                         </div>
+                         <div class="form-input">
+                             <label>Confirm Password</label>
+                             <input type="password" name="ConPassword" id="conPassword" placeholder="the same as password" required="" />
+                         </div>
+                         <div class="form-input">
+                             <label>Pay Password</label>
+                             <input type="password" name="paypassword" id="payPassword" placeholder="the length must be 6" required="" />
+                         </div>
+                         <div class="form-input">
+                             <label>Confirm Pay Password</label>
+                             <input type="password" name="conpay" id="conPay" placeholder="the same as paypassword" required="" />
+                         </div>
+                         <button type="button" id="submit" class="btn btn-primary btn-style">Submit</button>
                  </div>
-             </div>
-         </div>
-     </div>
- </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <input type="hidden" id="confirmCode" value="">
 
