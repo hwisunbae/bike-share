@@ -142,18 +142,18 @@ $(function() {
 	$("#button_save").click(function(){
 		$("form[name='add_location']").validate({
 			rules: {
-<!--				id: "required",-->
+// <!--				id: "required",-->
 				name: "required",
 				lng: "required",
 				lat: "required"
-<!--				photo: "required"-->
+// <!--				photo: "required"-->
 			},
 			messages: {
-<!--				id: "Please enter ID",-->
+// <!--				id: "Please enter ID",-->
 				name: "Please enter location name",
 				lng: "Please pick any point in map or enter any number",
 				lat: "Please pick any point in map or enter any number"
-<!--				photo: "Please upload photo"-->
+// <!--				photo: "Please upload photo"-->
 			},
 			submitHandler: function (form) {
 				let name = $("#name").val(),
@@ -177,7 +177,6 @@ $(function() {
 						alert("false")
 					}
 				})
-<!--				form.submit();-->
 			}
 		})
 	})

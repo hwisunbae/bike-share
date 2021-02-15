@@ -28,7 +28,7 @@ def index(request):
             context['totalCount'] = totalCount
             context['totalPageNum'] = totalPageNum
             pageNumCheck = request.GET.get("pageNum");
-            if pageNumCheck == None or pageNumCheck=="":
+            if pageNumCheck==None or pageNumCheck=="":
                 pageNumCheck=1
             pageNum = int(pageNumCheck)
             if pageNum > totalPageNum:
@@ -96,9 +96,6 @@ def index(request):
     return render(request, 'admin/a_manage_user.html', context)
 
 
-
-
-
 # show the index pages of add new user
 def addNewUser(request):
     if request.GET:
@@ -106,7 +103,7 @@ def addNewUser(request):
     else:
         context = {}
         context['login'] = 'hello'
-        return render(request,'admin/a_add_user.html',context)
+        return render(request, 'admin/a_add_user.html', context)
 
 
 
@@ -144,8 +141,6 @@ def manageUser(request):
         return render(request, 'admin/a_index.html', context)
     else:
         return HttpResponse("error")
-
-
 
 def userBikeHistory(request):
     if request.GET:

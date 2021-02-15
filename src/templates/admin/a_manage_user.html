@@ -75,26 +75,29 @@
 					</tbody>
 				</table>
 
+
 {% if totalCount %}
  	<div class='pagin' style="height:40px">
 		<div class='message'>total <i class='blue'>{{totalCount}}</i>datas,<i class='blue'>{{totalPageNum}}</i>pages,now<i class='blue'>no.{{pageNum}}&nbsp;</i>page</div>
-                         <ul class='paginList'>
-						 {% if pageNum > 1%}
-                         <li class='paginItem'><a href = 'javascript:;'  onclick='changePage({{pagePre}})' > <img  src='../../static/admin/img/pre.gif' ></a></li>
-                         {%endif%}
-							 {% for page in pages %}
-								 {%if page == pageNum%}
-									<li class='paginItem current'><a href = 'javascript:;' > {{page}} </a></li>
-								 {%else%}
-									 <li class='paginItem'><a href = 'javascript:;' onclick='changePage({{page}})'>{{page}}</a></li>
-								 {%endif%}
-							 {%endfor%}
-						 {% if pageNum != totalPageNum%}
-                         <li class='paginItem'><a href = 'javascript:;' onclick='changePage({{pageNext}})'><img  src='../../static/admin/img/next.gif'></a></li>
-                         {%endif%}
-						 </ul>
+		<ul class='paginList'>
+			{% if pageNum > 1%}
+			<li class='paginItem'><a href = 'javascript:;'  onclick='changePage({{pagePre}})' > <img  src='../../static/admin/img/pre.gif' ></a></li>
+			{%endif%}
+			 {% for page in pages %}
+				 {%if page == pageNum%}
+					<li class='paginItem current'><a href = 'javascript:;' > {{page}} </a></li>
+				 {%else%}
+					 <li class='paginItem'><a href = 'javascript:;' onclick='changePage({{page}})'>{{page}}</a></li>
+				 {%endif%}
+			 {%endfor%}
+			{% if pageNum != totalPageNum%}
+			<li class='paginItem'><a href = 'javascript:;' onclick='changePage({{pageNext}})'><img  src='../../static/admin/img/next.gif'></a></li>
+			{%endif%}
+		</ul>
 	</div>
 {%endif%}
+</div>
+
 
 
     <!-- register form popup-->
@@ -126,39 +129,23 @@
 <!-- //register form popup-->
     <!--popup-js-->
 		 <script type="text/javascript" src="../../static/admin/js/jquery-2.1.4.min.js"></script>
-    <script src="../../static/admin/js/jquery.magnific-popup.js" type="text/javascript"></script>
-    <script>
-        $(document).ready(function () {
-            $('.popup-with-zoom-anim').magnificPopup({
-                type: 'inline',
-                fixedContentPos: false,
-                fixedBgPos: true,
-                overflowY: 'auto',
-                closeBtnInside: true,
-                preloader: false,
-                midClick: true,
-                removalDelay: 300,
-                mainClass: 'my-mfp-zoom-in'
-            });
+		<script src="../../static/admin/js/jquery.magnific-popup.js" type="text/javascript"></script>
+		<script>
+			$(document).ready(function () {
+				$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+				});
 
-        });
-	</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			});
+		</script>
 
 		<script>
 			function changePage(page){
