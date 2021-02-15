@@ -6,6 +6,16 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&callback=initMap&libraries=&v=weekly" async></script>
 
 <script>
+	 // Get Locations from the DB  !!THESE VALUES ARE HARDCODED FOR TESTING!!
+	 var loc_lat = [55.860916, 55.875398, 55.869042];
+	 var loc_lon = [-4.251433, -4.248375, -4.212669];
+
+	 // Get number of bikes for each location from DB  !!THESE VALUES ARE HARDCODED FOR TESTING!!
+	 var bike_numbers = [10, 30, 0]; //number of bikes in the location
+	 // Transform numbers into string labels
+	 var labels = bike_numbers.map(String);
+     let labelIndex = 0;
+
 	//Initialize Marker
 	let marker;
 
@@ -19,7 +29,17 @@
 			center: glasgow,
 		});
 
-		// This event listener calls addMarker() when the map is clicked.
+        // Add a marker at the selected location.
+		for (i = 0; i < loc_lat.length; i++) {
+		const location = {
+				lat: loc_lat[i],
+				lng: loc_lon[i]
+			};
+
+        addMarker(location, map);
+		}
+
+		// This event listener calls placeMarker() when the map is clicked.
 		google.maps.event.addListener(map, "click", (event) => {
 			placeMarker(event.latLng, map);
 			// get latitude and longitude of click
@@ -33,7 +53,7 @@
 
 	}
 
-	// Add a marker to the map.
+	// Place a new marker to the map.
 	function placeMarker(location, map) {
 		if (marker) {
 			marker.setPosition(location);
@@ -44,6 +64,17 @@
 			});
 		}
 	}
+
+    // Add a marker to the map.
+    function addMarker(location, map) {
+      // Add the marker at the clicked location, and add the next-available label
+      // from the array of alphabetical characters.
+      new google.maps.Marker({
+        position: location,
+        label: labels[labelIndex++ % labels.length],
+        map: map,
+      });
+    }
 </script>
 
 <div class="layout_m_content">
@@ -53,23 +84,23 @@
 			  name="add_location" id="add_location">
 			{% csrf_token %}
 			<table border="0">
-				<tr>
-					<td for="id">Location ID:</td>
-					<td><input type="number" class="" name="id" id="id"/></td>
-				</tr>
+<!--				<tr>-->
+<!--					<td for="id">Location ID:</td>-->
+<!--					<td><input type="number" class="" name="id" id="id"/></td>-->
+<!--				</tr>-->
 				<tr>
 					<td for="name">Location Name:</td>
 					<td><input type="text" class="" name="name" id="name" /></td>
 				</tr>
-				<tr>
-					<td for="types">Location Type:</td>
-					<td>
-						<select name="types" id="types" class="">
-							<option value="city">City</option>
-							<option value="bicycle">Bicycle</option>
-						</select>
-					</td>
-				</tr>
+<!--				<tr>-->
+<!--					<td for="types">Location Type:</td>-->
+<!--					<td>-->
+<!--						<select name="types" id="types" class="">-->
+<!--							<option value="city">City</option>-->
+<!--							<option value="bicycle">Bicycle</option>-->
+<!--						</select>-->
+<!--					</td>-->
+<!--				</tr>-->
 				<tr>
 					<td for="lng">Longitude:</td>
 					<td><input type="number" name="lng" id="lng" class="" /></td>
@@ -78,12 +109,12 @@
 					<td for="lat">Latitude:</td>
 					<td><input type="number" name="lat" id="lat" class="" /></td>
 				</tr>
-				<tr>
-					<td class="layout_m_infomcon">
-						<span style="color: #FF0000;">*</span> Image:
-					</td>
-					<td><input  type="file" id="photo" name="photo" /></td>
-				</tr>
+<!--				<tr>-->
+<!--					<td class="layout_m_infomcon">-->
+<!--						<span style="color: #FF0000;">*</span> Image:-->
+<!--					</td>-->
+<!--					<td><input  type="file" id="photo" name="photo" /></td>-->
+<!--				</tr>-->
 			</table>
 			<div class="layout_m_infobtnsave">
 				<input id="button_save" href="#" class="layout_button" type="submit" value="Submit"/>
@@ -101,46 +132,41 @@ $(function() {
 	$("#button_save").click(function(){
 		$("form[name='add_location']").validate({
 			rules: {
-				id: "required",
+// <!--				id: "required",-->
 				name: "required",
 				lng: "required",
-				lat: "required",
-				photo: "required"
+				lat: "required"
+// <!--				photo: "required"-->
 			},
 			messages: {
-				id: "Please enter ID",
+// <!--				id: "Please enter ID",-->
 				name: "Please enter location name",
 				lng: "Please pick any point in map or enter any number",
-				lat: "Please pick any point in map or enter any number",
-				photo: "Please upload photo"
+				lat: "Please pick any point in map or enter any number"
+// <!--				photo: "Please upload photo"-->
 			},
 			submitHandler: function (form) {
-				let id = $("#id").val(), name = $("#name").val(),
-					lng = $("#lng").val(), lat = $("#lat").val(),
-					types = $("#types").val();
+				let name = $("#name").val(),
+					lng = $("#lng").val(), lat = $("#lat").val();
+					alert(name)
 				$.post({
-					url:"/a_manage_location/addNewLocation_do",
+					url:"/a_manage_location/addNewLocationDo",
 					type:"POST",
 					data:{
-						id, name, lng, lat, types
+						name, lng, lat
 					},
 					success:function(data){
 						if(data == "success"){
 							alert("Added successfully")
-							window.location.href = "../a_manage_location/addNewLocation"
 						}
-						else if(data == "repeat"){
-							$("#id").val() = "";
-							alert("ID is duplicated value")
-						}
-						else
+						else{
 							alert("Error")
+							}
 					},
 					fail:function(data){
 						alert("false")
 					}
 				})
-				form.submit();
 			}
 		})
 	})

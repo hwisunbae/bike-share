@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from a_manage_location.models import *
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 
@@ -19,26 +21,21 @@ def addNewLocation(request):
         context['login'] = 'hello'
         return render(request, 'admin/a_add_location.html', context)
 
-# @csrf_exempt
+@csrf_exempt
 def addNewLocation_do(request):
     if request.POST:
-        # username = request.POST.get('username')
-        # # check email
-        # isUser = user_account.objects.filter(username=username)
-        # if isUser:
-        #     return HttpResponse("repeat")
-        # password = request.POST.get('password')
-        # telephone = request.POST.get('telephone')
-        # money = request.POST.get('money')
-        # location = request.POST.get('location')
-        # obj = user_account(
-        #     username=username,
-        #     password=password,
-        #     telephone=telephone,
-        #     money=money,
-        #     location=location,
-        # )
-        # obj.save()
+        name = request.POST.get('name')
+        lng = request.POST.get('lng')
+        lat = request.POST.get('lat')
+        count = 0;
+        obj = location(
+            location_name=name,
+            lat=lat,
+            lng=lng,
+            bike_count=count,
+            bike_count_now=count
+        )
+        obj.save()
         return HttpResponse('success')
     else:
         return HttpResponse("error")
