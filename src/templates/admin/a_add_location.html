@@ -84,23 +84,23 @@
 			  name="add_location" id="add_location">
 			{% csrf_token %}
 			<table border="0">
-				<tr>
-					<td for="id">Location ID:</td>
-					<td><input type="number" class="" name="id" id="id"/></td>
-				</tr>
+<!--				<tr>-->
+<!--					<td for="id">Location ID:</td>-->
+<!--					<td><input type="number" class="" name="id" id="id"/></td>-->
+<!--				</tr>-->
 				<tr>
 					<td for="name">Location Name:</td>
 					<td><input type="text" class="" name="name" id="name" /></td>
 				</tr>
-				<tr>
-					<td for="types">Location Type:</td>
-					<td>
-						<select name="types" id="types" class="">
-							<option value="city">City</option>
-							<option value="bicycle">Bicycle</option>
-						</select>
-					</td>
-				</tr>
+<!--				<tr>-->
+<!--					<td for="types">Location Type:</td>-->
+<!--					<td>-->
+<!--						<select name="types" id="types" class="">-->
+<!--							<option value="city">City</option>-->
+<!--							<option value="bicycle">Bicycle</option>-->
+<!--						</select>-->
+<!--					</td>-->
+<!--				</tr>-->
 				<tr>
 					<td for="lng">Longitude:</td>
 					<td><input type="number" name="lng" id="lng" class="" /></td>
@@ -109,12 +109,12 @@
 					<td for="lat">Latitude:</td>
 					<td><input type="number" name="lat" id="lat" class="" /></td>
 				</tr>
-				<tr>
-					<td class="layout_m_infomcon">
-						<span style="color: #FF0000;">*</span> Image:
-					</td>
-					<td><input  type="file" id="photo" name="photo" /></td>
-				</tr>
+<!--				<tr>-->
+<!--					<td class="layout_m_infomcon">-->
+<!--						<span style="color: #FF0000;">*</span> Image:-->
+<!--					</td>-->
+<!--					<td><input  type="file" id="photo" name="photo" /></td>-->
+<!--				</tr>-->
 			</table>
 			<div class="layout_m_infobtnsave">
 				<input id="button_save" href="#" class="layout_button" type="submit" value="Submit"/>
@@ -132,46 +132,41 @@ $(function() {
 	$("#button_save").click(function(){
 		$("form[name='add_location']").validate({
 			rules: {
-				id: "required",
+// <!--				id: "required",-->
 				name: "required",
 				lng: "required",
-				lat: "required",
-				photo: "required"
+				lat: "required"
+// <!--				photo: "required"-->
 			},
 			messages: {
-				id: "Please enter ID",
+// <!--				id: "Please enter ID",-->
 				name: "Please enter location name",
 				lng: "Please pick any point in map or enter any number",
-				lat: "Please pick any point in map or enter any number",
-				photo: "Please upload photo"
+				lat: "Please pick any point in map or enter any number"
+// <!--				photo: "Please upload photo"-->
 			},
 			submitHandler: function (form) {
-				let id = $("#id").val(), name = $("#name").val(),
-					lng = $("#lng").val(), lat = $("#lat").val(),
-					types = $("#types").val();
+				let name = $("#name").val(),
+					lng = $("#lng").val(), lat = $("#lat").val();
+					alert(name)
 				$.post({
-					url:"/a_manage_location/addNewLocation_do",
+					url:"/a_manage_location/addNewLocationDo",
 					type:"POST",
 					data:{
-						id, name, lng, lat, types
+						name, lng, lat
 					},
 					success:function(data){
 						if(data == "success"){
 							alert("Added successfully")
-							window.location.href = "../a_manage_location/addNewLocation"
 						}
-						else if(data == "repeat"){
-							$("#id").val() = "";
-							alert("ID is duplicated value")
-						}
-						else
+						else{
 							alert("Error")
+							}
 					},
 					fail:function(data){
 						alert("false")
 					}
 				})
-				form.submit();
 			}
 		})
 	})

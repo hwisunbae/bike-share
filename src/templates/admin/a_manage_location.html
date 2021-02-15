@@ -1,9 +1,9 @@
 {% include 'admin/a_header.html' %}
        <!--谷歌地图调用api-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw" async defer></script>
+<link rel='stylesheet' type='text/css' href='../../static/admin/css/a_index.css' />
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw" async defer></script>
 
-	<script>
-
+<script>
     function initialize()
     {
       var mapProp = {
@@ -24,37 +24,36 @@
 
 
     window.onload = loadScript;
-
-    </script>
-    <link rel='stylesheet' type='text/css' href='../../static/admin/css/a_index.css' />
+</script>
 
 
-    <div class="layout_m_content">
-        <div class="layout_m_contitle">Manage Location</div>
-            <table class="layout_m_table1" border="0" cellspacing="" cellpadding="">
-                <tr>
-                    <td>location id:</td>
-                    <td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
-                    <td>bike id:</td>
-                    <td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
-                    <td>operator id:</td>
-                    <td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
 
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <div class="layout_button_layer"><a href="javasrcipt:void(0)" class="layout_button1">reset</a></div>
-                    </td>
-                    <td></td>
-                    <td>
-                        <div class="layout_button_layer"><a href="javasrcipt:void(0)" class="layout_button1">search</a></div>
-                    </td>
-                    <td></td>
+<div class="layout_m_content">
+    <div class="layout_m_contitle">Manage Location</div>
+    <table class="layout_m_table1" border="0" cellspacing="" cellpadding="">
+        <tr>
+            <td>location id:</td>
+            <td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
+            <td>bike id:</td>
+            <td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
+            <td>operator id:</td>
+            <td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
 
-                </tr>
-            </table>
-             <div class="map" id = "googleMap"></div>
-    </div>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div class="layout_button_layer"><a href="javasrcipt:void(0)" class="layout_button1">reset</a></div>
+            </td>
+            <td></td>
+            <td>
+                <div class="layout_button_layer"><a href="javasrcipt:void(0)" class="layout_button1">search</a></div>
+            </td>
+            <td></td>
+
+        </tr>
+    </table>
+    <div class="map" id = "googleMap"></div>
+</div>
 
 <!--{% include 'admin/a_foot.html' %}-->
