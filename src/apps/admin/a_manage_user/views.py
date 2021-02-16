@@ -25,8 +25,8 @@ def addNewUser_do(request):
     if request.POST:
         username = request.POST.get('username')
         # check email
-        isUser = user_account.objects.filter(username=username)
-        if isUser:
+        is_duplicate = user_account.objects.filter(username=username)
+        if is_duplicate:
             return HttpResponse("repeat")
         password = request.POST.get('password')
         telephone = request.POST.get('telephone')
