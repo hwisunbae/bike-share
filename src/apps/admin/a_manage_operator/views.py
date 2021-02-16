@@ -21,7 +21,7 @@ def addNewOperator(request):
         return render(request, 'admin/a_add_operator.html', context)
 
 
-# action of add a new user
+# action of add a new operator
 @csrf_exempt
 def addNewOperator_do(request):
     if request.POST:
@@ -34,11 +34,6 @@ def addNewOperator_do(request):
         telephone = request.POST.get('telephone')
         locations = request.POST.get('locations')
         types = request.POST.get('types')
-        print(username)
-        print(password)
-        print(telephone)
-        print(locations)
-        print(types)
         obj = operator_account(
             username=username,
             password=password,
@@ -46,8 +41,17 @@ def addNewOperator_do(request):
             type=types,
             location=locations,
         )
-        print(obj)
         obj.save()
         return HttpResponse("success")
+    else:
+        return HttpResponse("error")
+
+# action of show manage operator
+def manageUser(request):
+    if request.POST:
+        operators = operator_account.objects
+        context = {}
+        context['operators'] = operators
+        return render(request, 'admin/a_index.html', context)
     else:
         return HttpResponse("error")
