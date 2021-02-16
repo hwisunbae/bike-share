@@ -18,6 +18,7 @@ from django.urls import path
 from. import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index',views.index),
-    path('addNewOperator',views.addNewOperator)
+    path('index', views.index),
+    path('addNewOperator', views.addNewOperator),
+    path('addNewOperatorDo', views.addNewOperator_do)
 ]
