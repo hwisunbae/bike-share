@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from o_login.models import *
-
 def index(request):
     if request.GET:
         pass
@@ -46,12 +45,13 @@ def addNewOperator_do(request):
     else:
         return HttpResponse("error")
 
-# action of show manage operator
-def manageUser(request):
+@csrf_exempt
+def deleteOperator_do(request):
     if request.POST:
-        operators = operator_account.objects
-        context = {}
-        context['operators'] = operators
-        return render(request, 'admin/a_index.html', context)
+        id = request.POST.get('id')
+        operator_account.objects.filter(id=id).delete()
+        return HttpResponse("success")
     else:
         return HttpResponse("error")
+
+

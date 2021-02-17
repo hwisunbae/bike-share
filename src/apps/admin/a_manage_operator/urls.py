@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('index', views.index),
     path('addNewOperator', views.addNewOperator),
-    path('addNewOperatorDo', views.addNewOperator_do)
+    path('addNewOperatorDo', views.addNewOperator_do),
+    path('deleteOperatorDo', views.deleteOperator_do)
 ]
