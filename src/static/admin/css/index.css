@@ -34,14 +34,14 @@ li {
 
 /* 页面底部 */
 .layout_pagefoot {
-	height: 250px;
-	background-color: #222222;
+	/*height: 250px;*/
+	/*background-color: #222222;*/
 }
 
 /* 页面底部 */
 .layout_pagefoot1 {
-	height: 50px;
-	background-color: #141414;
+	/*height: 50px;*/
+	/*background-color: #141414;*/
 }
 
 /* 宽度 */
@@ -68,8 +68,7 @@ li {
 
 /*页面顶部logo*/
 .layout_h_content img {
-	width: 195px;
-	height: 67px;
+	height: 70px;
 	float: left;
 	position: relative;
 	top: 50%;
@@ -107,6 +106,7 @@ li {
 	height: 40px;
 	color: white;
 	background-color: #FF6600;
+	border: 0px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -212,8 +212,8 @@ li {
 	margin-top: 20px;
 }
 /* 联系方式标题 */
-#layout_f_table th{
-	color: #d3d3d3;
+#layout_f_table tr{
+	/*color: #d3d3d3;*/
 	font-size: 20px;
 	text-align: left;
 }

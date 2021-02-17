@@ -1,35 +1,38 @@
 {% include 'admin/a_header.html' %}
 <link rel="stylesheet" type="text/css" href="../../static/admin/css/a_add_bike.css" />
+
 <div class="layout_m_content">
 	<div class="layout_m_contitle">Add a New Bike</div>
 	<div class="layout_m_infoupcontent">
-		<form action="." method="post"
+		<form action="../a_manage_bike/addNewBike" method="post"
 			  name="add_bike" id="add_bike">
+			{% csrf_token %}
 			<table border="0">
 				<tr>
 					<td for="id">Bike ID:</td>
-					<td><input type="number" name="id" id="id" class=""  /></td>
-				</tr>
-				<tr>
-					<td for="password">Bike Password:</td>
-					<td><input type="password" name="password" id="password" class=""  /></td>
+					<td><input type="text" class="" name="id" id="id" /></td>
 				</tr>
 				<tr>
 					<td for="locations">Location:</td>
 					<td>
 						<select name="locations" id="locations" class="">
-							{% for location in locations%}
-							<option value="{{location.id}}">{{location.location_name}}</option>
-							{%endfor%}
+							<option value="glasgow">Glasgow</option>
+							<option value="dm">DM</option>
+							<option value="kc">KC</option>
 						</select>
 					</td>
 				</tr>
 				<tr>
-					<td for="rent_fee">Rent Fee:</td>
-					<td><input type="number" name="rent_fee" id="rent_fee" class=""  /></td>
+					<td for="types">Bike Type:</td>
+					<td>
+						<select name="types" id="types" class="">
+							<option value="city">City</option>
+							<option value="bicycle">Bicycle</option>
+						</select>
+					</td>
 				</tr>
 				<tr>
-					<td class="layout_m_infomcon" for="photo">
+					<td class="layout_m_infomcon">
 						<span style="color: #FF0000;">*</span> Image:
 					</td>
 					<td><input  type="file" id="photo" name="photo" /></td>
@@ -38,6 +41,7 @@
 			<div class="layout_m_infobtnsave">
 				<input id="button_save" href="#" class="layout_button" type="submit" value="Submit"/>
 			</div>
+			</table>
 		</form>
 	</div>
 </div>
@@ -48,47 +52,22 @@ $(function() {
 		$("form[name='add_bike']").validate({
 			rules: {
 				id: "required",
-				password: {
-					required: true,
-					minlength: 5
-				},
 				locations: "required",
-				rent_fee: "required",
+				types: "required",
 				photo: "required"
 			},
 			messages: {
 				id: "Please enter ID",
-				password: "Please enter password longer than 5 characters",
-				locations: "Please pick any point in map or enter any number",
-				rent_fee: "Please enter the amount of rent fee",
+				locations: "Please select locations",
+				types: "Please select types",
 				photo: "Please upload photo"
 			},
 			submitHandler: function (form) {
-				let id = $("#id").val(), password = $("#password").val(),
-					locations = $('#locations :selected').text(),
-					rent_fee = $("#rent_fee").val(),
-					photo = $('#photo').val(); // TODO: find a way to upload photo
-				$.post({
-					url:".",
-					type:"POST",
-					data:{
-						id, password, locations, rent_fee, photo
-					},
-					success:function(data){
-						if(data == "success"){
-							alert("Added successfully")
-							// window.location.href = "../a_manage_location/addNewLocation"
-						}
-						else{
-							alert("Error")
-							}
-					},
-					fail:function(data){
-						alert("false")
-					}
-				})
+				// need complete
 			}
 		})
 	})
 })
 </script>
+
+{% include 'admin/a_foot.html' %}
