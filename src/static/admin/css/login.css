@@ -108,8 +108,7 @@ td input {
 }
 /*页面顶部logo*/
 .layout_pagemiddle img {
-	width: 195px;
-	height: 67px;
+	height: 70px;
 	/* 居中 */
 	position: relative;
 	top: 50%;
