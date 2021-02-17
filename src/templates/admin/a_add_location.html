@@ -127,7 +127,7 @@ function initMap() {
 	locationButton.classList.add("custom-map-control-button");
 	map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
 
-	locationButton.addEventListener("click", () => {
+/*	locationButton.addEventListener("click", () => {
 	  // Try HTML5 geolocation.
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition((position) => {
@@ -150,7 +150,7 @@ function initMap() {
 		// Browser doesn't support Geolocation
 		handleLocationError(false, infoWindow, map.getCenter());
 	  }
-	});
+	}); */
 
 	// Add a marker at the selected location.
 	for (let i = 0; i < loc_lat.length; i++) {
@@ -186,6 +186,11 @@ function initMap() {
 				infoWindow.setContent("Location found.");
 				infoWindow.open(map);
 				map.setCenter(pos);
+				// Place marker to current location
+				placeMarker(pos, map); // place marker to the current location
+				// place the values in the input box
+				document.getElementById("lat").value = position.coords.latitude.toFixed(5);
+				document.getElementById("lng").value = position.coords.longitude.toFixed(5);
 			},
 			() => {
 			  handleLocationError(true, infoWindow, map.getCenter());
