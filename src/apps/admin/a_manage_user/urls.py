@@ -21,6 +21,7 @@ urlpatterns = [
     path('index', views.index),
     path('addNewUser', views.addNewUser),
     path('addNewUserDo', views.addNewUser_do),
+    path('rechareMoney', views.rechareMoney),
     path('userBikeHistory', views.userBikeHistory),
     path('userRepairHistory', views.userRepairHistory),
     path('userRecharge', views.userRecharge),

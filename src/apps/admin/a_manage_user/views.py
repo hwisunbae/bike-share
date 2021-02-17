@@ -142,6 +142,19 @@ def manageUser(request):
     else:
         return HttpResponse("error")
 
+# action of recharge user
+@csrf_exempt
+def rechareMoney(request):
+    if request.POST:
+        id = request.POST.get('id')
+        oldMoney = request.POST.get('money')
+        rechareMoney = request.POST.get('rechareMoney')
+        money = float(oldMoney) + float(rechareMoney)
+        user_account.objects.filter(id=id).update(money=money)
+        return HttpResponse("success")
+    else:
+        return HttpResponse("error")
+
 def userBikeHistory(request):
     if request.GET:
         pass
