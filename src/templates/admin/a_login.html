@@ -1,51 +1,50 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title>登录</title>
-		<link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
-		<link rel="stylesheet" type="text/css" href="../../static/admin/css/login.css" />
-        <script type="text/javascript" src="../../static/admin/js/jquery-2.1.4.min.js"></script>
-        <script src="../../static/user/js/jquery.js"></script> <!-- Common jquery plugin -->
-        <script src="../../static/user/js/jquery.md5.js"></script> <!-- Common jquery plugin -->
+<head>
+	<meta charset="utf-8" />
+	<title>Bike System</title>
+	<link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
+	<link rel="stylesheet" type="text/css" href="../../static/admin/css/login.css" />
+	<script type="text/javascript" src="../../static/admin/js/jquery-2.1.4.min.js"></script>
+	<script src="../../static/user/js/jquery.js"></script> <!-- Common jquery plugin -->
+	<script src="../../static/user/js/jquery.md5.js"></script> <!-- Common jquery plugin -->
 
-	</head>
-	<body>
-		<header class="">
-			<div class="layout_pagemiddle">
-				<img src='../../static/admin/img/dl_06.jpg'/>
-			</div>
-		</header>
-		<div class="layout_content">
-			<div class="layout_login">
-				<table>
-					<tr>
-						<td rowspan="3"></td>
-						<td>
-							<div class="layout_login_in">
-								<img src="../../static/admin/img/user.png" >
-								<input type="text" name="" id="username" value="" placeholder="username" maxlength="20"/>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="layout_login_in">
-								<img src="../../static/admin/img/pass.png" >
-								<input type="password" name="" id="password" value="" placeholder="password" maxlength="20"/>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td colspan=""><a href="#" id="submit" onclick="login()" class="layout_button">login</a></td>
-					</tr>
-				</table>
-			</div>
+</head>
+<body>
+	<header class="">
+		<div class="layout_pagemiddle">
+			<img src='../../static/admin/img/bike_logo.jpeg'/>
 		</div>
+	</header>
+	<div class="layout_content">
+		<div class="layout_login">
+			<table>
+				<tr>
+					<td rowspan="3"></td>
+					<td>
+						<div class="layout_login_in">
+							<img src="../../static/admin/img/user.png" >
+							<input type="text" name="" id="username" value="" placeholder="username" maxlength="20"/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="layout_login_in">
+							<img src="../../static/admin/img/pass.png" >
+							<input type="password" name="" id="password" value="" placeholder="password" maxlength="20"/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan=""><a href="#" id="submit" onclick="login()" class="layout_button">login</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
 
-		<footer class=""></footer>
-	</body>
-    <script>
+<script>
     function login(){
         var username = $("#username").val().trim();
         var password = $.md5($("#password").val().trim());
@@ -85,9 +84,5 @@
     })
     }
 
-
-
-
-    </script>
-
+</script>
 </html>
