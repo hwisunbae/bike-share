@@ -6,6 +6,9 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&callback=initMap&libraries=&v=weekly" async></script>
 
 
+<input type="hidden" id="loc_lats" value="{{loc_lats}}">
+<input type="hidden" id="loc_lons" value="{{loc_lons}}">
+<input type="hidden" id="bike_numbers" value="{{bike_numbers}}">
 <div class="layout_m_content">
 	<div class="layout_m_contitle">Add a New Location</div>
 	<div class="layout_m_infoupcontent">
@@ -38,19 +41,13 @@
 					<td for="lat">Latitude:</td>
 					<td><input type="number" name="lat" id="lat" class="" /></td>
 				</tr>
-<!--				<tr>-->
-<!--					<td class="layout_m_infomcon">-->
-<!--						<span style="color: #FF0000;">*</span> Image:-->
-<!--					</td>-->
-<!--					<td><input  type="file" id="photo" name="photo" /></td>-->
-<!--				</tr>-->
 			</table>
 			<div class="layout_m_infobtnsave">
 				<input id="button_save" href="#" class="layout_button" type="submit" value="Submit"/>
 			</div>
 		</form>
 
-		<div class="map" id="googleMap"></div>
+		<div class="map" id="googleMap" style=""></div>
 	</div>
 </div>
 
@@ -73,7 +70,6 @@ $(function() {
 			submitHandler: function (form) {
 				let name = $("#name").val(),
 					lng = $("#lng").val(), lat = $("#lat").val();
-					alert(name)
 				$.post({
 					url:"/a_manage_location/addNewLocationDo",
 					type:"POST",
@@ -81,8 +77,13 @@ $(function() {
 						name, lng, lat
 					},
 					success:function(data){
-						if(data == "success") alert("Added successfully")
-						else alert("Error")
+						if(data == "success"){
+							alert("Added successfully")
+							window.location.href = "../a_manage_location/addNewLocation"
+						}
+						else{
+							alert("Error")
+							}
 					},
 					fail:function(data){
 						alert("false")
@@ -92,33 +93,36 @@ $(function() {
 		})
 	})
 })
+</script>
 
-/** -------------------------
- * GOOGLE MAP FUNCTIONALITY
- * --------------------------
- */
-// Get Locations from the DB  !!THESE VALUES ARE HARDCODED FOR TESTING!!
-var loc_lat = [55.860916, 55.875398, 55.869042];
-var loc_lon = [-4.251433, -4.248375, -4.212669];
 
-// Get number of bikes for each location from DB  !!THESE VALUES ARE HARDCODED FOR TESTING!!
-var bike_numbers = [10, 30, 0]; //number of bikes in the location
-// Transform numbers into string labels
-var labels = bike_numbers.map(String);
-let labelIndex = 0;
+<script>
 
-//Initialize Marker
-let marker, map, infoWindow;
+		 // Get Locations from the DB  !!THESE VALUES ARE HARDCODED FOR TESTING!!
+		 var loc_lat = {{loc_lats}}
+		 var loc_lon = {{loc_lons}};
 
-function initMap() {
-	const glasgow = {
-		lat: 55.860916,
-		lng: -4.251433
-	};
-	map = new google.maps.Map(document.getElementById("googleMap"), {
-		zoom: 12,
-		center: glasgow,
-	});
+		 // Get number of bikes for each location from DB  !!THESE VALUES ARE HARDCODED FOR TESTING!!
+		 var bike_numbers = {{bike_numbers}}; //number of bikes in the location
+		 // Transform numbers into string labels
+		 var labels = bike_numbers.map(String);
+		 let labelIndex = 0;
+
+		//Initialize Marker
+		let marker;
+
+
+	function initMap() {
+		const glasgow = {
+			lat: 55.860916,
+			lng: -4.251433
+		};
+		const map = new google.maps.Map(document.getElementById("googleMap"), {
+			zoom: 12,
+			center: glasgow,
+		});
+
+
 
 	// Get location
 	infoWindow = new google.maps.InfoWindow();
@@ -152,26 +156,31 @@ function initMap() {
 	  }
 	});
 
-	// Add a marker at the selected location.
-	for (let i = 0; i < loc_lat.length; i++) {
+
+
+        // Add a marker at the selected location.
+		for (i = 0; i < loc_lat.length; i++) {
 		const location = {
-			lat: loc_lat[i],
-			lng: loc_lon[i]
-		};
-		addMarker(location, map);
+				lat: loc_lat[i],
+				lng: loc_lon[i]
+			};
+
+        addMarker(location, map);
+		}
+
+		// This event listener calls placeMarker() when the map is clicked.
+		google.maps.event.addListener(map, "click", (event) => {
+			placeMarker(event.latLng, map);
+			// get latitude and longitude of click
+			var clickLat = event.latLng.lat();
+			var clickLon = event.latLng.lng();
+
+			// place the values in the input box
+			document.getElementById("lat").value = clickLat.toFixed(5);
+			document.getElementById("lng").value = clickLon.toFixed(5);
+		});
+
 	}
-
-	// This event listener calls placeMarker() when the map is clicked.
-	google.maps.event.addListener(map, "click", (event) => {
-		placeMarker(event.latLng, map);
-		// get latitude and longitude of click
-		var clickLat = event.latLng.lat();
-		var clickLon = event.latLng.lng();
-
-		// place the values in the input box
-		document.getElementById("lat").value = clickLat.toFixed(5);
-		document.getElementById("lng").value = clickLon.toFixed(5);
-	});
 
 
 	locationButton.addEventListener("click", () => {
@@ -201,39 +210,27 @@ function initMap() {
 		}
 	})
 
-}
 
-// Place a new marker to the map.
-function placeMarker(location, map) {
-	if (marker) {
-		marker.setPosition(location);
-	} else {
-		marker = new google.maps.Marker({
-			position: location,
-			map: map
-		});
+	// Place a new marker to the map.
+	function placeMarker(location, map) {
+		if (marker) {
+			marker.setPosition(location);
+		} else {
+			marker = new google.maps.Marker({
+				position: location,
+				map: map
+			});
+		}
 	}
-}
 
-// Add a marker to the map.
-function addMarker(location, map) {
-	// Add the marker at the clicked location, and add the next-available label
-	// from the array of alphabetical characters.
-	new google.maps.Marker({
-		position: location,
-		label: labels[labelIndex++ % labels.length],
-		map: map,
-	});
-}
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-	infoWindow.setPosition(pos);
-	infoWindow.setContent(
-		browserHasGeolocation
-			? "Loading to get the current location."
-			: "Error: Your browser doesn't support geolocation."
-		);
-	infoWindow.open(map);
-}
+    // Add a marker to the map.
+    function addMarker(location, map) {
+      // Add the marker at the clicked location, and add the next-available label
+      // from the array of alphabetical characters.
+      new google.maps.Marker({
+        position: location,
+        label: labels[labelIndex++ % labels.length],
+        map: map,
+      });
+    }
 </script>
-{% include 'admin/a_foot.html' %}

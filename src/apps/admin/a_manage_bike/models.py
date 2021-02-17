@@ -2,12 +2,14 @@ from django.db import models
 
 from o_login.models import operator_account
 from u_login.models import user_account
+from a_manage_location.models import location
 # from u_history.models import user_repair_history
 
 # Create your models here.
 class bike(models.Model):
     id = models.AutoField(primary_key=True)
     type = models.CharField(max_length=20, null=True)
+    location_id =models.ForeignKey(location, on_delete=models.CASCADE)
     rent_money = models.FloatField()
     image = models.CharField(max_length=200, null=True)
     open_password = models.CharField(max_length=10, null=True)

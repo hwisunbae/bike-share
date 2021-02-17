@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from a_manage_location.models import *
+import json
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
@@ -17,8 +18,18 @@ def addNewLocation(request):
     if request.GET:
         pass
     else:
+        locations = location.objects.all()
+        loc_lats = []
+        loc_lons = []
+        bike_numbers = []
+        for i in locations:
+            loc_lats.append(float(i.lat))
+            loc_lons.append(float(i.lng))
+            bike_numbers.append(int(i.bike_count_now))
         context = {}
-        context['login'] = 'hello'
+        context['loc_lats'] = loc_lats
+        context['loc_lons'] = loc_lons
+        context['bike_numbers'] = bike_numbers
         return render(request, 'admin/a_add_location.html', context)
 
 @csrf_exempt
