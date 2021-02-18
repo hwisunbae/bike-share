@@ -1,4 +1,6 @@
 function initMap() {
+    // Hide loader
+	$('.loader').hide();
     const glasgow = {
         lat: 55.860916,
         lng: -4.251433
@@ -18,13 +20,19 @@ locationButton.classList.add("custom-map-control-button");
 map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
 
 locationButton.addEventListener("click", () => {
-  // Try HTML5 geolocation.
+    // Try HTML5 geolocation.
+    // Show loader until location is found
+	$('.loader').show();
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
             const pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude,
             };
+            //Hide loader when location found
+            $('.loader').hide();
+            // Redirect to and center map to the location
+            map.setCenter(pos);
             // Place marker to current location
             placeMarker(pos, map); // place marker to the current location
             // place the values in the input box
@@ -91,4 +99,14 @@ function addMarker(location, map) {
     label: labels[labelIndex++ % labels.length],
     map: map,
   });
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(
+    browserHasGeolocation
+      ? "Error: The Geolocation service failed."
+      : "Error: Your browser doesn't support geolocation."
+  );
+  infoWindow.open(map);
 }
