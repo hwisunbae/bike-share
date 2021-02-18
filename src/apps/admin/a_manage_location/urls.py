@@ -21,4 +21,5 @@ urlpatterns = [
     path('index', views.index),
     path('addNewLocation', views.addNewLocation),
     path('addNewLocationDo', views.addNewLocation_do),
+    path('deleteLocationDo', views.deleteLocation_do),
 ]

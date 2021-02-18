@@ -61,9 +61,8 @@
 						<p>{{location.bike_count_now}}</p>
 					</td>
 					<td>
-						<p><a href="#" onclick="deleteUser('{{user.id}}')">Delete</a></p>
+						<p><a href="#" onclick="deleteLocation('{{location.id}}')">Delete</a></p>
 						<p><a href="#"  onclick="changeInformation('{{user.id}}','{{user.username}}','{{user.telephone}}','{{user.password}}','{{user.location}}')">Add New Bike</a></p>
-                        <p><a href="#"  onclick="recharge({{user.id}},'{{user.username}}','{{user.telephone}}','{{user.money}}')">Delete Bike</a></p>
 					</td>
 
 				</tr>
@@ -79,6 +78,44 @@
 		$('.table_user').DataTable();
 	})
 </script>
+
+
+<!--delete-->
+<script>
+	function deleteLocation(id){
+		var x;
+		var r=confirm("Confirm Delete?");
+		if (r==true){
+			$.ajax({
+				url:"../a_manage_location/deleteLocationDo",
+				type:"POST",
+				data:{
+					id:id
+				},
+				success:function(data){
+					if(data=="success"){
+						alert("delete successfully")
+						window.location.href = "../a_manage_location/index";
+					}
+					else{
+						alert("error");
+					}
+				},
+				fail:function(){
+					alert("error")
+				}
+			})
+
+		}
+		else{
+
+		}
+	}
+</script>
+<!--end delete-->
+
+
+
 
 <script>
 

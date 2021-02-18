@@ -61,3 +61,15 @@ def addNewLocation_do(request):
         return HttpResponse('success')
     else:
         return HttpResponse("error")
+
+
+@csrf_exempt
+def deleteLocation_do(request):
+    if request.POST:
+        id = request.POST.get('id')
+        location_d = location.objects.filter(id=id)
+        print(location_d.bikecount)
+        # location.objects.filter(id=id).delete()
+        return HttpResponse("success")
+    else:
+        return HttpResponse("error")
