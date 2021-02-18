@@ -32,7 +32,10 @@
 				<input id="button_save" href="#" class="layout_button" type="submit" value="Submit"/>
 			</div>
 		</form>
-		<div class="map" id="googleMap" style=""></div>
+		<div class="map_wrapper">
+		<div class="map" id="googleMap"></div>
+		<div class="loader"></div>
+		</div>
 	</div>
 </div>
 
@@ -81,10 +84,10 @@ $(function() {
 
 <script>
 
- // Get Locations from the DB  !!THESE VALUES ARE HARDCODED FOR TESTING!!
+ // Get Locations from the DB
  var loc_lat = {{loc_lats}}
  var loc_lon = {{loc_lons}};
- // Get number of bikes for each location from DB  !!THESE VALUES ARE HARDCODED FOR TESTING!!
+ // Get number of bikes for each location from DB
  var bike_numbers = {{bike_numbers}}; //number of bikes in the location
  // Transform numbers into string labels
  var labels = bike_numbers.map(String);
