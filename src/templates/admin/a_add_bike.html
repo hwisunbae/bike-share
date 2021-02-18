@@ -9,16 +9,12 @@
 			{% csrf_token %}
 			<table border="0">
 				<tr>
-					<td for="id">Bike ID:</td>
-					<td><input type="text" class="" name="id" id="id" /></td>
-				</tr>
-				<tr>
 					<td for="locations">Location:</td>
 					<td>
 						<select name="locations" id="locations" class="">
-							<option value="glasgow">Glasgow</option>
-							<option value="dm">DM</option>
-							<option value="kc">KC</option>
+							{%for location in locations%}
+							<option value="{{location.id}}">{{location.location_name}}</option>
+							{% endfor %}
 						</select>
 					</td>
 				</tr>
@@ -32,10 +28,12 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="layout_m_infomcon">
-						<span style="color: #FF0000;">*</span> Image:
-					</td>
-					<td><input  type="file" id="photo" name="photo" /></td>
+					<td for="password">Password:</td>
+					<td><input type="text" class="" name="password" id="password" /></td>
+				</tr>
+				<tr>
+					<td for="rentMoney">Rent Money(￡/H):</td>
+					<td><input type="text" class="" name="rentMoney" id="rentMoney" /></td>
 				</tr>
 			</table>
 			<div class="layout_m_infobtnsave">
@@ -51,19 +49,40 @@ $(function() {
 	$("#button_save").click(function(){
 		$("form[name='add_bike']").validate({
 			rules: {
-				id: "required",
 				locations: "required",
 				types: "required",
-				photo: "required"
+				password: "required",
+				rentmoney: "required",
 			},
 			messages: {
-				id: "Please enter ID",
 				locations: "Please select locations",
 				types: "Please select types",
-				photo: "Please upload photo"
+				password: "Please input password",
+				rentMoney: "Please input rentMoney",
 			},
 			submitHandler: function (form) {
-				// need complete
+				let locations = $("#locations").val(), types = $("#types").val(),
+				password = $("#password").val(), rentMoney = $("#rentMoney").val();
+				$.post({
+					url:"/a_manage_bike/addNewBikeDo",
+					type:"POST",
+					data:{
+						locations, types, password,rentMoney
+					},
+					success:function(data){
+						if(data == "success"){
+							alert("Added successfully")
+							window.location.href = "../a_manage_bike/index"
+						}
+						else{
+							alert("Error")
+							}
+					},
+					fail:function(data){
+						alert("false")
+					}
+				})
+
 			}
 		})
 	})

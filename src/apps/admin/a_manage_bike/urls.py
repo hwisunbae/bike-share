@@ -20,4 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('index',views.index),
     path('addNewBike',views.addNewBike),
+    path('addNewBikeDo',views.addNewBike_do),
+    path('deleteBikeDo',views.deleteBike_do),
+    path('changeInformationDo',views.changeInformation_do),
 ]
