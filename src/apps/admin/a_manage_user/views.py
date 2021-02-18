@@ -56,12 +56,12 @@ def manageUser(request):
 
 # action of recharge user
 @csrf_exempt
-def rechareMoney(request):
+def rechargeMoney(request):
     if request.POST:
         id = request.POST.get('id')
         oldMoney = request.POST.get('money')
-        rechareMoney = request.POST.get('rechareMoney')
-        money = float(oldMoney) + float(rechareMoney)
+        rechargeMoney = request.POST.get('rechargeMoney')
+        money = float(oldMoney) + float(rechargeMoney)
         user_account.objects.filter(id=id).update(money=money)
         return HttpResponse("success")
     else:
