@@ -50,9 +50,9 @@
 			</div>
 		</form>
 
-		<div id="map_wrapper">
+		<div class="map_wrapper">
 		<div class="map" id="googleMap"></div>
-		<div id="loader"></div>
+		<div class="loader"></div>
 		</div>
 
 	</div>
@@ -115,8 +115,8 @@ let labelIndex = 0;
 let marker, map, infoWindow;
 
 function initMap() {
-
-	$('#loader').hide();
+	// Hide loader
+	$('.loader').hide();
 
 	const glasgow = {
 		lat: 55.860916,
@@ -135,19 +135,22 @@ function initMap() {
 	map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
 
 	locationButton.addEventListener("click", () => {
-		$('#loader').show();
-	  // Try HTML5 geolocation.
+		// Show loader until location is found
+		$('.loader').show();
+	  	// Try HTML5 geolocation.
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition((position) => {
 				const pos = {
 					lat: position.coords.latitude,
 					lng: position.coords.longitude,
 				};
-				$('#loader').hide();
+				//Hide loader when location found
+				$('.loader').hide();
+				// Redirect to and center map to the location
+				map.setCenter(pos);
 				// Place marker to current location
 				placeMarker(pos, map); // place marker to the current location
 				// place the values in the input box
-				map.setCenter(pos);
 				document.getElementById("lat").value = position.coords.latitude.toFixed(5);
 				document.getElementById("lng").value = position.coords.longitude.toFixed(5);
 			  },

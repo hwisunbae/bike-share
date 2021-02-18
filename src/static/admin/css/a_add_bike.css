@@ -130,11 +130,11 @@
     background: #ebebeb;
 }
 
-#map_wrapper {
+.map_wrapper {
     position: relative;
 }
 
-#loader {
+.loader {
   position: absolute;
   z-index: 99;
   margin: auto;
