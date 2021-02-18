@@ -118,20 +118,3 @@ def userRepairHistory(request):
         context = {}
         context['login'] = 'hello'
         return render(request, 'admin/a_user_repair_history.html', context)
-
-
-def userRecharge(request):
-    if request.GET:
-        pass
-    else:
-        context = {}
-        context['login'] = 'hello'
-        return render(request, 'admin/a_user_recharge.html', context)
-
-def userRechargeHistory(request):
-    if request.GET:
-        pass
-    else:
-        context = {}
-        context['login'] = 'hello'
-        return render(request, 'admin/a_user_recharge_history.html', context)
