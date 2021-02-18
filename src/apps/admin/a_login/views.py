@@ -31,9 +31,9 @@ def login(request):
                 response.set_cookie("password", user[0].password, 604800)
                 return response
             else:
-                return HttpResponse("passworderror")
+                return HttpResponse("passwordError")
         else:
-            return HttpResponse("usernameerror")
+            return HttpResponse("usernameError")
 
 
 # TESTING PURPOSE : create a account

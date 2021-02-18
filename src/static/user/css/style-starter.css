@@ -10291,16 +10291,16 @@ button.navbar-toggler.collapsed .icon-expand {
   color: #fff; }
 
 .color-orange {
-  border-top: 2px solid #ff0000; }
+  border-top: 2px solid #e6654b; }
 
 .color-green {
-  border-top: 2px solid #89ba16; }
+  border-top: 2px solid #7ab579; }
 
-.color-blue {
-  border-top: 2px solid #0077c8; }
+.color-purple {
+  border-top: 2px solid #664df5; }
 
 .color-pink {
-  border-top: 2px solid #ff4f81; }
+  border-top: 2px solid #e6654b; }
 
 a.text-btn {
   color: var(--heading-color);
@@ -10335,7 +10335,9 @@ a.text-btn:hover span.fa {
   background: var(--bg-color);
   padding: 30px 20px;
   border-radius: var(--border-radius);
-  box-shadow: 0 25px 98px 0 rgba(19, 19, 19, 0.03); }
+  box-shadow: 0 25px 98px 0 rgba(19, 19, 19, 0.03);
+  cursor: pointer;
+}
 
 .w3l-homeblock1 .feature-gd:hover {
   box-shadow: 0 25px 98px 0 rgba(19, 19, 19, 0.06); }
@@ -11540,4 +11542,4 @@ iframe {
   iframe {
     height: 300px; } }
 
-/*# sourceMappingURL=style-starter.css.map */
+
