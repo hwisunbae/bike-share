@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 
 from a_login.views import *
@@ -30,9 +30,20 @@ def login(request):
                 response.set_cookie("password", user[0].password, 604800)
                 return response
             else:
-                return HttpResponse("passworderror")
+                return HttpResponse("passwordError")
         else:
-            return HttpResponse("usernameerror")
+            return HttpResponse("usernameError")
+
+@csrf_exempt
+def logout(request):
+    if request.POST:
+        response = HttpResponse('success')
+        response.delete_cookie("userid")
+        response.delete_cookie("username")
+        response.delete_cookie("password")
+        return response
+    else:
+        return HttpResponse("logoutError")
 
 
 # TESTING PURPOSE : create a account

@@ -49,8 +49,8 @@
                       </li>
                   </ul>
                   <ul class="navbar-nav search-right mt-lg-0 mt-2">
-                      <li class="nav-item"><a href="../o_login/index"
-                              class="btn btn-primary d-none d-lg-block btn-style mr-2">Drop out</a></li>
+                      <li class="nav-item"><button type="submit" onclick="logout()"
+                              class="btn btn-primary d-none d-lg-block btn-style mr-2">Log out</button></li>
                   </ul>
 
               </div>
@@ -58,3 +58,23 @@
       </div>
   </section>
 </header>
+
+<script>
+	function logout(){
+	    let stored = '';
+        $.ajax({
+			url:"/o_login/logout",
+			type:"POST",
+            data: { stored },
+			success:function(data){
+				if(data == "success"){
+					alert("Logout successfully")
+					window.location.href = "../o_login/index"
+				}
+			},
+			fail:function(data){
+				alert("Logout did not success")
+			}
+		})
+	}
+</script>
