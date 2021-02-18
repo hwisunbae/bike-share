@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
     context = {}
-    users = user_account.objects.filter()
+    users = user_account.objects.all()
     context['users'] = users
     return render(request, 'admin/a_manage_user.html', context)
 
@@ -44,15 +44,7 @@ def addNewUser_do(request):
     else:
         return HttpResponse("error")
 
-# action of show manage user
-def manageUser(request):
-    if request.POST:
-        users = user_account.objects.filter().order_by("-id")[0:10]
-        context = {}
-        context['users'] = users
-        return render(request, 'admin/a_index.html', context)
-    else:
-        return HttpResponse("error")
+
 
 # action of recharge user
 @csrf_exempt
