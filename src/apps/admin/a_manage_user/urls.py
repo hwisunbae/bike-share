@@ -23,7 +23,7 @@ urlpatterns = [
     path('addNewUserDo', views.addNewUser_do),
     path('deleteUserDo', views.deleteUser_do),
     path('changeInformationDo', views.changeInformation_do),
-    path('rechareMoney', views.rechareMoney),
+    path('rechargeMoney', views.rechargeMoney),
     path('userBikeHistory', views.userBikeHistory),
     path('userRepairHistory', views.userRepairHistory),
     path('userRecharge', views.userRecharge),
