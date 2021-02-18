@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from a_login.models import *
+from a_login.views import *
 
 def index(request):
     if request.GET:
@@ -16,11 +17,10 @@ def index(request):
 @csrf_exempt
 def resetPassword(request):
     if request.POST:
-        old_password = request.POST.get('old_password')
-        new_password = request.POST.get('new_password')
-        print(admin_account.objects.get(password='123456'))
-        admin_account.objects.filter(password=old_password).update(password=new_password)
-        print(admin_account.objects.filter(password=old_password).update(password=new_password))
+        new_password = request.POST.get("new_password")
+        userid = request.COOKIES.get("userid")
+        md5code = md5value(str(new_password).encode())
+        admin_account.objects.filter(id=userid).update(password=md5code)
         return HttpResponse("success")
     else:
         return HttpResponse("error")
