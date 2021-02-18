@@ -8,7 +8,7 @@
 		{% csrf_token %}
 			<table border="0">
 				<tr>
-					<td for="id">Operator ID:</td>
+					<td for="id">Email:</td>
 					<td><input type="text" name="id" id="id" class=""  /></td>
 				</tr>
 				<tr>
@@ -33,17 +33,18 @@
 					<td for="types">Bike Type:</td>
 					<td>
 						<select name="types" id="types" class="">
-							<option value="city_bike">City Bike</option>
-							<option value="bicycle">Bicycle</option>
+							<option value="city_bike">Repair</option>
+							<option value="bicycle">Transport</option>
+							<option value="bicycle">Manage</option>
 						</select>
 					</td>
 				</tr>
-				<tr>
-					<td class="layout_m_infomcon">
-						<span style="color: #FF0000;">*</span> Image:
-					</td>
-					<td><input  type="file" id="photo" name="photo" /></td>
-				</tr>
+<!--				<tr>-->
+<!--					<td class="layout_m_infomcon">-->
+<!--						<span style="color: #FF0000;">*</span> Image:-->
+<!--					</td>-->
+<!--					<td><input  type="file" id="photo" name="photo" /></td>-->
+<!--				</tr>-->
 			</table>
 			<div class="layout_m_infobtnsave">
 				<input id="button_save" href="#" class="layout_button" type="submit" value="Submit"/>

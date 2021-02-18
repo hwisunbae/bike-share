@@ -2,6 +2,8 @@
 
 <link rel='stylesheet' type='text/css' href='../../static/admin/css/a_index.css' />
 <link rel='stylesheet' type='text/css' href='../../static/admin/css/a_manage.css' />
+<link href="../../static/admin/css/popup-box.css" rel="stylesheet" type="text/css" media="all" /> <!-- popup box css -->
+<script src="../../static/user/js/jquery.md5.js"></script> <!-- Common jquery plugin -->
 
 
 <div class="layout_m_content">
@@ -32,7 +34,7 @@
 			</thead>
 			<tbody>
 			{% for user in users %}
-				<tr>
+				<tr id="{{user.id}}">
 					<td>
 						<p>{{user.id}}</p>
 					</td>
@@ -49,10 +51,11 @@
 						<p>{{user.money}}</p>
 					</td>
 					<td>
-						<p><a href="#">recharge</a></p>
-						<p><a href="#">delete</a></p>
-						<p><a href="#">change pass</a></p>
+						<p><a href="#"  onclick="recharge({{user.id}},'{{user.username}}','{{user.telephone}}','{{user.money}}')">Recharge</a></p>
+						<p><a href="#" onclick="deleteUser('{{user.id}}')">Delete</a></p>
+						<p><a href="#"  onclick="changeInformation('{{user.id}}','{{user.username}}','{{user.telephone}}','{{user.password}}','{{user.location}}')">Change Information</a></p>
 					</td>
+
 				</tr>
 			{% endfor %}
 			</tbody>
@@ -65,5 +68,216 @@
 		$('.table_user').DataTable();
 	})
 </script>
+
+<!-- recharge form popup-->
+<div class="pop-up1">
+	<div id="small-dialog1" class="mfp-hide book-form">
+		<div class="login-form login-form-left">
+			<div class="agile-row">
+				<p><h3>Recharge</h3></p>
+				<div class="login-agileits-top">
+					<form action="" method="post">
+						<input type="hidden" id="rechargeUserid">
+						<p><h2 id="email"></h2></p>
+						<p><h2 id="telephone"></h2></p>
+						<input type="hidden" id="oldMoney">
+						<p><h2 id="money"> </h2></p>
+						<input type="text" class="phone" name="phone" value="" id="rechareMoney" Placeholder="Recharge Money" required="" />
+						<input type="button" onclick="rechargeUser()" value="Recharge">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end recharge form popup-->
+
+<!-- changePass form popup-->
+<div class="pop-up2">
+	<div id="small-dialog2" class="mfp-hide book-form">
+		<div class="login-form login-form-left">
+			<div class="agile-row">
+				<h3>Change Password</h3>
+				<div class="login-agileits-top">
+					<form action="" method="post">
+						<input type="hidden" id="newId">
+						<input type="hidden" id="oldEmail">
+						<input type="email" class="email" name="email" id="newEmail" Placeholder="new username/email" required="" />
+						<input type="text" class="phone" name="phone" id="newTelephone" Placeholder="new telephone" required="" />
+						<input type="text" class="phone" name="location" id="newLocation" Placeholder="new location" required="" />
+						<input type="password" class="password" name="newPassword" id="newPassword" Placeholder="new password" required="" />
+						<input type="hidden" id="oldPassword">
+						<input type="button" onclick="changeInformationDo()" value="Submit">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end changePass form popup-->
+
+<!--popup-js-->
+<a href="#small-dialog1" id="recharge"class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s"></a>
+<a href="#small-dialog2" id="changeInformation" class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s"></a>
+
+<script src="../../static/admin/js/jquery.magnific-popup.js" type="text/javascript"></script>
+
+<script>
+	$(document).ready(function () {
+		$('.popup-with-zoom-anim').magnificPopup({
+			type: 'inline',
+			fixedContentPos: false,
+			fixedBgPos: true,
+			overflowY: 'auto',
+			closeBtnInside: true,
+			preloader: false,
+			midClick: true,
+			removalDelay: 300,
+			mainClass: 'my-mfp-zoom-in'
+		});
+	});
+</script>
+<!--popup js end-->
+
+<!--recharge-->
+<script>
+	function recharge(id,email,telephone,money){
+		$("#rechargeUserid").val(id);
+		var email = "username:"+email;
+		$("#email").html(email);
+		var telephone = "user telephone:"+telephone;
+		$("#telephone").html(telephone);
+		$("#oldMoney").val(money);
+		var money = "now money:" + money
+		$("#money").html(money);
+		$("#recharge").click();
+	}
+
+	function rechargeUser(){
+		id = $("#rechargeUserid").val();
+		money = $("#oldMoney").val();
+		rechareMoney = $("#rechareMoney").val()
+		$.ajax({
+			url:"/a_manage_user/rechareMoney",
+			type:"POST",
+			data:{
+				id:id,
+				money:money,
+				rechareMoney:rechareMoney
+			},
+			success:function(data){
+				if(data == "success"){
+					alert("recharge successfully")
+
+					window.location.href = "../a_manage_user/index"
+				}
+				else{
+					alert("error")
+				}
+			},
+			fail:function(data){
+				alert("error")
+			}
+		})
+
+	}
+</script>
+<!-- end recharge-->
+
+<!--delete-->
+<script>
+	function deleteUser(id){
+		var x;
+		var r=confirm("Confirm Delete?");
+		if (r==true){
+			$.ajax({
+				url:"../a_manage_user/deleteUserDo",
+				type:"POST",
+				data:{
+					id:id
+				},
+				success:function(data){
+					if(data=="success"){
+						document.getElementById(id).remove();
+						alert("delete successfully")
+					}
+					else{
+						alert("error");
+					}
+				},
+				fail:function(){
+					alert("error")
+				}
+			})
+
+		}
+		else{
+
+		}
+	}
+</script>
+<!--end delete-->
+
+
+<!--change information-->
+<script>
+	function changeInformation(id,email,telephone,newPassword,location){
+		$("#newId").val(id);
+		$("#newEmail").val(email);
+		$("#oldEmail").val(email);
+		$("#newTelephone").val(telephone);
+		$("#newPassword").val(newPassword);
+		$("#oldPassword").val(newPassword);
+		$("#newLocation").val(location);
+		$("#changeInformation").click();
+	}
+
+	function changeInformationDo(){
+		var id = $("#newId").val();
+		var email = "";
+		var newEmail = $("#newEmail").val();
+		var oldEmail = $("#oldEmail").val();
+		if(newEmail != oldEmail){
+			email = newEmail;
+		}
+		var telephone = $("#newTelephone").val();
+		var newPassword = $("#newPassword").val();
+		var oldPassword = $("#oldPassword").val();
+		var location = $("#newLocation").val();
+		var password = "";
+		if(newPassword != oldPassword){
+			password = $.md5(newPassword);
+		}
+		$.ajax({
+			url:"/a_manage_user/changeInformationDo",
+			type:"POST",
+			data:{
+				id:id,
+				email:email,
+				telephone:telephone,
+				password:password,
+				location:location
+			},
+			success:function(data){
+				if(data == "success"){
+					alert("change successfully")
+					window.location.href = "../a_manage_user/index"
+				}
+				else if(data == "repeat"){
+					alert("email repeat")
+				}
+				else{
+					alert("error")
+				}
+			},
+			fail:function(data){
+				alert("error")
+			}
+		})
+
+	}
+</script>
+<!--end change information-->
+
 
 {% include 'admin/a_foot.html' %}

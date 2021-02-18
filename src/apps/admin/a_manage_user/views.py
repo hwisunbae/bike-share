@@ -54,6 +54,54 @@ def manageUser(request):
     else:
         return HttpResponse("error")
 
+# action of recharge user
+@csrf_exempt
+def rechareMoney(request):
+    if request.POST:
+        id = request.POST.get('id')
+        oldMoney = request.POST.get('money')
+        rechareMoney = request.POST.get('rechareMoney')
+        money = float(oldMoney) + float(rechareMoney)
+        user_account.objects.filter(id=id).update(money=money)
+        return HttpResponse("success")
+    else:
+        return HttpResponse("error")
+
+
+@csrf_exempt
+def deleteUser_do(request):
+    if request.POST:
+        id = request.POST.get('id')
+        user_account.objects.filter(id=id).delete()
+        return HttpResponse("success")
+    else:
+        return HttpResponse("error")
+
+@csrf_exempt
+def changeInformation_do(request):
+    if request.POST:
+        id = request.POST.get('id')
+        email = request.POST.get('email')
+        telephone = request.POST.get('telephone')
+        location = request.POST.get('location')
+        password = request.POST.get('password')
+        if email == "" or email == None:
+            if password == "" or password==None:
+                user_account.objects.filter(id=id).update(telephone=telephone,location=location)
+            else:
+                user_account.objects.filter(id=id).update(telephone=telephone,location=location,password=password)
+        else:
+            is_duplicate = user_account.objects.filter(username=email)
+            if is_duplicate:
+                return HttpResponse("repeat")
+            if password == "" or password==None:
+                user_account.objects.filter(id=id).update(username=email,telephone=telephone,location=location)
+            else:
+                user_account.objects.filter(id=id).update(username=email,telephone=telephone,location=location,password=password)
+        return HttpResponse("success")
+    else:
+        return HttpResponse("error")
+
 def userBikeHistory(request):
     if request.GET:
         pass

@@ -1,8 +1,6 @@
-
+from a_manage_location.models import *
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
-
 
 def index(request):
     if request.GET:
@@ -10,7 +8,7 @@ def index(request):
     else:
         context = {}
         context['login'] = 'hello'
-        return render(request,'admin/a_manage_bike.html',context)
+        return render(request, 'admin/a_manage_bike.html', context)
 
 
 
@@ -18,6 +16,7 @@ def addNewBike(request):
     if request.GET:
         pass
     else:
+        locations = location.objects.all()
         context = {}
-        context['login'] = 'hello'
-        return render(request,'admin/a_add_bike.html',context)
+        context['locations'] = locations
+        return render(request, 'admin/a_add_bike.html', context)
