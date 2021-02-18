@@ -5,7 +5,6 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&callback=initMap&libraries=&v=weekly" async></script>
 
-
 <input type="hidden" id="loc_lats" value="{{loc_lats}}">
 <input type="hidden" id="loc_lons" value="{{loc_lons}}">
 <input type="hidden" id="bike_numbers" value="{{bike_numbers}}">
@@ -16,23 +15,10 @@
 			  name="add_location" id="add_location">
 			{% csrf_token %}
 			<table border="0">
-<!--				<tr>-->
-<!--					<td for="id">Location ID:</td>-->
-<!--					<td><input type="number" class="" name="id" id="id"/></td>-->
-<!--				</tr>-->
 				<tr>
 					<td for="name">Location Name:</td>
 					<td><input type="text" class="" name="name" id="name" /></td>
 				</tr>
-<!--				<tr>-->
-<!--					<td for="types">Location Type:</td>-->
-<!--					<td>-->
-<!--						<select name="types" id="types" class="">-->
-<!--							<option value="city">City</option>-->
-<!--							<option value="bicycle">Bicycle</option>-->
-<!--						</select>-->
-<!--					</td>-->
-<!--				</tr>-->
 				<tr>
 					<td for="lng">Longitude:</td>
 					<td><input type="number" name="lng" id="lng" class="" /></td>
@@ -46,12 +32,9 @@
 				<input id="button_save" href="#" class="layout_button" type="submit" value="Submit"/>
 			</div>
 		</form>
-
 		<div class="map" id="googleMap" style=""></div>
 	</div>
 </div>
-
-
 
 <script>
 $(function() {
@@ -79,7 +62,7 @@ $(function() {
 					success:function(data){
 						if(data == "success"){
 							alert("Added successfully")
-							window.location.href = "../a_manage_location/addNewLocation"
+							window.location.href = "../a_manage_location/index"
 						}
 						else{
 							alert("Error")
@@ -112,3 +95,5 @@ let marker;
 
 </script>
 <script src="../../static/admin/js/google_map.js"></script>
+
+{% include 'admin/a_foot.html' %}

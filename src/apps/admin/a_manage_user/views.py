@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
     context = {}
-    users = user_account.objects.filter()
+    users = user_account.objects.all()
     context['users'] = users
     return render(request, 'admin/a_manage_user.html', context)
 

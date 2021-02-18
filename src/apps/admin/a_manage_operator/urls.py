@@ -21,5 +21,6 @@ urlpatterns = [
     path('index', views.index),
     path('addNewOperator', views.addNewOperator),
     path('addNewOperatorDo', views.addNewOperator_do),
-    path('deleteOperatorDo', views.deleteOperator_do)
+    path('deleteOperatorDo', views.deleteOperator_do),
+    path('changeInformationDo', views.changeInformation_do)
 ]

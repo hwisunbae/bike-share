@@ -176,24 +176,26 @@
 			var newPassword = $("#newPassword").val();
 			var oldPassword = $("#oldPassword").val();
 			var location = $("#newLocation").val();
+			var type = $("#newType").val();
 			var password = "";
 			if(newPassword != oldPassword){
 				password = $.md5(newPassword);
 			}
 			$.ajax({
-				url:"/a_manage_user/changeInformationDo",
+				url:"/a_manage_operator/changeInformationDo",
 				type:"POST",
 				data:{
 					id:id,
 					email:email,
 					telephone:telephone,
 					password:password,
+					type:type,
 					location:location
 				},
 				success:function(data){
 					if(data == "success"){
 						alert("change successfully")
-						window.location.href = "../a_manage_user/index"
+						window.location.href = "../a_manage_operator/index"
 					}
 					else if(data == "repeat"){
 						alert("email repeat")
