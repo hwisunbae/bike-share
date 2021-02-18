@@ -47,7 +47,11 @@
 			</div>
 		</form>
 
-		<div class="map" id="googleMap" style=""></div>
+		<div class="map_wrapper">
+		<div class="map" id="googleMap"></div>
+		<div class="loader"></div>
+		</div>
+
 	</div>
 </div>
 
@@ -98,21 +102,23 @@ $(function() {
 
 <script>
 
-		 // Get Locations from the DB  !!THESE VALUES ARE HARDCODED FOR TESTING!!
-		 var loc_lat = {{loc_lats}}
-		 var loc_lon = {{loc_lons}};
+	 // Get Locations from the DB
+	 var loc_lat = {{loc_lats}}
+	 var loc_lon = {{loc_lons}};
 
-		 // Get number of bikes for each location from DB  !!THESE VALUES ARE HARDCODED FOR TESTING!!
-		 var bike_numbers = {{bike_numbers}}; //number of bikes in the location
-		 // Transform numbers into string labels
-		 var labels = bike_numbers.map(String);
-		 let labelIndex = 0;
+	 // Get number of bikes for each location from DB
+	 var bike_numbers = {{bike_numbers}}; //number of bikes in the location
+	 // Transform numbers into string labels
+	 var labels = bike_numbers.map(String);
+	 let labelIndex = 0;
 
-		//Initialize Marker
-		let marker;
+	//Initialize Marker
+	let marker;
 
 
 	function initMap() {
+	// Hide loader
+	$('.loader').hide();
 		const glasgow = {
 			lat: 55.860916,
 			lng: -4.251433
@@ -132,17 +138,22 @@ $(function() {
 	map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
 
 	locationButton.addEventListener("click", () => {
-	  // Try HTML5 geolocation.
+		// Show loader until location is found
+		$('.loader').show();
+		// Try HTML5 geolocation
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition((position) => {
 				const pos = {
 					lat: position.coords.latitude,
 					lng: position.coords.longitude,
 				};
+				//Hide loader when location found
+				$('.loader').hide();
+				// Redirect to and center map to the location
+				map.setCenter(pos);
 				// Place marker to current location
 				placeMarker(pos, map); // place marker to the current location
 				// place the values in the input box
-				map.setCenter(pos);
 				document.getElementById("lat").value = position.coords.latitude.toFixed(5);
 				document.getElementById("lng").value = position.coords.longitude.toFixed(5);
 			  },
