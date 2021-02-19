@@ -12,6 +12,6 @@ def index(request):
         # saveAccount()
         context = {}
         context['login'] = 'hello'
-        return render(request,'operator/o_index.html',context)
+        return render(request, 'operator/o_index.html', context)
 
 

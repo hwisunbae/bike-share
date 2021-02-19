@@ -1,5 +1,6 @@
 {% include 'admin/a_header.html' %}
        <!--谷歌地图调用api-->
+<link rel="stylesheet" type="text/css" href="../../static/admin/css/google_map.css" />
 <link rel='stylesheet' type='text/css' href='../../static/admin/css/a_index.css' />
 <link rel='stylesheet' type='text/css' href='../../static/admin/css/a_manage.css' />
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -9,7 +10,10 @@
 <div class="layout_m_content">
 	<div class="layout_m_contitle">Manage Location</div>
 	<div class="layout_m_infoupcontent">
-		<div class="map" id="googleMap" style=""></div>
+		<div class="map_wrapper">
+			<div class="map" id="googleMap"></div>
+			<div class="loader"></div>
+		</div>
 	</div>
 
     <div class="layout_m_table">
@@ -20,7 +24,7 @@
 						<p>Index</p>
 					</th>
 					<th>
-						<p>LocationName</p>
+						<p>Location Name</p>
 					</th>
 					<th>
 						<p>Latitude</p>
@@ -63,7 +67,6 @@
 					<td>
 						<p><a href="#" onclick="deleteLocation('{{location.id}}')">Delete</a></p>
 					</td>
-
 				</tr>
 			{% endfor %}
 			</tbody>

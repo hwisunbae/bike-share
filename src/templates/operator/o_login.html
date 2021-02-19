@@ -1,7 +1,5 @@
-
 <!doctype html>
-<html  lang="en">
-
+<html lang="en">
     <head>
         <!-- meta data -->
         <meta charset="utf-8">
@@ -9,29 +7,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
+		<script src="../../static/user/js/jquery.js"></script> <!-- Common jquery plugin -->
+		<script src="../../static/user/js/jquery.md5.js"></script> <!-- Common jquery plugin -->
+
         <!--font-family-->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
 
         <!-- title of site -->
-        <title>Sign in</title>
+        <title>Operator Sign in</title>
 
-        <!-- For favicon png -->
-		<link rel="shortcut icon" type="image/icon" href="../../static/login/logo/favicon.png"/>
-
-        <!--控制线长短-->
+		<link rel='shortcut icon' href='../../static/admin/img/favicon.ico' type='image/x-icon' />
         <link rel="stylesheet" href="../../static/login/css/bootstrap.min.css">
-
-        <!--style.css-->
         <link rel="stylesheet" href="../../static/login/css/style.css">
-
-        <!--responsive.css 自适应 屏幕-->
         <link rel="stylesheet" href="../../static/login/css/responsive.css">
-
-
     </head>
 
 	<body>
-
 		<section class="signin">
 			<div class="container">
 
@@ -43,12 +34,12 @@
 							<div class="signin-form">
 								<form action="signin.html">
 									<div class="form-group">
-									    <label for="signin_form">Email</label>
-									    <input type="email" class="form-control" id="signin_form" placeholder="Email">
+									    <label for="email">Email</label>
+									    <input type="email" class="form-control" id="email" placeholder="Email">
 									</div><!--/.form-group -->
 									<div class="form-group">
-										<label for="signin_form">passward</label>
-									    <input type="password" class="form-control" id="signin_form" placeholder="Enter your password">
+										<label for="password">passward</label>
+									    <input type="password" class="form-control" id="password" placeholder="Enter your password">
 									</div><!--/.form-group -->
 								</form><!--/form -->
 							</div><!--/.signin-form -->
@@ -78,21 +69,53 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="signin-footer">
-								<button type="submit" class="btn signin_btn signin_btn_two" onclick="window.location.replace('../o_index/index')" data-toggle="modal" data-target=".signin_modal">
+								<button type="submit" class="btn signin_btn signin_btn_two"
+										onclick="login()" data-toggle="modal" data-target=".signin_modal">
 								sign in
 								</button>
 							</div><!--/.signin-footer -->
 						</div><!--/.col -->
 					</div><!--/.row -->
-
 				</div><!--/.sign-content -->
-
 			</div><!--/.container -->
-
 		</section><!--/.signin -->
 
 		<!-- signin end -->
-
     </body>
 
+<script>
+	function login(){
+        let username = $("#email").val().trim(),
+        	password = $.md5($("#password").val().trim());
+        if(username==""){
+            alert("Please input your username");
+            return;
+        }
+        if(password==""){
+            alert("Please input your password");
+            return;
+        }
+        $.ajax({
+			url:"/o_login/login",
+			type:"POST",
+			data:{ username, password },
+			success:function(data){
+				if(data == "success"){
+					alert("login successfully")
+					window.location.href = "../o_index/index"
+				}
+				else if(data == "usernameError")
+					alert("Username is not enrolled")
+				else if(data == "passwordError")
+					alert("Password not match")
+				else{
+					alert("false")
+				}
+			},
+			fail:function(data){
+				alert("false")
+			}
+		})
+	}
+</script>
 </html>

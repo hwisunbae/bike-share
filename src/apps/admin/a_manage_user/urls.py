@@ -26,6 +26,4 @@ urlpatterns = [
     path('rechargeMoney', views.rechargeMoney),
     path('userBikeHistory', views.userBikeHistory),
     path('userRepairHistory', views.userRepairHistory),
-    path('userRecharge', views.userRecharge),
-    path('userRechargeHistory', views.userRechargeHistory),
 ]

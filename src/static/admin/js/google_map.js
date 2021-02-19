@@ -10,45 +10,43 @@ function initMap() {
         center: glasgow,
     });
 
+    // Get location
+    infoWindow = new google.maps.InfoWindow();
+    const locationButton = document.createElement("button");
+    locationButton.textContent = "Get Current Location";
+    locationButton.classList.add("custom-map-control-button");
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
 
-
-// Get location
-infoWindow = new google.maps.InfoWindow();
-const locationButton = document.createElement("button");
-locationButton.textContent = "Get Current Location";
-locationButton.classList.add("custom-map-control-button");
-map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-
-locationButton.addEventListener("click", () => {
-    // Try HTML5 geolocation.
-    // Show loader until location is found
-	$('.loader').show();
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-            const pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude,
-            };
-            //Hide loader when location found
-            $('.loader').hide();
-            // Redirect to and center map to the location
-            map.setCenter(pos);
-            // Place marker to current location
-            placeMarker(pos, map); // place marker to the current location
-            // place the values in the input box
-            map.setCenter(pos);
-            document.getElementById("lat").value = position.coords.latitude.toFixed(5);
-            document.getElementById("lng").value = position.coords.longitude.toFixed(5);
-          },
-          () => {
-            handleLocationError(true, infoWindow, map.getCenter());
-          }
-    );
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-});
+    locationButton.addEventListener("click", () => {
+        // Try HTML5 geolocation.
+        // Show loader until location is found
+        $('.loader').show();
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                };
+                //Hide loader when location found
+                $('.loader').hide();
+                // Redirect to and center map to the location
+                map.setCenter(pos);
+                // Place marker to current location
+                placeMarker(pos, map); // place marker to the current location
+                // place the values in the input box
+                map.setCenter(pos);
+                document.getElementById("lat").value = position.coords.latitude.toFixed(5);
+                document.getElementById("lng").value = position.coords.longitude.toFixed(5);
+              },
+              () => {
+                handleLocationError(true, infoWindow, map.getCenter());
+              }
+        );
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+    });
 
 
 
@@ -73,7 +71,6 @@ locationButton.addEventListener("click", () => {
         document.getElementById("lat").value = clickLat.toFixed(5);
         document.getElementById("lng").value = clickLon.toFixed(5);
     });
-
 }
 
 
