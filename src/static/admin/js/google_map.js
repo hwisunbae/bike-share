@@ -62,6 +62,16 @@ locationButton.addEventListener("click", () => {
     addMarker(location, map);
     }
 
+    // Add a marker at the selected location.
+    for (i = 0; i < loc_lat_bike.length; i++) {
+    const bike_location = {
+            lat: loc_lat_bike[i],
+            lng: loc_lon_bike[i]
+        };
+
+    addBikeMarker(bike_location, map);
+    }
+
     // This event listener calls placeMarker() when the map is clicked.
     google.maps.event.addListener(map, "click", (event) => {
         placeMarker(event.latLng, map);
@@ -73,6 +83,8 @@ locationButton.addEventListener("click", () => {
         document.getElementById("lat").value = clickLat.toFixed(5);
         document.getElementById("lng").value = clickLon.toFixed(5);
     });
+
+
 
 }
 
@@ -97,6 +109,16 @@ function addMarker(location, map) {
   new google.maps.Marker({
     position: location,
     label: labels[labelIndex++ % labels.length],
+    map: map,
+  });
+}
+
+// Add a bike to the map.
+function addBikeMarker(location, map) {
+  // Add the marker at the clicked location, and add the next-available label
+  new google.maps.Marker({
+    position: location,
+    icon: '../../static/admin/img/bicycle.png',
     map: map,
   });
 }
