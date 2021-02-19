@@ -85,65 +85,6 @@
     </script>
     <!-- /move top -->
   </footer>
-
-
-<!--  <script src="assets/js/theme-change.js"></script>&lt;!&ndash; theme switch js (light and dark)&ndash;&gt;-->
-
-<!--    &lt;!&ndash; libhtbox &ndash;&gt;-->
-<!--    <script src="assets/js/lightbox-plus-jquery.min.js"></script>-->
-<!--    &lt;!&ndash; libhtbox &ndash;&gt;-->
-
-<!--  &lt;!&ndash; stats number counter&ndash;&gt;-->
-<!--  <script src="assets/js/jquery.waypoints.min.js"></script>-->
-<!--  <script src="assets/js/jquery.countup.js"></script>-->
-  <script>
-    $('.counter').countUp();
-  </script>
-  <!-- //stats number counter -->
-
-  <!--/MENU-JS-->
-  <script>
-    $(window).on("scroll", function () {
-      var scroll = $(window).scrollTop();
-
-      if (scroll >= 80) {
-        $("#site-header").addClass("nav-fixed");
-      } else {
-        $("#site-header").removeClass("nav-fixed");
-      }
-    });
-
-    //Main navigation Active Class Add Remove
-    $(".navbar-toggler").on("click", function () {
-      $("header").toggleClass("active");
-    });
-    $(document).on("ready", function () {
-      if ($(window).width() > 991) {
-        $("header").removeClass("active");
-      }
-      $(window).on("resize", function () {
-        if ($(window).width() > 991) {
-          $("header").removeClass("active");
-        }
-      });
-    });
-  </script>
-  <!--//MENU-JS-->
-
-  <!-- disable body scroll which navbar is in active -->
-  <script>
-    $(function () {
-      $('.navbar-toggler').click(function () {
-        $('body').toggleClass('noscroll');
-      })
-    });
-  </script>
-  <!-- //disable body scroll which navbar is in active -->
-
-  <!--bootstrap-->
-<!--  <script src="assets/js/bootstrap.min.js"></script>-->
-  <!-- //bootstrap-->
-
+</section>
   </body>
-
-  </html>
+</html>

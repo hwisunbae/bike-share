@@ -7,15 +7,8 @@ from a_login.models import *
 
 
 def index(request):
-    # if get POST request
-    if request.POST:
-       pass
-    # the first request, just show the pages
-    else:
-        # saveAccount() # FOR TESTING PURPOSE
-        context = {}
-        context['login'] = 'hello'
-        return render(request, 'admin/a_login.html', context)
+    context = {}
+    return render(request,'admin/a_login.html',context)
 
 @csrf_exempt  # when you need ajax you must use it! to skip from verification
 def login(request):

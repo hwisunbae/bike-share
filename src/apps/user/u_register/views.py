@@ -20,17 +20,10 @@ def index(request):
         return render(request,'user/u_register.html',context)
 
 
-
-
-# Create your views here.
-
 @csrf_exempt  # when you need ajax you must use it! to skip from verification
 def check_mail(request):
-    # print(request.POST)
-    # print(request.GET)
-    # print(request.body)
     if request.POST:
-        subject = 'Register account '
+        subject = 'Confirm Email '
         text_content = 'important.'
         email = request.POST.get('email')
         code = np.random.randint(10000,99999)
@@ -40,17 +33,31 @@ def check_mail(request):
         msg.attach_alternative(html_content, "text/html")
         msg.send()
         md5code = md5value(str(code).encode())
-        # request.session['confirmCode'] = md5code
-        # request.session.set_expiry(300)  # 设置5分钟后过期
-        # print('判断缓存中是否有:', request.session.get('confirmCode'))
-        # data = {}
-        # data["data"] = "success"
-        # data["confirmCode"] = code
-        # data1 = json.dump(data)
-        # print(code)
         return HttpResponse(md5code)
 
 
+@csrf_exempt
+def register_do(request):
+    if request.POST:
+        email = request.POST.get('email')
+        is_duplicate = user_account.objects.filter(username=email)
+        if is_duplicate:
+            return HttpResponse("repeat")
+        telephone = request.POST.get('telephone')
+        password = request.POST.get('password')
+        payPassword = request.POST.get('payPassword')
+        location = request.POST.get('location')
+        obj = user_account(
+            username=email,
+            password=password,
+            telephone=telephone,
+            location=location,
+            payPassword=payPassword
+        )
+        obj.save()
+        return HttpResponse("success")
+    else:
+        return HttpResponse("error")
 
 def md5value(s):
     md5 = hashlib.md5()
