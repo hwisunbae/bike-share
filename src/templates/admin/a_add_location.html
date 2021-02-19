@@ -85,7 +85,7 @@ $(function() {
 
 
 <script>
-
+ //STANDARD LOCATIONS
  // Get Locations from the DB
  var loc_lat = {{loc_lats}}
  var loc_lon = {{loc_lons}};
@@ -94,6 +94,11 @@ $(function() {
  // Transform numbers into string labels
  var labels = bike_numbers.map(String);
  let labelIndex = 0;
+
+ //BIKE LOCATIONS (HARDCODED NEED TO FIX BACKEND)
+ // Get Locations from the DB
+ var loc_lat_bike = [55.85821, 55.85069, 55.84217]
+ var loc_lon_bike = [-4.32271, -4.21902, -4.27906]
 
 //Initialize Marker
 let marker;
