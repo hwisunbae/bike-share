@@ -28,6 +28,7 @@ def index(request):
 
 
 def addNewBike(request):
+    context = {}
     locations = location.objects.all()
     context['locations'] = locations
     return render(request, 'admin/a_add_bike.html', context)

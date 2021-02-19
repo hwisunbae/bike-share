@@ -47,8 +47,11 @@
                                  <h2 id="returnCode"></h2>
                              </div>
                              <div class="form-input" id="changeButton">
+                                 <input type="hidden" id="rentBikeId">
+                                 <input type="hidden" id="Latitude">
+                                 <input type="hidden" id="longitude">
                                  <button type="button" id="sendCode" class="btn btn-primary btn-style">Get Password</button>
-                                 <button type='button' id = 'seeBiking' style="visibility: hidden" class='btn btn-primary btn-style'>See My Biking</button>
+                                 <button type='button' id = 'seeBiking' style="visibility: hidden" class='btn btn-primary btn-style'>Confirm</button>
                              </div>
                          </form>
                      </div>
@@ -79,6 +82,7 @@ $(document).ready(function(){
                     alert("bike not exist, please change one")
                     return
                 }
+                $("#rentBikeId").val(bikeid)
                 $("#returnCode").html(data)
                 $("#sendCode").remove()
                 $("#seeBiking").css("visibility","visible");
@@ -95,7 +99,10 @@ $(document).ready(function(){
 <script>
     $(document).ready(function(){
         $("#seeBiking").click(function(){
-            window.location.href = "../u_biking/index"
+            var bikeId = $("#rentBikeId").val()
+            var Latitude = $("#Latitude").val()
+            var longitude = $("#longitude").val()
+            window.location.href = "../u_biking/index?bikeid="+bikeid
         })
     })
 </script>

@@ -36,8 +36,4 @@ def check_mail(request):
         msg.send()
         returnCode = "Password:"+str(open_password)+"Rent Money:"+str(rentMoney)+"￡/H"
 
-        # bike isused history
-        # user history
-        # user route
-
         return HttpResponse(returnCode)
