@@ -1,5 +1,6 @@
 {% include 'admin/a_header.html' %}
        <!--谷歌地图调用api-->
+<link rel="stylesheet" type="text/css" href="../../static/admin/css/google_map.css" />
 <link rel='stylesheet' type='text/css' href='../../static/admin/css/a_index.css' />
 <link rel='stylesheet' type='text/css' href='../../static/admin/css/a_manage.css' />
 <link href="../../static/admin/css/popup-box.css" rel="stylesheet" type="text/css" media="all" /> <!-- popup box css -->
@@ -10,7 +11,10 @@
 <div class="layout_m_content">
 	<div class="layout_m_contitle">Manage Bike</div>
 	<div class="layout_m_infoupcontent">
-		<div class="map" id="googleMap" style=""></div>
+		<div class="map_wrapper">
+			<div class="map" id="googleMap"></div>
+			<div class="loader"></div>
+		</div>
 	</div>
 
     <div class="layout_m_table">
@@ -65,7 +69,6 @@
 						<p><a href="#" onclick="deleteBike('{{bike.id}}')">Delete</a></p>
                         <p><a href="#"  onclick="changeInformation('{{bike.id}}','{{bike.type}}','{{bike.location_id.id}}','{{bike.rent_money}}','{{bike.open_password}}','{{bike.is_use}}')">Change Information</a></p>
 					</td>
-
 				</tr>
 			{% endfor %}
 			</tbody>
@@ -74,34 +77,35 @@
 </div>
 
 
+
 <!-- recharge form popup-->
 <div class="pop-up2">
-        <div id="small-dialog2" class="mfp-hide book-form">
-            <div class="login-form login-form-left">
-                <div class="agile-row">
-                    <h3>Change Information</h3>
-                    <div class="login-agileits-top">
-                        <form action="" method="post">
-							<input type="hidden" id="newId">
-							<input type="hidden" id="oldLocation">
-							<select class="name" name="type" id="newType">
-                                <option value="city">City</option>
-								<option value="bicycle">Bicycle</option>
-                            </select>
-							<select class="name" name="newLocation" id="newLocation">
-								{% for location in locations%}
-                                <option value="{{location.id}}">{{location.location_name}}</option>
-								{% endfor %}
-                            </select>
-							<input type="text" class="phone" name="newRent_money" id="newRent_money" Placeholder="new rent money" required="" />
-                            <input type="text" class="phone" name="newOpen_password" id="newOpen_password" Placeholder="new open password" required="" />
-							<input type="button" onclick="changeInformationDo()" value="Submit">
-                        </form>
-                    </div>
-                </div>
-            </div>
+	<div id="small-dialog2" class="mfp-hide book-form">
+		<div class="login-form login-form-left">
+			<div class="agile-row">
+				<h3>Change Information</h3>
+				<div class="login-agileits-top">
+					<form action="" method="post">
+						<input type="hidden" id="newId">
+						<input type="hidden" id="oldLocation">
+						<select class="name" name="type" id="newType">
+							<option value="city">City</option>
+							<option value="bicycle">Bicycle</option>
+						</select>
+						<select class="name" name="newLocation" id="newLocation">
+							{% for location in locations%}
+							<option value="{{location.id}}">{{location.location_name}}</option>
+							{% endfor %}
+						</select>
+						<input type="text" class="phone" name="newRent_money" id="newRent_money" Placeholder="new rent money" required="" />
+						<input type="text" class="phone" name="newOpen_password" id="newOpen_password" Placeholder="new open password" required="" />
+						<input type="button" onclick="changeInformationDo()" value="Submit">
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
+</div>
 <!-- end recharge form popup-->
 <!--popup-js-->
 <a href="#small-dialog2" id="changeInformation"class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s"></a>
