@@ -40,18 +40,19 @@
                          <form method="post" class="signin-form">
                              <div class="form-input">
                                  <label>Bike Id</label>
-                                 <input type="text" name="BikeName" id="BikeName" placeholder="" />
+                                 <input type="text" name="BikeName" id="bikeid" placeholder="" />
                              </div>
+
                              <div class="form-input">
-                                 <label>Bike Password</label>
-                                 <input type="text" name="BikeName" id="BikePassword" placeholder="" />
+                                 <h2 id="returnCode"></h2>
                              </div>
-                             <div class="form-input">
-                                 <label>Rent</label>
-                                 <h2>2￡/h</h2>
+                             <div class="form-input" id="changeButton">
+                                 <input type="hidden" id="rentBikeId">
+                                 <input type="hidden" id="Latitude">
+                                 <input type="hidden" id="longitude">
+                                 <button type="button" id="sendCode" class="btn btn-primary btn-style">Get Password</button>
+                                 <button type='button' id = 'seeBiking' style="visibility: hidden" class='btn btn-primary btn-style'>Confirm</button>
                              </div>
-                             <button type="button" class="btn btn-primary btn-style">Send Code</button>
-                             <button type="button" onclick="window.location.href = '../u_biking/index'" class="btn btn-primary btn-style">Confirm</button>
                          </form>
                      </div>
                  </div>
@@ -59,4 +60,50 @@
          </div>
      </div>
  </section>
+
+<script>
+$(document).ready(function(){
+    $("#sendCode").click(function(){
+        var bikeid = $("#bikeid").val().trim();
+        if(bikeid==""){
+            alert("please input your bikeid");
+            return;
+        }
+        alert("we send you an email,please check!")
+        $.ajax({
+            url:"/u_rent_bike/send",
+            type:"POST",
+            data:{
+                bikeid:bikeid
+            },
+            success:function(data){
+                alert("email is ok");
+                if(data == "notExist"){
+                    alert("bike not exist, please change one")
+                    return
+                }
+                $("#rentBikeId").val(bikeid)
+                $("#returnCode").html(data)
+                $("#sendCode").remove()
+                $("#seeBiking").css("visibility","visible");
+            },
+            fail:function(data){
+                alert("false")
+            }
+        })
+    })
+})
+
+</script>
+
+<script>
+    $(document).ready(function(){
+        $("#seeBiking").click(function(){
+            var bikeId = $("#rentBikeId").val()
+            var Latitude = $("#Latitude").val()
+            var longitude = $("#longitude").val()
+            window.location.href = "../u_biking/index?bikeid="+bikeid
+        })
+    })
+</script>
 {% include 'user/u_footer.html' %}

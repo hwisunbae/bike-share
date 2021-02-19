@@ -4,15 +4,9 @@ from django.http import HttpResponse
 
 
 def index(request):
-    if request.GET:
-        pass
+    userid = request.COOKIES.get("userid")
+    if userid:
+        context = {}
+        return render(request, 'admin/a_index.html', context)
     else:
-        userid = request.COOKIES.get("userid")
-        # userid = None
-        print(userid)
-        if userid:
-            context = {}
-            context['login'] = 'hello'
-            return render(request, 'admin/a_index.html', context)
-        else:
-            return render(request, 'admin/a_login.html')
+        return render(request, 'admin/a_login.html')
