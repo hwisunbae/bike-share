@@ -60,6 +60,16 @@ function initMap() {
     addMarker(location, map);
     }
 
+    // Add a bike marker at the selected location.
+    for (i = 0; i < loc_lat_bike.length; i++) {
+    const bike_location = {
+            lat: loc_lat_bike[i],
+            lng: loc_lon_bike[i]
+        };
+
+    addBikeMarker(bike_location, map);
+    }
+
     // This event listener calls placeMarker() when the map is clicked.
     google.maps.event.addListener(map, "click", (event) => {
         placeMarker(event.latLng, map);
@@ -89,11 +99,20 @@ function placeMarker(location, map) {
 
 // Add a marker to the map.
 function addMarker(location, map) {
-  // Add the marker at the clicked location, and add the next-available label
-  // from the array of alphabetical characters.
+  // Add a marker with a label
   new google.maps.Marker({
     position: location,
     label: labels[labelIndex++ % labels.length],
+    map: map,
+  });
+}
+
+// Add a bike to the map.
+function addBikeMarker(location, map) {
+  // Add a marker with bicycle icon
+  new google.maps.Marker({
+    position: location,
+    icon: '../../static/admin/img/bicycle.png',
     map: map,
   });
 }
