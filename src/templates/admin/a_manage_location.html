@@ -62,7 +62,6 @@
 					</td>
 					<td>
 						<p><a href="#" onclick="deleteLocation('{{location.id}}')">Delete</a></p>
-						<p><a href="#"  onclick="changeInformation('{{user.id}}','{{user.username}}','{{user.telephone}}','{{user.password}}','{{user.location}}')">Add New Bike</a></p>
 					</td>
 
 				</tr>
@@ -96,6 +95,9 @@
 					if(data=="success"){
 						alert("delete successfully")
 						window.location.href = "../a_manage_location/index";
+					}
+					else if(data == "haveBike"){
+						alert("please delete all the bike at first")
 					}
 					else{
 						alert("error");

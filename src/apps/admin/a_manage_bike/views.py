@@ -28,13 +28,9 @@ def index(request):
 
 
 def addNewBike(request):
-    if request.GET:
-        pass
-    else:
-        locations = location.objects.all()
-        context = {}
-        context['locations'] = locations
-        return render(request, 'admin/a_add_bike.html', context)
+    locations = location.objects.all()
+    context['locations'] = locations
+    return render(request, 'admin/a_add_bike.html', context)
 
 
 @csrf_exempt

@@ -27,7 +27,9 @@
         <!--responsive.css 自适应 屏幕-->
         <link rel="stylesheet" href="../../static/login/css/responsive.css">
 
-
+		<script type="text/javascript" src="../../static/admin/js/jquery-2.1.4.min.js"></script>
+		<script src="../../static/user/js/jquery.js"></script> <!-- Common jquery plugin -->
+		<script src="../../static/user/js/jquery.md5.js"></script> <!-- Common jquery plugin -->
     </head>
 
 	<body>
@@ -43,12 +45,12 @@
 							<div class="signin-form">
 								<form action="signin.html">
 									<div class="form-group">
-									    <label for="signin_form">Email</label>
-									    <input type="email" class="form-control" id="signin_form" placeholder="Email">
+									    <label for="username">Email</label>
+									    <input type="email" class="form-control" id="username" placeholder="Email">
 									</div><!--/.form-group -->
 									<div class="form-group">
-										<label for="signin_form">passward</label>
-									    <input type="password" class="form-control" id="signin_form" placeholder="Enter your password">
+										<label for="password">passward</label>
+									    <input type="password" class="form-control" id="password" placeholder="Enter your password">
 									</div><!--/.form-group -->
 								</form><!--/form -->
 							</div><!--/.signin-form -->
@@ -62,13 +64,13 @@
 									<div class="single-password-circle">
 										<input type="radio" id="radio01" name="radio">
 											<label for="radio01">
-												<span class="round-boarder">
-													<span class="round-boarder1"></span>
-												</span>remember password
+<!--												<span class="round-boarder">-->
+<!--													<span class="round-boarder1"></span>-->
+<!--												</span>remember password-->
 											</label>
 									</div><!--/.single-password-circle-->
 									<div class="single-forgot-password-circle text-right">
-										<a href="signin.html">Forgot email or password</a>
+										<a href="../u_login/findPassword">Forgot email or password</a>
 									</div><!--/.single-password-circle-->
 								</div><!--/.password-circle-->
 							</div><!--/.signin-password -->
@@ -78,7 +80,7 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="signin-footer">
-								<button type="submit" class="btn signin_btn signin_btn_two" onclick="window.location.replace('../u_index/index')" data-toggle="modal" data-target=".signin_modal">
+								<button type="button" class="btn signin_btn signin_btn_two" onclick="login()" data-toggle="modal" data-target=".signin_modal">
 								sign in
 								</button>
 								<p>
@@ -99,4 +101,48 @@
 
     </body>
 
+
+
+
+<script>
+    function login(){
+        var username = $("#username").val().trim();
+        var password = $.md5($("#password").val().trim());
+        if(username==""){
+            alert("please input your username");
+            return;
+        }
+        if(password==""){
+            alert("please input your password");
+            return;
+        }
+        $.ajax({
+        url:"/u_login/login",
+        type:"POST",
+        data:{
+            username:username,
+            password:password
+        },
+        success:function(data){
+            if(data == "success"){
+                alert("login successfully")
+                window.location.href = "../u_index/index"
+            }
+            else if(data == "usernameerror"){
+                alert("username false")
+            }
+            else if(data == "passworderror"){
+                alert("password false")
+            }
+            else{
+                alert("false")
+            }
+        },
+        fail:function(data){
+            alert("false")
+        }
+    })
+    }
+
+</script>
 </html>

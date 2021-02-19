@@ -67,9 +67,13 @@ def addNewLocation_do(request):
 def deleteLocation_do(request):
     if request.POST:
         id = request.POST.get('id')
-        location_d = location.objects.filter(id=id)
-        print(location_d.bikecount)
-        # location.objects.filter(id=id).delete()
+        location_d = location.objects.get(id=id)
+        if location_d.bike_count != None:
+            bikeCount = int(location_d.bike_count)
+            if bikeCount>0:
+                return HttpResponse("haveBike")
+
+        location.objects.filter(id=id).delete()
         return HttpResponse("success")
     else:
         return HttpResponse("error")
