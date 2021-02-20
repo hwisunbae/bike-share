@@ -37,10 +37,10 @@
                           <a class="nav-link" href="../u_rent_bike/index">Rent/Repair</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="../u_user_information/index">Information</a>
+                          <a class="nav-link" href="../u_biking/index">Bike Route</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="services.html">Feedback</a>
+                          <a class="nav-link" href="../u_user_information/index">Information</a>
                       </li>
                   </ul>
                   <ul class="navbar-nav search-right mt-lg-0 mt-2">
@@ -52,3 +52,23 @@
       </div>
   </section>
 </header>
+
+<script>
+	function logout(){
+	    let stored = '';
+        $.ajax({
+			url:"/u_login/logout",
+			type:"POST",
+            data: { stored },
+			success:function(data){
+				if(data == "success"){
+					alert("Logout successfully")
+					window.location.href = "../u_login/index"
+				}
+			},
+			fail:function(data){
+				alert("Logout did not success")
+			}
+		})
+	}
+</script>

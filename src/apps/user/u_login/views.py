@@ -27,6 +27,16 @@ def login(request):
         else:
             return HttpResponse("usernameerror")
 
+@csrf_exempt
+def logout(request):
+    if request.POST:
+        response = HttpResponse('success')
+        response.delete_cookie("u_userid")
+        response.delete_cookie("u_username")
+        return response
+    else:
+        return HttpResponse("logoutError")
+
 # show user find password
 def findPassword(request):
     return render(request, 'user/u_find_password.html')
