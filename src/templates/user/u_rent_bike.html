@@ -98,5 +98,26 @@ $(document).ready(function(){
     })
 </script>
 
+<script>
+
+ // Get Locations from the DB
+ var loc_lat = {{loc_lats}};
+ var loc_lon = {{loc_lons}};
+ // Get number of bikes for each location from DB
+ var bike_numbers = {{bike_numbers}}; //number of bikes in the location
+ // Transform numbers into string labels
+ var labels = bike_numbers.map(String);
+ let labelIndex = 0;
+
+ //BIKE LOCATIONS (HARDCODED NEED TO FIX BACKEND)
+ // Get Locations from the DB
+ var loc_lat_bike = {{loc_lat_bike}};
+ var loc_lon_bike = {{loc_lon_bike}};
+
+//Initialize Marker
+let marker;
+
+</script>
+<!--<script src="../../static/user/js/google_map.js"></script>-->
 
 {% include 'user/u_footer.html' %}

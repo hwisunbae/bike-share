@@ -86,7 +86,7 @@ function initMap() {
 }
 
 //Initialize Marker
-let marker;
+//let marker;
 
 // Place a new marker to the map.
 function placeMarker(location, map) {
