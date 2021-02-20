@@ -3,6 +3,7 @@ from django.db import models
 from o_login.models import operator_account
 from u_login.models import user_account
 from a_manage_location.models import location
+
 # from u_history.models import user_repair_history
 
 # Create your models here.
@@ -17,22 +18,23 @@ class bike(models.Model):
     original_lng = models.CharField(max_length=50, null=True)
     new_lat = models.CharField(max_length=50, null=True)
     new_lng = models.CharField(max_length=50, null=True)
-    is_use = models.BooleanField(default=False)
+    is_use = models.CharField(max_length=20,default=False)
 
 class bike_malfunction_history(models.Model):
     id = models.AutoField(primary_key=True)
     bike_id = models.ForeignKey(bike, on_delete=models.CASCADE)
-    # user_repair_history_id = models.ForeignKey(user_repair_history, on_delete=models.CASCADE)
-    operator_id = models.ForeignKey(operator_account, on_delete=models.CASCADE)
-    start_time = models.TimeField(auto_now_add=True)
-    end_time = models.TimeField()
+    operator_id = models.ForeignKey(operator_account, on_delete=models.CASCADE,null=True)
+    start_time = models.DateTimeField(null=True)
+    end_time = models.DateTimeField(null=True)
+    question_type = models.CharField(max_length=50, null=True)
+    detail = models.CharField(max_length=200, null=True)
+    latitude = models.CharField(max_length=50, null=True)
+    longitude = models.CharField(max_length=50, null=True)
+    image1 = models.CharField(max_length=200, null=True)
+    image2 = models.CharField(max_length=200, null=True)
+    image3 = models.CharField(max_length=200, null=True)
+    image4 = models.CharField(max_length=200, null=True)
+    image5 = models.CharField(max_length=200, null=True)
     is_repaired = models.BooleanField(default=False)
 
-class bike_route(models.Model):
-    id = models.AutoField(primary_key=True)
-    user_id = models.ForeignKey(user_account, on_delete=models.CASCADE)
-    bike_id = models.ForeignKey(bike, on_delete=models.CASCADE)
-    lat = models.CharField(max_length=50, null=True)
-    lng = models.CharField(max_length=50, null=True)
-    start_time = models.TimeField(auto_now_add=True)
-    end_time = models.TimeField()
+

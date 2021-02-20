@@ -1,31 +1,9 @@
 {% include 'user/u_header.html' %}
+    <link rel="stylesheet" type="text/css" href="../../static/user/css/google_map.css" />
        <!--谷歌地图调用api-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw" async defer></script>
-
-	<script>
-
-    function initialize()
-    {
-      var mapProp = {
-        center: new google.maps.LatLng(55.87189,-4.28922),
-        zoom:7,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    }
-
-    function loadScript()
-    {
-      var script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&sensor=false&callback=initialize";
-      document.body.appendChild(script);
-    }
-
-
-    window.onload = loadScript;
-
-    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&callback=initMap&libraries=&v=weekly" async></script>
+    <script src="../../static/user/js/google_map.js"></script>
 
 <!-- //about breadcrumb -->
  <section class="w3l-contact-11 py-5" id="contact">
@@ -40,27 +18,28 @@
                          <form method="post" class="signin-form">
                                <div class="form-input">
                                  <label>Booking Id</label>
-                                 <h2>2020012</h2>
+                                   <input type="hidden" id="bikeRouteId" value="{{bikeRouteId}}">
+                                 <h2>{{bikeRouteId}}</h2>
                              </div>
                               <div class="form-input">
+                                    <input type="hidden" id="bikeId" value="{{Bike.id}}">
                                  <label>Bike Id</label>
-                                 <h2>UK00001</h2>
+                                 <h2>{{Bike.id}}</h2>
                              </div>
                              <div class="form-input">
+                                 <input type="hidden" id="startTime" value="{{startTime}}">
                                  <label>Start Time</label>
-                                 <h2>2021.1.24 12:12</h2>
-                             </div>
-
-                             <div class="form-input">
-                                 <label>Now</label>
-                                 <h2>2021.1.24 13:12</h2>
+                                 <h2>{{startTime}}</h2>
                              </div>
                              <div class="form-input">
                                  <label>Fee</label>
-                                 <h2>2￡/h</h2>
+                                 <input type="hidden" id="rent_money" value="{{Bike.rent_money}}">
+                                 <h2>{{Bike.rent_money}}￡/h</h2>
                              </div>
-                             <button type="button" onclick="window.location.href = '../u_bike_question/index'"  class="btn btn-primary btn-style">Operator</button>
-                             <button type="button" class="btn btn-primary btn-style">Return</button>
+                             <input type="hidden" id="lat">
+                             <input type="hidden" id="lng">
+                             <button type="button" id="repair"  class="btn btn-primary btn-style">Repair</button>
+                             <button type="button" id="return"  class="btn btn-primary btn-style">Return</button>
                          </form>
                      </div>
                  </div>
@@ -68,4 +47,84 @@
          </div>
      </div>
  </section>
+
+//every 5s get one request
+<script>
+<!--    window.onload = function () {-->
+<!--        getApi();-->
+<!--    }-->
+<!--    function getApi() {-->
+<!--        setTimeout(getApi,5*1000);-->
+<!--        var Latitude = $("#lat").val()-->
+<!--        var longitude = $("#lng").val()-->
+<!--        alert(Latitude)-->
+<!--        alert(longitude)-->
+<!--        bikeRouteId = $("#bikeRouteId").val()-->
+<!--        bikeId = $("#bikeId").val()-->
+<!--        $.ajax({-->
+<!--            url:"/u_biking/recordLocation",-->
+<!--            type:"POST",-->
+<!--            data:{-->
+<!--                bikeRouteId:bikeRouteId,-->
+<!--                bikeid:bikeId,-->
+<!--                latitude:latitude,-->
+<!--                longitude:longitude-->
+<!--            },-->
+<!--            success:function(data){-->
+<!--                alert(123)-->
+<!--            },-->
+<!--            fail:function(data){-->
+
+<!--            }-->
+<!--        })-->
+<!--    }-->
+</script>
+
+<!--show repair html-->
+<script>
+    $(document).ready(function(){
+        $("#repair").click(function(){
+            var latitude = "55.874932"
+            var longitude = "-4.341375"
+            var bikeRouteId = $("#bikeRouteId").val()
+            var bikeId = $("#bikeId").val()
+            window.location.href = "../u_bike_question/index?bikeRouteId="+bikeRouteId+"&bikeId="+bikeId+"&latitude="+latitude+"&longitude="+longitude
+
+        })
+    })
+</script>
+
+<!--return a bike-->
+<script>
+    $(document).ready(function(){
+        $("#return").click(function(){
+
+            var latitude = $("#lat").val()
+            var longitude = $("#lng").val()
+
+            var bikeRouteId = $("#bikeRouteId").val()
+            var bikeId = $("#bikeId").val()
+            var rent_money = $("#rent_money").val()
+            $.ajax({
+                url:"../u_biking/returnBike",
+                type:"POST",
+                data:{
+                    bikeRouteId:bikeRouteId,
+                    bikeid:bikeId,
+                    latitude:latitude,
+                    longitude:longitude,
+                    rent_money:rent_money,
+                },
+                success:function(data){
+                    alert(data)
+                    window.location.href = "../u_index/index"
+                },
+                fail:function(data){
+
+                }
+            })
+        })
+    })
+</script>
+
 {% include 'user/u_footer.html' %}
