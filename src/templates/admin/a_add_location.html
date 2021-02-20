@@ -63,9 +63,7 @@ $(function() {
 				$.post({
 					url:"/a_manage_location/addNewLocationDo",
 					type:"POST",
-					data:{
-						name, lng, lat
-					},
+					data:{ name, lng, lat },
 					success:function(data){
 						if(data == "success"){
 							alert("Added successfully")
