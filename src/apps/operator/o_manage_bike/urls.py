@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('findBike',views.findBike),
     path('repairBike',views.repairBike),
+    path('repairBikeDo',views.repairBike_do),
     path('transportBike',views.transportBike),
 ]

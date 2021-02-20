@@ -52,9 +52,7 @@ $(document).ready(function(){
         $.ajax({
             url:"/u_rent_bike/send",
             type:"POST",
-            data:{
-                bikeid:bikeid
-            },
+            data:{ bikeid },
             success:function(data){
                 alert("email is ok");
                 if(data == "notExist"){
