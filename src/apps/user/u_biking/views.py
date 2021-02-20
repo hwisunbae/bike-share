@@ -15,8 +15,36 @@ from django.views.decorators.csrf import csrf_exempt
 def index(request):
     # user_route.objects.filter(id=6).delete()
     userid = request.COOKIES.get("u_userid")
-    print(userid)
     userRoute = user_route.objects.filter(user_id=userid)
+    context = {}
+
+    bikes = bike.objects.all()
+    locations = location.objects.all()
+    loc_lats = []
+    loc_lons = []
+    bike_numbers = []
+    for i in locations:
+        loc_lats.append(float(i.lat))
+        loc_lons.append(float(i.lng))
+        bike_numbers.append(int(i.bike_count_now))
+
+    loc_lat_bike = []
+    loc_lon_bike = []
+    for i in bikes:
+        if i.new_lat != None:
+            loc_lat_bike.append(float(i.new_lat))
+            loc_lon_bike.append(float(i.new_lng))
+
+    context = {}
+    context['loc_lats'] = loc_lats
+    context['loc_lons'] = loc_lons
+    context['bike_numbers'] = bike_numbers
+
+    context['loc_lat_bike'] = loc_lat_bike
+    context['loc_lon_bike'] = loc_lon_bike
+
+    print(loc_lats)
+
     routeId = None
     for i in userRoute:
         if i.end_time == None or i.end_time == "":
@@ -24,7 +52,7 @@ def index(request):
 
     if routeId == None:
         bikeid = request.GET.get("bikeid")
-        Latitude = request.GET.get("Latitude")
+        Latitude = request.GET.get("latitude")
         longitude = request.GET.get("longitude")
         bike.objects.filter(id=bikeid).update(new_lat=Latitude,new_lng=longitude,is_use="True")
         # user_route store the start time and start location
@@ -48,7 +76,7 @@ def index(request):
             location_get.save()
 
         bikeRouteId = user_route.objects.get(user_id=userid,bike_id=bikeid,latitude=Latitude,longitude=longitude,start_time=startTime)
-        context = {}
+
         context['bikeRouteId'] = bikeRouteId.id
         context['User'] = userid
         context['Bike'] = Bike
@@ -61,7 +89,6 @@ def index(request):
         #     return render(request, 'user/u_rent_bike.html', context)
     else:
         userRoute1 = user_route.objects.get(id=routeId)
-        context = {}
         context['bikeRouteId'] = userRoute1.id
         context['User'] = userid
         Bike = bike.objects.get(id=userRoute1.bike_id.id)
@@ -77,8 +104,8 @@ def recordLocation(request):
     userid = request.COOKIES.get("u_userid")
     bikeid = request.POST.get("bikeid")
     bikeRouteId = request.POST.get("bikeRouteId")
-    latitude = request.POST.get("latitude")
-    longitude = request.POST.get("longitude")
+    latitude = float(request.POST.get("latitude"))
+    longitude = float(request.POST.get("longitude"))
 
     startTime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     new_time = datetime.datetime.strptime(startTime, '%Y-%m-%d %H:%M:%S')
@@ -101,8 +128,10 @@ def recordLocation(request):
 def returnBike(request):
     userid = request.COOKIES.get("u_userid")
     bikeid = request.POST.get("bikeid")
-    latitude = request.POST.get("latitude")
-    longitude = request.POST.get("longitude")
+
+    latitude = float(request.POST.get("latitude"))
+
+    longitude = float(request.POST.get("longitude"))
     bikeRouteId = request.POST.get("bikeRouteId")
     rent_money = request.POST.get("rent_money")
 

@@ -31,8 +31,8 @@ def index(request):
 def recordQuestion(request):
     userid = request.COOKIES.get("u_userid")
     bikeid = request.POST.get("bikeId")
-    latitude = request.POST.get("latitude")
-    longitude = request.POST.get("longitude")
+    latitude = float(request.POST.get("latitude"))
+    longitude = float(request.POST.get("longitude"))
     type = request.POST.get("type")
     detail = request.POST.get("detail")
     bikeRouteId = request.POST.get("bikeRouteId")
