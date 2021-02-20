@@ -1,58 +1,16 @@
 {% include 'admin/a_header.html' %}
        <!--谷歌地图调用api-->
 <link rel='stylesheet' type='text/css' href='../../static/admin/css/a_index.css' />
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw" async defer></script>
-
-<script>
-    function initialize()
-    {
-      var mapProp = {
-        center: new google.maps.LatLng(55.87189,-4.28922),
-        zoom:7,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    }
-
-    function loadScript()
-    {
-      var script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&sensor=false&callback=initialize";
-      document.body.appendChild(script);
-    }
-
-    window.onload = loadScript;
-</script>
-
-
 
 <div class="layout_m_content">
-<div class="layout_m_contitle">index</div>
-    <table class="layout_m_table1" border="0" cellspacing="" cellpadding="">
-        <tr>
-            <td>location id:</td>
-            <td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
-            <td>bike id:</td>
-            <td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
-            <td>operator id:</td>
-            <td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
+<div class="layout_m_contitle">Welcome To Our Homepage!</div>
+<div class="layout_m_contitle">
+    This is in complete for the purpose of MSc Team Projects
+    <p>Team name : PSD LAB02 Group 1c</p>
+</div>
 
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <div class="layout_button_layer"><a href="javasrcipt:void(0)" class="layout_button1">reset</a></div>
-            </td>
-            <td></td>
-            <td>
-                <div class="layout_button_layer"><a href="javasrcipt:void(0)" class="layout_button1">search</a></div>
-            </td>
-            <td></td>
+<div class="layout_m_contitle">Please click on any menu.</div>
 
-        </tr>
-    </table>
-     <div class="map" id = "googleMap"></div>
 </div>
 
 
