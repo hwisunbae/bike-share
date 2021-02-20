@@ -19,13 +19,13 @@ def login(request):
         if user:
             if user[0].password == password:
                 response = HttpResponse('success')
-                response.set_cookie("u_userid", user[0].id,604800)
-                response.set_cookie("u_username", user[0].username,604800)
+                response.set_cookie("u_userid", user[0].id, 604800)
+                response.set_cookie("u_username", user[0].username, 604800)
                 return response
             else:
-                return HttpResponse("passworderror")
+                return HttpResponse("passwordError")
         else:
-            return HttpResponse("usernameerror")
+            return HttpResponse("usernameError")
 
 # show user find password
 def findPassword(request):
