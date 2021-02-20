@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('index',views.index),
     path('login',views.login),
+    path('logout',views.logout),
     path('findPassword',views.findPassword),
     path('findPasswordDo',views.findPassword_do)
 ]
