@@ -42,15 +42,15 @@ def recordQuestion(request):
     bike.objects.filter(id=bikeid).update(new_lat=latitude,new_lng=longitude,is_use="needRepair")
 
     # write bike history
-    user_route.objects.filter(id=bikeRouteId).update(end_time = endTime,latitude=latitude,longitude=longitude,ratings="needRepair")
+    user_route.objects.filter(id=bikeRouteId).update(end_time=endTime,latitude=latitude,longitude=longitude,ratings="needRepair")
     Bike = bike.objects.get(id=bikeid)
     obj = bike_malfunction_history(
         bike_id=Bike,
-        start_time = endTime,
-        question_type = type,
-        detail = detail,
-        latitude = latitude,
-        longitude = longitude
+        start_time=endTime,
+        question_type=type,
+        detail=detail,
+        latitude=latitude,
+        longitude=longitude
     )
     obj.save()
     return HttpResponse("success")
