@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from a_manage_bike.models import *
 from u_login.models import *
 from u_biking.models import *
+from a_manage_location.models import *
 import time
 import math
 from django.views.decorators.csrf import csrf_exempt
@@ -39,6 +40,13 @@ def index(request):
             start_time=new_start_time
         )
         obj.save()
+
+        # location bike_count_now -1
+        if Bike.new_lat != Bike.location_id.lat and Bike.new_lng != Bike.location_id.lng:
+            location_get = location.objects.get(id=Bike.location_id.id)
+            location_get.bike_count_now -= 1
+            location_get.save()
+
         bikeRouteId = user_route.objects.get(user_id=userid,bike_id=bikeid,latitude=Latitude,longitude=longitude,start_time=startTime)
         context = {}
         context['bikeRouteId'] = bikeRouteId.id
@@ -66,12 +74,33 @@ def index(request):
 
 @csrf_exempt
 def recordLocation(request):
+    userid = request.COOKIES.get("u_userid")
+    bikeid = request.POST.get("bikeid")
+    bikeRouteId = request.POST.get("bikeRouteId")
+    latitude = request.POST.get("latitude")
+    longitude = request.POST.get("longitude")
+
+    startTime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    new_time = datetime.datetime.strptime(startTime, '%Y-%m-%d %H:%M:%S')
+
+    UserRent = user_route.objects.get(id=bikeRouteId)
+    User = user_account.objects.get(id=userid)
+    Bike = bike.objects.get(id=bikeid)
+    obj = bike_route(
+        user_rent_id=UserRent,
+        user_id=User,
+        bike_id=Bike,
+        lat=latitude,
+        lng=longitude,
+        time=new_time
+    )
+    obj.save()
     return HttpResponse("success")
 
 @csrf_exempt
 def returnBike(request):
     userid = request.COOKIES.get("u_userid")
-    bikeid = request.POST.get("bikeId")
+    bikeid = request.POST.get("bikeid")
     latitude = request.POST.get("latitude")
     longitude = request.POST.get("longitude")
     bikeRouteId = request.POST.get("bikeRouteId")
@@ -90,7 +119,7 @@ def returnBike(request):
     money_now = o_money - s_money
     user_get.money = str(money_now)
     user_get.save()
-
+    print(bikeid)
     # change the bike's status to needRepair and set the lan/lon
     bike.objects.filter(id=bikeid).update(new_lat=latitude, new_lng=longitude, is_use="False")
 

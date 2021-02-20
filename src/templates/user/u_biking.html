@@ -38,6 +38,7 @@
                              </div>
                              <input type="hidden" id="lat">
                              <input type="hidden" id="lng">
+
                              <button type="button" id="repair"  class="btn btn-primary btn-style">Repair</button>
                              <button type="button" id="return"  class="btn btn-primary btn-style">Return</button>
                          </form>
@@ -50,34 +51,32 @@
 
 //every 5s get one request
 <script>
-<!--    window.onload = function () {-->
-<!--        getApi();-->
-<!--    }-->
-<!--    function getApi() {-->
-<!--        setTimeout(getApi,5*1000);-->
-<!--        var Latitude = $("#lat").val()-->
-<!--        var longitude = $("#lng").val()-->
-<!--        alert(Latitude)-->
-<!--        alert(longitude)-->
-<!--        bikeRouteId = $("#bikeRouteId").val()-->
-<!--        bikeId = $("#bikeId").val()-->
-<!--        $.ajax({-->
-<!--            url:"/u_biking/recordLocation",-->
-<!--            type:"POST",-->
-<!--            data:{-->
-<!--                bikeRouteId:bikeRouteId,-->
-<!--                bikeid:bikeId,-->
-<!--                latitude:latitude,-->
-<!--                longitude:longitude-->
-<!--            },-->
-<!--            success:function(data){-->
-<!--                alert(123)-->
-<!--            },-->
-<!--            fail:function(data){-->
+    window.onload = function () {
+        getApi();
+    }
+    function getApi() {
+        setTimeout(getApi,5*1000);
+        var latitude = $("#lat").val()
+        var longitude = $("#lng").val()
+        bikeRouteId = $("#bikeRouteId").val()
+        bikeId = $("#bikeId").val()
+        $.ajax({
+            url:"/u_biking/recordLocation",
+            type:"POST",
+            data:{
+                bikeRouteId:bikeRouteId,
+                bikeid:bikeId,
+                latitude:latitude,
+                longitude:longitude
+            },
+            success:function(data){
 
-<!--            }-->
-<!--        })-->
-<!--    }-->
+            },
+            fail:function(data){
+
+            }
+        })
+    }
 </script>
 
 <!--show repair html-->
