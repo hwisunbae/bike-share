@@ -1,5 +1,6 @@
 {% include 'user/u_header.html' %}
     <link rel="stylesheet" type="text/css" href="../../static/user/css/google_map.css" />
+    <link rel='stylesheet' type='text/css' href='../../static/admin/css/a_manage.css' />
        <!--谷歌地图调用api-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&callback=initMap&libraries=&v=weekly" async></script>
@@ -17,7 +18,7 @@
                      <div class="form-inner-cont">
                          <form method="post" class="signin-form">
                              <div class="form-input">
-                                 <label>Bike Id</label>
+                                 <label>Bike ID</label>
                                  <input type="text" name="BikeName" id="bikeid" placeholder="" />
                              </div>
 
@@ -33,6 +34,50 @@
                                  <button type='button' id = 'seeBiking' style="visibility: hidden" class='btn btn-primary btn-style'>Confirm</button>
                              </div>
                          </form>
+                         <div class="layout_m_table">
+                            <table class="table_user">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <p>Index</p>
+                                        </th>
+                                        <th>
+                                            <p>Type</p>
+                                        </th>
+                                        <th>
+                                            <p>Rent Money</p>
+                                        </th>
+                                        <th>
+                                            <p>In Use</p>
+                                        </th>
+                                        <th>
+                                            <p>Location ID</p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for bike in Bikes %}
+                                    <tr id="{{bike.id}}">
+                                        <td>
+                                            <p>{{bike.id}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{bike.type}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{bike.rent_money}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{bike.is_use}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{bike.location_id}}</p>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
                      </div>
                  </div>
              </div>
