@@ -19,6 +19,7 @@ from. import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('findBike', views.findBike),
+    path('findBikeDo', views.findBike_do),
     path('repairBike', views.repairBike),
     path('repairBikeDo', views.repairBike_do),
     path('addNewRepairDo', views.addNewRepair_do),

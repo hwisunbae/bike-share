@@ -18,6 +18,26 @@ def findBike(request):
     else:
         return render(request, 'operator/o_login.html')
 
+def findBike_do(request):
+    if request.GET:
+        bikeId = request.GET.get('bikeId')
+        isExist = bike.objects.filter(id=bikeId).count()
+        if isExist:
+            obj = bike.objects.get(id=bikeId)
+            context = {}
+            context['id'] = obj.id
+            context['type'] = obj.type
+            context['open_password'] = obj.open_password
+            context['new_lat'] = obj.new_lat
+            context['new_lng'] = obj.new_lng
+            context['is_use'] = obj.is_use
+            json_obj = json.dumps(context)
+            return HttpResponse(json_obj)
+        else:
+            return HttpResponse('BikeIDError')
+    else:
+        return HttpResponse("error")
+
 def repairBike(request):
     userid = request.COOKIES.get("o_userid")
     if userid:
