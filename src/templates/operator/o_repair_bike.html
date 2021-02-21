@@ -56,13 +56,14 @@
                                  <label for="photo"><span style="color: #FF0000;">*</span> Image:</label>
                                  <input type="file" id="photo" name="photo" />
                              </div>
-                             <button type="button" id="start" class="btn btn-primary btn-style">Start Investigation</button>
-                             <button type="button" id="end" class="btn btn-primary btn-style">Finish Repair</button>
-                             <input type="text" id="time" class="time" value=""
-                                    placeholder="Start time and finish time appears"
-                                    style="margin-top:25px"/>
+<!--                             <button type="button" id="start" class="btn btn-primary btn-style">Start Investigation</button>-->
+<!--                             <button type="button" id="end" class="btn btn-primary btn-style">Finish Repair</button>-->
+<!--                             <input type="text" id="time" class="time" value=""-->
+<!--                                    placeholder="Start time and finish time appears"-->
+<!--                                    style="margin-top:25px"/>-->
                              <div class="layout_m_infobtnsave">
-                                 <input id="button_save" href="#" class="layout_button btn btn-primary btn-style" type="button" value="Submit"/>
+                                 <input id="button_save" href="#" class="layout_button btn btn-primary btn-style"
+                                        type="button" value="Submit"/>
                              </div>
                          </form>
                      </div>
@@ -74,18 +75,24 @@
 
 <script>
 $(document).ready(function(){
+    let timeStart
+
     $('#search').click(function () {
         let bikeId= $('#bikeId').val().trim();
         if (bikeId=='') {
             alert("Please input your bike ID");
             return;
         }
+
         $.ajax({
             url:"/o_manage_bike/repairBikeDo",
             type:"GET",
             data:{ bikeId },
             success:function(data){
-                if (data != 'BikeIDError') $('#report').val(data)
+                if (data != 'BikeIDError') {
+                    $('#report').val(data)
+                    timeStart = new Date().toLocaleString("sv-SE")
+                }
                 else alert(`There is no matching bike ID (${bikeId}) reported defective.`)
             },
             fail:function(data){
@@ -93,51 +100,30 @@ $(document).ready(function(){
             }
         })
     })
-let startTime, endTime;
 
-$('#start').click(function() {
-    startTime = new Date().toLocaleString();
-    $('#time').val(`Start: ${startTime}`)
-    this.disabled = true
-})
+    $('#button_save').click(function () {
+        let bikeId = $("#bikeId").val(), location = $("#location").val();
 
-$('#end').click(function() {
-    endTime = new Date().toLocaleString();
-    let val = $('#time').val()
-    $('#time').val(`${val} \nEnd: ${endTime}`)
-    this.disabled = true
-})
-
-$('#button_save').click(function () {
-    let bikeId = $("#bikeId").val(), location = $("#location").val();
-
-    $.ajax({
-        url:"/o_manage_bike/addNewRepairDo",
-        type:"POST",
-        data:{ bikeId, location },
-        success: function(data){
-            alert(data)
-            return;
-            if(data == "success"){
-                alert("Added successfully")
-                // window.location.href = "../a_manage_location/index"
+        $.ajax({
+            url:"/o_manage_bike/addNewRepairDo",
+            type:"POST",
+            data:{ bikeId, location, timeStart },
+            success: function(data){
+                alert(data)
+                return;
+                if(data == "success"){
+                    alert("Added successfully")
+                    // window.location.href = "../a_manage_location/index"
+                }
+                else{
+                    alert("Error")
+                }
+            },
+            fail:function(data){
+                alert("Fail")
             }
-            else{
-                alert("Error")
-            }
-        },
-        fail:function(data){
-            alert(123)
-            alert("false")
-        }
+        })
     })
-})
-
-
-
-
-
-
 })
 
 </script>
