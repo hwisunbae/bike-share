@@ -1,4 +1,5 @@
 {% include 'admin/a_header.html' %}
+<link rel="stylesheet" type="text/css" href="../../static/admin/css/google_map.css" />
 <link rel="stylesheet" type="text/css" href="../../static/admin/css/a_add_bike.css" />
 <link rel='stylesheet' type='text/css' href='../../static/admin/css/a_index.css' />
 
@@ -33,8 +34,9 @@
 			</div>
 		</form>
 		<div class="map_wrapper">
-		<div class="map" id="googleMap"></div>
-		<div class="loader"></div>
+			<div class="map" id="googleMap"></div>
+			<div class="loader">
+		</div>
 		</div>
 	</div>
 </div>
@@ -83,7 +85,7 @@ $(function() {
 
 
 <script>
-
+ //STANDARD LOCATIONS
  // Get Locations from the DB
  var loc_lat = {{loc_lats}}
  var loc_lon = {{loc_lons}};
@@ -92,6 +94,11 @@ $(function() {
  // Transform numbers into string labels
  var labels = bike_numbers.map(String);
  let labelIndex = 0;
+
+ //BIKE LOCATIONS (HARDCODED NEED TO FIX BACKEND)
+ // Get Locations from the DB
+ var loc_lat_bike = [55.85821, 55.85069, 55.84217]
+ var loc_lon_bike = [-4.32271, -4.21902, -4.27906]
 
 //Initialize Marker
 let marker;

@@ -24,7 +24,7 @@
 					<td>
 						<div class="layout_login_in">
 							<img src="../../static/admin/img/user.png" >
-							<input type="text" name="" id="username" value="" placeholder="username" maxlength="20"/>
+							<input type="email" name="" id="username" value="" placeholder="admin username" maxlength="20"/>
 						</div>
 					</td>
 				</tr>
@@ -32,7 +32,7 @@
 					<td>
 						<div class="layout_login_in">
 							<img src="../../static/admin/img/pass.png" >
-							<input type="password" name="" id="password" value="" placeholder="password" maxlength="20"/>
+							<input type="password" name="" id="password" value="" placeholder="admin password" maxlength="20"/>
 						</div>
 					</td>
 				</tr>
@@ -49,40 +49,35 @@
         var username = $("#username").val().trim();
         var password = $.md5($("#password").val().trim());
         if(username==""){
-            alert("please input your username");
+            alert("Please input your username");
             return;
         }
         if(password==""){
-            alert("please input your password");
+            alert("Please input your password");
             return;
         }
         $.ajax({
-        url:"/a_login/login",
-        type:"POST",
-        data:{
-            username:username,
-            password:password
-        },
-        success:function(data){
-            if(data == "success"){
-                alert("login successfully")
-                window.location.href = "../a_index/index"
-            }
-            else if(data == "usernameerror"){
-                alert("username false")
-            }
-            else if(data == "passworderror"){
-                alert("password false")
-            }
-            else{
-                alert("false")
-            }
-        },
-        fail:function(data){
-            alert("false")
-        }
-    })
-    }
+			url:"/a_login/login",
+			type:"POST",
+			data:{ username, password },
+			success:function(data){
+				if(data == "success"){
+					alert("login successfully")
+					window.location.href = "../a_index/index"
+				}
+				else if(data == "usernameError")
+					alert("Username is not enrolled")
+				else if(data == "passwordError")
+					alert("Password not match")
+				else{
+					alert("false")
+				}
+			},
+			fail:function(data){
+				alert("false")
+			}
+		})
+	}
 
 </script>
 </html>

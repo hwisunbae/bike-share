@@ -10,45 +10,43 @@ function initMap() {
         center: glasgow,
     });
 
+    // Get location
+    infoWindow = new google.maps.InfoWindow();
+    const locationButton = document.createElement("button");
+    locationButton.textContent = "Get Current Location";
+    locationButton.classList.add("custom-map-control-button");
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
 
-
-// Get location
-infoWindow = new google.maps.InfoWindow();
-const locationButton = document.createElement("button");
-locationButton.textContent = "Get Current Location";
-locationButton.classList.add("custom-map-control-button");
-map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-
-locationButton.addEventListener("click", () => {
-    // Try HTML5 geolocation.
-    // Show loader until location is found
-	$('.loader').show();
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-            const pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude,
-            };
-            //Hide loader when location found
-            $('.loader').hide();
-            // Redirect to and center map to the location
-            map.setCenter(pos);
-            // Place marker to current location
-            placeMarker(pos, map); // place marker to the current location
-            // place the values in the input box
-            map.setCenter(pos);
-            document.getElementById("lat").value = position.coords.latitude.toFixed(5);
-            document.getElementById("lng").value = position.coords.longitude.toFixed(5);
-          },
-          () => {
-            handleLocationError(true, infoWindow, map.getCenter());
-          }
-    );
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
-});
+    locationButton.addEventListener("click", () => {
+        // Try HTML5 geolocation.
+        // Show loader until location is found
+        $('.loader').show();
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                };
+                //Hide loader when location found
+                $('.loader').hide();
+                // Redirect to and center map to the location
+                map.setCenter(pos);
+                // Place marker to current location
+                placeMarker(pos, map); // place marker to the current location
+                // place the values in the input box
+                map.setCenter(pos);
+                document.getElementById("lat").value = position.coords.latitude.toFixed(5);
+                document.getElementById("lng").value = position.coords.longitude.toFixed(5);
+              },
+              () => {
+                handleLocationError(true, infoWindow, map.getCenter());
+              }
+        );
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+    });
 
 
 
@@ -62,6 +60,16 @@ locationButton.addEventListener("click", () => {
     addMarker(location, map);
     }
 
+    // Add a bike marker at the selected location.
+    for (i = 0; i < loc_lat_bike.length; i++) {
+    const bike_location = {
+            lat: loc_lat_bike[i],
+            lng: loc_lon_bike[i]
+        };
+
+    addBikeMarker(bike_location, map);
+    }
+
     // This event listener calls placeMarker() when the map is clicked.
     google.maps.event.addListener(map, "click", (event) => {
         placeMarker(event.latLng, map);
@@ -73,7 +81,6 @@ locationButton.addEventListener("click", () => {
         document.getElementById("lat").value = clickLat.toFixed(5);
         document.getElementById("lng").value = clickLon.toFixed(5);
     });
-
 }
 
 
@@ -92,11 +99,20 @@ function placeMarker(location, map) {
 
 // Add a marker to the map.
 function addMarker(location, map) {
-  // Add the marker at the clicked location, and add the next-available label
-  // from the array of alphabetical characters.
+  // Add a marker with a label
   new google.maps.Marker({
     position: location,
     label: labels[labelIndex++ % labels.length],
+    map: map,
+  });
+}
+
+// Add a bike to the map.
+function addBikeMarker(location, map) {
+  // Add a marker with bicycle icon
+  new google.maps.Marker({
+    position: location,
+    icon: '../../static/admin/img/bicycle.png',
     map: map,
   });
 }
