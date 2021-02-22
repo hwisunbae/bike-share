@@ -71,12 +71,13 @@ def index(request):
             context['locations'] = locations
             context['loc_lat_route'] = []
             context['loc_lon_route'] = []
+            Bikes = bike.objects.filter(is_use="False")
+            context['Bikes'] = Bikes
             return render(request, 'user/u_rent_bike.html', context)
     else:
         context = {}
         context["needLogin"] = "needLogin"
         return render(request, 'user/u_login.html')
-
 
 @csrf_exempt  # when you need ajax you must use it! to skip from verification
 def check_mail(request):

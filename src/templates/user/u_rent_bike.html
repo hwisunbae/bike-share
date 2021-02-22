@@ -48,9 +48,6 @@
                                             <p>Rent Money</p>
                                         </th>
                                         <th>
-                                            <p>In Use</p>
-                                        </th>
-                                        <th>
                                             <p>Location ID</p>
                                         </th>
                                     </tr>
@@ -65,13 +62,10 @@
                                             <p>{{bike.type}}</p>
                                         </td>
                                         <td>
-                                            <p>{{bike.rent_money}}</p>
+                                            <p>{{bike.rent_money}}￡/H</p>
                                         </td>
                                         <td>
-                                            <p>{{bike.is_use}}</p>
-                                        </td>
-                                        <td>
-                                            <p>{{bike.location_id}}</p>
+                                            <p>{{bike.location_id.location_name}}</p>
                                         </td>
                                     </tr>
                                 {% endfor %}
