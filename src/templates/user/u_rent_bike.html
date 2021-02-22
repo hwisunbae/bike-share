@@ -91,9 +91,7 @@ $(document).ready(function(){
         $.ajax({
             url:"/u_rent_bike/send",
             type:"POST",
-            data:{
-                bikeid:bikeid
-            },
+            data:{ bikeid },
             success:function(data){
                 if(data == "notExist"){
                     alert("bike not exist, please change one")

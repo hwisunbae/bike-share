@@ -33,26 +33,34 @@
          <div class="form-41-mian mt-5 pt-lg-5 pt-md-4">
              <div class="container">
                  <div class="d-grid align-form-map">
-
                     <div class="map" id = "googleMap" style="width:100%;height:500px;border: 200px;padding:100px;">
                      </div>
                      <div class="form-inner-cont">
-                         <form method="post" class="signin-form">
+                         <form name="repair-form" id="repair-form"
+                               action="../o_manage_bike/repairBikeDo" method="post" >
+                             {% csrf_token %}
                              <div class="form-input">
-                                 <label>Bike Id</label>
-                                 <input type="text" name="BikeName" id="BikeName" placeholder="" />
-                                 <button type="button" id= "search" class="btn btn-primary btn-style">Search</button>
+                                 <label for="bikeId">Bike ID</label>
+                                 <input type="text" name="bikeId" id="bikeId" placeholder="" />
+                                 <button type="button" id="search" class="btn btn-primary btn-style">Search</button>
                              </div>
-                             <div id="bikeproblem">
-
-                             </div>
-
                              <div class="form-input">
-                                 <label>Detail</label>
-                                 <textarea  name="BikeName" id="BikeName" placeholder="" ></textarea>
+                                 <label for="report">Report From User</label>
+                                 <textarea  name="report" id="report" placeholder="Please fix tire " ></textarea>
                              </div>
-                             <button type="button" class="btn btn-primary btn-style">Repaired</button>
-                             <button type="button" onclick="window.location.href = '../o_index/index'" class="btn btn-primary btn-style">Return</button>
+                             <div class="form-input">
+                                 <label for="location">Location Where Repair Is Given</label>
+                                 <textarea  name="location" id="location" placeholder="Glasgow" ></textarea>
+                             </div>
+                             <div class="form-input">
+                                 <label for="photo"><span style="color: #FF0000;">*</span> Image:</label>
+                                 <input type="file" id="photo" name="photo" />
+                             </div>
+                             <div class="layout_m_infobtnsave">
+                                 <input id="button_save" href="#" class="layout_button btn btn-primary btn-style"
+                                        type="submit" value="Submit"
+                                        style="text-align:center; background-color:#8cdbc2;"/>
+                             </div>
                          </form>
                      </div>
                  </div>
@@ -63,18 +71,68 @@
 
 <script>
 $(document).ready(function(){
-        $("#search").click(function(){
-            var html = "<div class='form-input'>"+
-                                 "<label>type</label>"+
-                                 "<h1>Tires</h1>"+
-                             "</div>"+
-                        "<div class='form-input'>"+
-                                 "<label>Problem</label>"+
-                                 "<h1>broken down can not work</h1>"+
-                             "</div>"
-            $("#bikeproblem").append(html);
+    let timeStart
+
+    $('#search').click(function () {
+        let bikeId= $('#bikeId').val().trim();
+        if (bikeId=='') {
+            alert("Please input your bike ID");
+            return;
+        }
+
+        $.ajax({
+            url:"/o_manage_bike/repairBikeDo",
+            type:"GET",
+            data:{ bikeId },
+            success:function(data){
+                if (data != 'BikeIDError') {
+                    $('#report').val(data)
+                    timeStart = new Date().toLocaleString("sv-SE")
+                }
+                else alert(`There is no matching bike ID (${bikeId}) reported defective.`)
+            },
+            fail:function(data){
+                alert("false")
+            }
         })
     })
+
+    $('#button_save').click(function () {
+        $("form[name='repair-form']").validate({
+            rules: {
+                bikeId: 'required',
+                location: {
+                    minlength: 5
+                }
+            },
+            messages: {
+				bikeId: "Please enter ID",
+				location: "Please enter more than 5 characters",
+			},
+			submitHandler: function (form) {
+                let bikeId = $("#bikeId").val(), location = $("#location").val();
+                $.ajax({
+                    url: "/o_manage_bike/addNewRepairDo",
+                    type: "POST",
+                    data: {bikeId, location, timeStart},
+                    success: function (data) {
+                        if (data == "success") {
+                            document.getElementById('bikeId').value = ''
+                            document.getElementById('location').value = ''
+                            document.getElementById('report').value = ''
+                            alert("Added successfully")
+                        }
+                        else
+                            alert("Error")
+                    },
+                    fail: function (data) {
+                        alert("Fail")
+                    }
+                })
+            }
+        })
+    })
+})
 
 </script>
 

@@ -8,7 +8,7 @@ from a_login.models import *
 
 def index(request):
     context = {}
-    return render(request,'admin/a_login.html',context)
+    return render(request, 'admin/a_login.html', context)
 
 @csrf_exempt  # when you need ajax you must use it! to skip from verification
 def login(request):

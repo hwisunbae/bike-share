@@ -32,7 +32,7 @@
 				</tr>
 			</table>
 			<div class="layout_m_infobtnsave">
-				<input id="button_save" href="#" class="layout_button" type="submit" value="Submit"/>
+				<input id="button_save" href="#" class="layout_button" type="button" value="Submit"/>
 			</div>
 		</form>
 		<div class="map_wrapper">
@@ -63,9 +63,7 @@ $(function() {
 				$.post({
 					url:"/a_manage_location/addNewLocationDo",
 					type:"POST",
-					data:{
-						name, lng, lat
-					},
+					data:{ name, lng, lat },
 					success:function(data){
 						if(data == "success"){
 							alert("Added successfully")
