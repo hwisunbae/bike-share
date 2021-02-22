@@ -22,7 +22,8 @@ def index(request):
         loc_lat_bike = []
         loc_lon_bike = []
         for i in bikes:
-            if i.new_lat != None:
+            if i.new_lat:
+                print(i.new_lat)
                 loc_lat_bike.append(float(i.new_lat))
                 loc_lon_bike.append(float(i.new_lng))
 
@@ -33,7 +34,7 @@ def index(request):
 
         context['loc_lat_bike'] = loc_lat_bike
         context['loc_lon_bike'] = loc_lon_bike
-        
+
         context['bike_numbers'] = bike_numbers
         bikes = bike.objects.all()
         context['bikes'] = bikes

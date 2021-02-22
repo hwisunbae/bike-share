@@ -60,7 +60,7 @@ def addNewLocation(request):
         loc_lat_bike = []
         loc_lon_bike = []
         for i in bikes:
-            if i.new_lat != None:
+            if i.new_lat:
                 loc_lat_bike.append(float(i.new_lat))
                 loc_lon_bike.append(float(i.new_lng))
 
