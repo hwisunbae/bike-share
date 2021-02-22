@@ -77,6 +77,7 @@ def index(request):
         context["needLogin"] = "needLogin"
         return render(request, 'user/u_login.html')
 
+
 @csrf_exempt  # when you need ajax you must use it! to skip from verification
 def check_mail(request):
     # if request.POST:
