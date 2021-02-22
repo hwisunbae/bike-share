@@ -55,9 +55,11 @@ def index(request):
         context['longitude'] = userRoute1.longitude
         return render(request, 'user/u_biking.html', context)
     else:
-
+        Bikes = bike.objects.all()
+        context['Bikes'] = Bikes
 
         context['locations'] = locations
+
         return render(request, 'user/u_rent_bike.html', context)
 
 @csrf_exempt  # when you need ajax you must use it! to skip from verification
