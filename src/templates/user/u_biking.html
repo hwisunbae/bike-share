@@ -58,18 +58,13 @@
         setTimeout(getApi,5*1000);
         var latitude = $("#lat").val()
         var longitude = $("#lng").val()
-        alert(latitude)
+        // alert(latitude)
         bikeRouteId = $("#bikeRouteId").val()
         bikeId = $("#bikeId").val()
         $.ajax({
             url:"/u_biking/recordLocation",
             type:"POST",
-            data:{
-                bikeRouteId:bikeRouteId,
-                bikeid:bikeId,
-                latitude:latitude,
-                longitude:longitude
-            },
+            data:{ bikeRouteId, bikeId, latitude, longitude },
             success:function(data){
 
             },
