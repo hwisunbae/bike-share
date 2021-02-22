@@ -56,14 +56,9 @@
                                  <label for="photo"><span style="color: #FF0000;">*</span> Image:</label>
                                  <input type="file" id="photo" name="photo" />
                              </div>
-<!--                             <button type="button" id="start" class="btn btn-primary btn-style">Start Investigation</button>-->
-<!--                             <button type="button" id="end" class="btn btn-primary btn-style">Finish Repair</button>-->
-<!--                             <input type="text" id="time" class="time" value=""-->
-<!--                                    placeholder="Start time and finish time appears"-->
-<!--                                    style="margin-top:25px"/>-->
                              <div class="layout_m_infobtnsave">
                                  <input id="button_save" href="#" class="layout_button btn btn-primary btn-style"
-                                        type="button" value="Submit"
+                                        type="submit" value="Submit"
                                         style="text-align:center; background-color:#8cdbc2;"/>
                              </div>
                          </form>
@@ -106,33 +101,29 @@ $(document).ready(function(){
         $("form[name='repair-form']").validate({
             rules: {
                 bikeId: 'required',
-                report: {
-                    minlength: 10
-                },
                 location: {
                     minlength: 5
                 }
             },
             messages: {
-                report: "Please enter at least 10 characters",
-                location: "Please enter at least 5 characters"
-            },
-            submitHandler: function(form) {
+				bikeId: "Please enter ID",
+				location: "Please enter more than 5 characters",
+			},
+			submitHandler: function (form) {
                 let bikeId = $("#bikeId").val(), location = $("#location").val();
-
                 $.ajax({
                     url: "/o_manage_bike/addNewRepairDo",
                     type: "POST",
                     data: {bikeId, location, timeStart},
                     success: function (data) {
-                        alert(data)
-                        return;
                         if (data == "success") {
+                            document.getElementById('bikeId').value = ''
+                            document.getElementById('location').value = ''
+                            document.getElementById('report').value = ''
                             alert("Added successfully")
-                            // window.location.href = "../a_manage_location/index"
-                        } else {
-                            alert("Error")
                         }
+                        else
+                            alert("Error")
                     },
                     fail: function (data) {
                         alert("Fail")
