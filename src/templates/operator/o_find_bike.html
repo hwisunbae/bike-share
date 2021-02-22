@@ -37,16 +37,17 @@
                     <div class="map" id = "googleMap" style="width:100%;height:500px;border: 200px;padding:100px;">
                      </div>
                      <div class="form-inner-cont">
-                         <form method="post" class="signin-form">
+                         <form name="find-form" id="find-form"
+                               method="post" action="">
+                             {% csrf_token %}
                              <div class="form-input">
-                                 <label>Bike Id</label>
-                                 <input type="text" name="BikeName" id="BikeName" placeholder="" />
+                                 <label>Bike ID</label>
+                                 <input type="text" name="bikeId" id="bikeId" placeholder="" />
+                                 <button type="button" id="search" class="btn btn-primary btn-style">Search</button>
                              </div>
-
-                             <button type="button" class="btn btn-primary btn-style" id="search">Search</button>
-                             <button type="button" onclick="window.location.href = '../o_index/index'" class="btn btn-primary btn-style">Return</button>
-                            <div id="bikestatue">
-
+                             <div class="form-input" id="input-status" style="visibility:hidden">
+                                 <label for="status">Bike Status</label>
+                                 <textarea  name="status" id="status" placeholder="Found bike information will appear here." ></textarea>
                              </div>
 
                          </form>
@@ -59,18 +60,30 @@
 
 <script>
 $(document).ready(function(){
-        $("#search").click(function(){
-            var html = "<div class='form-input'>"+
-                                 "<label>Statue</label>"+
-                                 "<h1>free/used/repaired</h1>"+
-                             "</div>"+
-                        "<div class='form-input'>"+
-                                 "<label>Location</label>"+
-                                 "<h1>(123.1232132132,132,3213213212)</h1>"+
-                             "</div>"
-            $("#bikestatue").append(html);
+    $('#search').click(function () {
+        let bikeId= $('#bikeId').val().trim();
+        if (bikeId=='') {
+            alert("Please input your bike ID");
+            return;
+        }
+
+        $.ajax({
+            url:"/o_manage_bike/findBikeDo",
+            type:"GET",
+            data:{ bikeId },
+            success:function(data){
+                if (data != 'BikeIDError') {
+                    $('#input-status').css('visibility', 'visible')
+                    $('#status').val(data)
+                }
+                else alert(`There is no matching bike ID (${bikeId}) reported defective.`)
+            },
+            fail:function(data){
+                alert("false")
+            }
         })
     })
+})
 
 </script>
 

@@ -52,7 +52,8 @@ def register_do(request):
             password=password,
             telephone=telephone,
             location=location,
-            payPassword=payPassword
+            payPassword=payPassword,
+            money='0.0'
         )
         obj.save()
         return HttpResponse("success")

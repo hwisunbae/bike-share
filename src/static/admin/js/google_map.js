@@ -34,7 +34,6 @@ function initMap() {
                 // Place marker to current location
                 placeMarker(pos, map); // place marker to the current location
                 // place the values in the input box
-                map.setCenter(pos);
                 document.getElementById("lat").value = position.coords.latitude.toFixed(5);
                 document.getElementById("lng").value = position.coords.longitude.toFixed(5);
               },

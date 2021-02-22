@@ -38,28 +38,28 @@
                      </div>
                      <div class="form-inner-cont">
                          <form method="post" class="signin-form">
-                             <div class="form-input">
+                            <div class="form-input">
                                  <label>Booking Id</label>
-                                 <h2>20201201</h2>
-                             </div>
-                           <div class="form-input">
-                                 <label>Bike Id</label>
-                                 <h2>UK00001</h2>
+                                   <input type="hidden" id="bikeRouteId" value="{{bikeRouteId}}">
+                                   <input type="hidden" id="latitude" value="{{latitude}}">
+                                   <input type="hidden" id="longitude" value="{{longitude}}">
+                                 <h2>{{bikeRouteId}}</h2>
                              </div>
                               <div class="form-input">
-                                 <label>Name</label>
-                                 <input type="text" name="w3lName" id="w3lName" placeholder="" />
+                                    <input type="hidden" id="bikeId" value="{{bikeid}}">
+                                 <label>Bike Id</label>
+                                 <h2>{{bikeid}}</h2>
                              </div>
                              <div class="form-input">
-                                 <label>Email(Required)*</label>
-                                 <input type="email" name="w3lSender" id="w3lSender" placeholder="" required="" />
+                                 <label>Type(Required)*</label>
+                                 <input type="email" name="w3lSender" id="type" placeholder="" required="" />
                              </div>
                              <div class="form-input">
-                                 <label>Message(Required)*</label>
-                                 <textarea placeholder="" name="w3lMessage" id="w3lMessage" required=""></textarea>
+                                 <label>Detail(Required)*</label>
+                                 <textarea placeholder="" name="w3lMessage" id="detail" required=""></textarea>
                              </div>
-
-                             <button type="button" class="btn btn-primary btn-style">Submit</button>
+                             <button type="button" id="cancel" class="btn btn-primary btn-style">cancel</button>
+                             <button type="button" id="submit" class="btn btn-primary btn-style">Submit</button>
                          </form>
                      </div>
                  </div>
@@ -67,4 +67,55 @@
          </div>
      </div>
  </section>
+
+
+# cancel
+<script>
+    $(document).ready(function(){
+        $("#cancel").click(function(){
+            window.location.href = "../u_biking/index"
+        })
+    })
+</script>
+
+# submit
+<script>
+     $(document).ready(function(){
+        $("#submit").click(function(){
+            var latitude = $("#latitude").val()
+            var longitude = $("#longitude").val()
+            var bikeRouteId = $("#bikeRouteId").val()
+            var bikeId = $("#bikeId").val()
+            var type = $("#type").val()
+            var detail = $("#detail").val()
+            $.ajax({
+                url:"/u_bike_question/recordQuestion",
+                type:"POST",
+                data:{
+                    bikeRouteId:bikeRouteId,
+                    bikeId:bikeId,
+                    latitude:latitude,
+                    longitude:longitude,
+                    type:type,
+                    detail:detail
+                },
+                success:function(data){
+                    if(data == "success"){
+                        alert("report success")
+                        window.location.href = "../u_index/index"
+                       }
+                    else{
+                        alert("need location at first")
+                        window.location.href = "../u_login/index"
+                    }
+                },
+                fail:function(data){
+                    alert("error")
+                    window.location.href = "../u_login/index"
+                }
+            })
+        })
+    })
+</script>
+
 {% include 'user/u_footer.html' %}

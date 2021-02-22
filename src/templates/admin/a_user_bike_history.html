@@ -6,125 +6,77 @@
 
 <div class="layout_m_content">
 	<div class="layout_m_contitle">User Bike History</div>
-	<table class="layout_m_table1" border="0" cellspacing="" cellpadding="">
-		<tr>
-			<td>user id:</td>
-			<td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
-			<td>bike id:</td>
-			<td><input type="text" class="layout_m_infotext1" id="" value="" /></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				<div class="layout_button_layer"><a href="javasrcipt:void(0)" class="layout_button1">reset</a></div>
-			</td>
-			<td></td>
-			<td>
-				<div class="layout_button_layer"><a href="javasrcipt:void(0)" class="layout_button1">search</a></div>
-			</td>
-			<td></td>
-
-		</tr>
-	</table>
-	<table class="layout_m_table">
-		<thead>
-			<tr>
-				<th>
-					<p>userid</p>
-				</th>
-				<th>
-					<p>username</p>
-				</th>
-				<th>
-					<p>location</p>
-				</th>
-				<th>
-					<p>telephone</p>
-				</th>
-				<th>
-					<p>money</p>
-				</th>
-				<th>
-					<p>operations</p>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>
-					<p>001</p>
-				</td>
-				<td>
-					<p>139@qq.com</p>
-				</td>
-				<td>
-					<p>Glasgow</p>
-				</td>
-				<td>
-					<p>123456</p>
-				</td>
-				<td>
-					<p>100￡</p>
-				</td>
-				<td>
-					<p><a href="#">recharge</a></p>
-					<p><a href="#">delete</a></p>
-					<p><a href="#">change pass</a></p>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<p>001</p>
-				</td>
-				<td>
-					<p>139@qq.com</p>
-				</td>
-				<td>
-					<p>Glasgow</p>
-				</td>
-				<td>
-					<p>123456</p>
-				</td>
-				<td>
-					<p>100￡</p>
-				</td>
-				<td>
-					<p><a href="#">recharge</a></p>
-					<p><a href="#">delete</a></p>
-					<p><a href="#">change pass</a></p>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<p>001</p>
-				</td>
-				<td>
-					<p>139@qq.com</p>
-				</td>
-				<td>
-					<p>Glasgow</p>
-				</td>
-				<td>
-					<p>123456</p>
-				</td>
-				<td>
-					<p>100￡</p>
-				</td>
-				<td>
-					<p><a href="#">recharge</a></p>
-					<p><a href="#">delete</a></p>
-					<p><a href="#">change pass</a></p>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<div style="height:30px;margin:10px;line-height: 30px; text-align: center;color: #696969;">
-		<a href="javasrcipt:void(0)">first page</a>
-		<a href="javasrcipt:void(0)">previous page</a>
-		<a href="javasrcipt:void(0)">next page</a>
-		<a href="javasrcipt:void(0)">last pages</a>
-		no.<span id="">1</span>page/total<span id="">100</span>pages
+	<div class="layout_m_table">
+		<table class="table_userRoute">
+			<thead>
+				<tr>
+					<th>
+						<p>Index</p>
+					</th>
+					<th>
+						<p>Username</p>
+					</th>
+					<th>
+						<p>BikeId</p>
+					</th>
+					<th>
+						<p>Location</p>
+					</th>
+					<th>
+						<p>start_time</p>
+					</th>
+					<th>
+						<p>end_time</p>
+					</th>
+					<th>
+						<p>fee</p>
+					</th>
+					<th>
+						<p>Operations</p>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for userRoute in userRoutes %}
+				<tr id="{{userRoute.id}}">
+					<td>
+						<p>{{userRoute.id}}</p>
+					</td>
+					<td>
+						<p>{{userRoute.user_id.username}}</p>
+					</td>
+					<td>
+						<p>{{userRoute.bike_id.id}}</p>
+					</td>
+					<td>
+						<p>({{userRoute.latitude}},{{userRoute.longitude}})</p>
+					</td>
+					<td>
+						<p>{{userRoute.start_time}}</p>
+					</td>
+					<td>
+						<p>{{userRoute.end_time}}</p>
+					</td>
+					<td>
+						<p>{{userRoute.fee}}</p>
+					</td>
+					<td>
+						<p></p>
+						<p>{{userRoute.ratings}}</p>
+						<p></p>
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
 	</div>
 </div>
+
+<script>
+	$(document).ready(function () {
+		$('.table_userRoute').DataTable();
+	})
+</script>
+
 
 {% include 'admin/a_foot.html' %}

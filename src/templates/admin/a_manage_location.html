@@ -45,6 +45,7 @@
 			</thead>
 			<tbody>
 			{% for location in locations %}
+			{% if location.id != 1%}
 				<tr id="{{location.id}}">
 					<td>
 						<p>{{location.id}}</p>
@@ -68,6 +69,7 @@
 						<p><a href="#" onclick="deleteLocation('{{location.id}}')">Delete</a></p>
 					</td>
 				</tr>
+			{% endif %}
 			{% endfor %}
 			</tbody>
 		</table>
@@ -133,6 +135,10 @@
  var labels = bike_numbers.map(String);
  let labelIndex = 0;
 
+ //BIKE LOCATIONS (HARDCODED NEED TO FIX BACKEND)
+ // Get Locations from the DB
+ var loc_lat_bike = {{loc_lat_bike}};
+ var loc_lon_bike = {{loc_lon_bike}};
 //Initialize Marker
 let marker;
 

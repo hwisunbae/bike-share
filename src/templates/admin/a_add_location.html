@@ -9,8 +9,10 @@
 <input type="hidden" id="loc_lats" value="{{loc_lats}}">
 <input type="hidden" id="loc_lons" value="{{loc_lons}}">
 <input type="hidden" id="bike_numbers" value="{{bike_numbers}}">
+<input type="hidden" id="loc_lat_bike" value="{{loc_lat_bike}}">
+<input type="hidden" id="loc_lon_bike" value="{{loc_lon_bike}}">
 <div class="layout_m_content">
-	<div class="layout_m_contitle">Add a New Location</div>
+	<div class="layout_m_contitle">Add New Location</div>
 	<div class="layout_m_infoupcontent">
 		<form action="../a_manage_location/addNewLocation" method="post"
 			  name="add_location" id="add_location">
@@ -30,7 +32,7 @@
 				</tr>
 			</table>
 			<div class="layout_m_infobtnsave">
-				<input id="button_save" href="#" class="layout_button" type="submit" value="Submit"/>
+				<input id="button_save" href="#" class="layout_button" type="button" value="Submit"/>
 			</div>
 		</form>
 		<div class="map_wrapper">
@@ -61,9 +63,7 @@ $(function() {
 				$.post({
 					url:"/a_manage_location/addNewLocationDo",
 					type:"POST",
-					data:{
-						name, lng, lat
-					},
+					data:{ name, lng, lat },
 					success:function(data){
 						if(data == "success"){
 							alert("Added successfully")
@@ -87,7 +87,7 @@ $(function() {
 <script>
  //STANDARD LOCATIONS
  // Get Locations from the DB
- var loc_lat = {{loc_lats}}
+ var loc_lat = {{loc_lats}};
  var loc_lon = {{loc_lons}};
  // Get number of bikes for each location from DB
  var bike_numbers = {{bike_numbers}}; //number of bikes in the location
@@ -97,8 +97,8 @@ $(function() {
 
  //BIKE LOCATIONS (HARDCODED NEED TO FIX BACKEND)
  // Get Locations from the DB
- var loc_lat_bike = [55.85821, 55.85069, 55.84217]
- var loc_lon_bike = [-4.32271, -4.21902, -4.27906]
+ var loc_lat_bike = {{loc_lat_bike}};
+ var loc_lon_bike = {{loc_lon_bike}};
 
 //Initialize Marker
 let marker;
