@@ -13,9 +13,10 @@ def index(request):
         loc_lons = []
         bike_numbers = []
         for i in locations:
-            loc_lats.append(float(i.lat))
-            loc_lons.append(float(i.lng))
-            bike_numbers.append(int(i.bike_count_now))
+            if i.id != 1:
+                loc_lats.append(float(i.lat))
+                loc_lons.append(float(i.lng))
+                bike_numbers.append(int(i.bike_count_now))
         context = {}
         context['loc_lats'] = loc_lats
         context['loc_lons'] = loc_lons

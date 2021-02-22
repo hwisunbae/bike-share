@@ -100,11 +100,18 @@
                     detail:detail
                 },
                 success:function(data){
-                    alert("report success")
-                    window.location.href = "../u_index/index"
+                    if(data == "success"){
+                        alert("report success")
+                        window.location.href = "../u_index/index"
+                       }
+                    else{
+                        alert("need location at first")
+                        window.location.href = "../u_login/index"
+                    }
                 },
                 fail:function(data){
-
+                    alert("error")
+                    window.location.href = "../u_login/index"
                 }
             })
         })

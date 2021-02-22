@@ -56,11 +56,11 @@ $(document).ready(function(){
                 bikeid:bikeid
             },
             success:function(data){
-                alert("email is ok");
                 if(data == "notExist"){
                     alert("bike not exist, please change one")
                     return;
                 }
+                alert("email is ok");
                 $("#rentBikeId").val(bikeid)
                 $("#returnCode").html(data)
                 $("#sendCode").remove()

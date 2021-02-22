@@ -24,6 +24,5 @@ urlpatterns = [
     path('deleteUserDo', views.deleteUser_do),
     path('changeInformationDo', views.changeInformation_do),
     path('rechargeMoney', views.rechargeMoney),
-    path('userBikeHistory', views.userBikeHistory),
-    path('userRepairHistory', views.userRepairHistory),
+    path('userBikeHistory', views.userBikeHistory)
 ]

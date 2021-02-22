@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from u_login.models import *
+from u_rent_bike.models import *
 from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
@@ -99,14 +100,8 @@ def userBikeHistory(request):
         pass
     else:
         context = {}
-        context['login'] = 'hello'
+        userRoutes = user_route.objects.all()
+        context['userRoutes'] = userRoutes
         return render(request, 'admin/a_user_bike_history.html', context)
 
 
-def userRepairHistory(request):
-    if request.GET:
-        pass
-    else:
-        context = {}
-        context['login'] = 'hello'
-        return render(request, 'admin/a_user_repair_history.html', context)

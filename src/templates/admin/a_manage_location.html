@@ -45,6 +45,7 @@
 			</thead>
 			<tbody>
 			{% for location in locations %}
+			{% if location.id != 1%}
 				<tr id="{{location.id}}">
 					<td>
 						<p>{{location.id}}</p>
@@ -68,6 +69,7 @@
 						<p><a href="#" onclick="deleteLocation('{{location.id}}')">Delete</a></p>
 					</td>
 				</tr>
+			{% endif %}
 			{% endfor %}
 			</tbody>
 		</table>

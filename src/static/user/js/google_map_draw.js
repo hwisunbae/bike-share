@@ -34,6 +34,12 @@ function initMap() {
                 map.setCenter(pos);
                 // Place marker to current location
                 placeMarker(pos, map); // place marker to the current location
+ new google.maps.Marker({
+                    position: pos,
+                    icon: '../../static/admin/img/route.png',
+                    map: map,
+                  });
+
                 // place the values in the input box !!!HERE WE GET THE CURRENT LOCATION VALUES!!!
                 document.getElementById("lat").value = position.coords.latitude.toFixed(5);
                 document.getElementById("lng").value = position.coords.longitude.toFixed(5);
@@ -69,29 +75,21 @@ function initMap() {
     }
 
     // Add a route marker at the selected location.
-//    for (i = 0; i < loc_lat_route.length; i++) {
-//    const route_location = {
-//            lat: loc_lat_route[i],
-//            lng: loc_lon_route[i]
-//        };
-//
-//    addRouteMarker(route_location, map);
-//    }
+    for (i = 0; i < loc_lat_route.length; i++) {
+    const route_location = {
+            lat: loc_lat_route[i],
+            lng: loc_lon_route[i]
+        };
 
+    addRouteMarker(route_location, map);
+    }
 
-    /*
-    // This event listener calls placeMarker() when the map is clicked.
-    google.maps.event.addListener(map, "click", (event) => {
-        placeMarker(event.latLng, map);
-        // get latitude and longitude of click
-        var clickLat = event.latLng.lat();
-        var clickLon = event.latLng.lng();
+//    getApi(glasgow,map)
 
-        // !!!HERE IS THE GET LOCATION VALUES!!!
-        document.getElementById("lat").value = clickLat.toFixed(5);
-        document.getElementById("lng").value = clickLon.toFixed(5);
-    });
-    */
+     var server = setInterval(function(){
+//     alert(123)
+            getApi(glasgow,map);
+        },5000);
 }
 
 //Initialize Marker
@@ -148,3 +146,72 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   );
   infoWindow.open(map);
 }
+
+
+function initMap1(glasgow,map) {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+            };
+            //Hide loader when location found
+            $('.loader').hide();
+            // Redirect to and center map to the location
+            map.setCenter(pos);
+            // Place marker to current location
+            placeMarker(pos, map); // place marker to the current location
+            new google.maps.Marker({
+                position: pos,
+                icon: '../../static/admin/img/route.png',
+                map: map,
+              });
+
+            // place the values in the input box !!!HERE WE GET THE CURRENT LOCATION VALUES!!!
+            document.getElementById("lat").value = position.coords.latitude.toFixed(5);
+            document.getElementById("lng").value = position.coords.longitude.toFixed(5);
+          },
+          () => {
+            handleLocationError(true, infoWindow, map.getCenter());
+          }
+    );
+  }
+    else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+}
+
+
+
+function getApi(glasgow,map) {
+
+
+//        setInterval(getApi(glasgow,map),5*1000);
+        var latitude = $("#lat").val()
+        var longitude = $("#lng").val()
+        initMap1(glasgow,map)
+        bikeRouteId = $("#bikeRouteId").val()
+        bikeId = $("#bikeId").val()
+        $.ajax({
+            url:"/u_biking/recordLocation",
+            type:"POST",
+            data:{
+                bikeRouteId:bikeRouteId,
+                bikeid:bikeId,
+                latitude:latitude,
+                longitude:longitude
+            },
+            success:function(data){
+                if(data == "needLogin"){
+                    alert("need location at first")
+                    window.location.href = "../u_login/index"
+                }
+            },
+            fail:function(data){
+                alert("error")
+                window.location.href = "../u_login/index"
+            }
+        })
+    }
+

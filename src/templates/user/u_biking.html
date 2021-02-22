@@ -3,7 +3,8 @@
        <!--谷歌地图调用api-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&callback=initMap&libraries=&v=weekly" async></script>
-    <script src="../../static/user/js/google_map.js"></script>
+<!--    <script src="../../static/user/js/google_map.js"></script>-->
+    <script src="../../static/user/js/google_map_draw.js"></script>
 
 <!-- //about breadcrumb -->
  <section class="w3l-contact-11 py-5" id="contact">
@@ -49,36 +50,28 @@
      </div>
  </section>
 
-//every 5s get one request
+
+// get real time location
 <script>
-    window.onload = function () {
-        getApi();
-    }
-    function getApi() {
-        setTimeout(getApi,5*1000);
-        var latitude = $("#lat").val()
-        var longitude = $("#lng").val()
-        alert(latitude)
-        bikeRouteId = $("#bikeRouteId").val()
-        bikeId = $("#bikeId").val()
-        $.ajax({
-            url:"/u_biking/recordLocation",
-            type:"POST",
-            data:{
-                bikeRouteId:bikeRouteId,
-                bikeid:bikeId,
-                latitude:latitude,
-                longitude:longitude
-            },
-            success:function(data){
+ // Get Locations from the DB
+ var loc_lat = {{loc_lats}};
+ var loc_lon = {{loc_lons}};
+ // Get number of bikes for each location from DB
+ var bike_numbers = {{bike_numbers}}; //number of bikes in the location
+ // Transform numbers into string labels
+ var labels = bike_numbers.map(String);
+ let labelIndex = 0;
+//BIKE LOCATIONS (HARDCODED NEED TO FIX BACKEND)
+ // Get Locations from the DB
+ var loc_lat_bike = {{loc_lat_bike}};
+ var loc_lon_bike = {{loc_lon_bike}};
 
-            },
-            fail:function(data){
-
-            }
-        })
-    }
+var loc_lat_route = {{loc_lat_route}}
+var loc_lon_route = {{loc_lon_route}}
+var marker
 </script>
+
+
 
 <!--show repair html-->
 <script>
@@ -93,6 +86,7 @@
         })
     })
 </script>
+
 
 <!--return a bike-->
 <script>
@@ -116,8 +110,14 @@
                     rent_money:rent_money,
                 },
                 success:function(data){
+                     if(data == "needLogin"){
+                        alert("need location at first")
+                        window.location.href = "../u_login/index"
+                        return;
+                    }
+
                     alert(data)
-                    window.location.href = "../u_index/index"
+                     window.location.href = "../u_index/index"
                 },
                 fail:function(data){
 
@@ -125,28 +125,6 @@
             })
         })
     })
-</script>
-
-
-<script>
-
- // Get Locations from the DB
- var loc_lat = {{loc_lats}};
- var loc_lon = {{loc_lons}};
- // Get number of bikes for each location from DB
- var bike_numbers = {{bike_numbers}}; //number of bikes in the location
- // Transform numbers into string labels
- var labels = bike_numbers.map(String);
- let labelIndex = 0;
-
- //BIKE LOCATIONS (HARDCODED NEED TO FIX BACKEND)
- // Get Locations from the DB
- var loc_lat_bike = {{loc_lat_bike}};
- var loc_lon_bike = {{loc_lon_bike}};
-
-//Initialize Marker
-let marker;
-
 </script>
 
 
