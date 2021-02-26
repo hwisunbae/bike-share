@@ -1,1 +1,1 @@
-web: gunicorn bike_rent.wsgi
+web: gunicorn src/bike_rent.wsgi
