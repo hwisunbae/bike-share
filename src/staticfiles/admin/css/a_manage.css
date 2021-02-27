@@ -1,0 +1,216 @@
+
+.layout_m_contentm td {
+	border: 1px solid #D3D3D3;
+}
+
+.layout_m_contentm thead p {
+	height: 35px;
+	line-height: 35px;
+}
+.layout_m_contentm tbody p {
+	height: 25px;
+	line-height: 25px;
+}
+
+.layout_m_contentm tbody tr:nth-child(even){
+	background: #f3f4f5;
+}
+.layout_m_contentm tbody tr:hover {
+	background-color: #DDE1EA;
+}
+
+.layout_m_contentm thead td,
+.layout_m_contentm tbody td:nth-child(1),
+.layout_m_contentm tbody td:nth-child(2) {
+	text-align: center;
+}
+
+.layout_m_contentm tbody td:nth-child(3) p {
+	margin-left: 10px;
+}
+
+
+
+.layout_m_table {
+	margin: 0 auto;
+	position: relative;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	font-size: 14px;
+	width: 96%;
+}
+.layout_m_table thead {
+	background: #ffdcc4;
+}
+.layout_m_table thead th p {
+	font-weight: bold;
+	text-align: center;
+	height: 35px;
+	line-height: 35px;
+}
+.layout_m_table tbody td p {
+	text-align: center;
+	height: 25px;
+	line-height: 25px;
+}
+
+.layout_m_table tbody tr:nth-child(even){
+	background: #f3f4f5;
+}
+.layout_m_table tbody tr:hover {
+	background-color: #DDE1EA;
+}
+
+.layout_m_table thead td,
+.layout_m_table tbody td:nth-child(1),
+.layout_m_table tbody td:nth-child(2) {
+	text-align: center;
+}
+
+.layout_m_table tbody td:nth-child(3) p {
+	margin-left: 10px;
+}
+
+.layout_m_table th,
+.layout_m_table td {
+	border: 1px solid #D3D3D3;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*-- login form styling --*/
+.login-form h3 {
+    font-size: 2em;
+    color: #333;
+    float: left;
+    margin-bottom: 1.5em;
+    line-height: 0.7em;
+    letter-spacing: 0px;
+}
+
+span.fa.fa-lock {
+    float: right;
+    font-size: 30px;
+    color: #03A9F4;
+    margin-right: 10px;
+}
+
+.login-form input[type="text"], .login-form input[type="password"], .login-form input[type="email"] {
+    outline: none;
+    font-size: .9em;
+    letter-spacing: 1px;
+    color: #666;
+    padding: 1em 1em;
+    margin: 0;
+    width: 92%;
+    margin-bottom: 1em;
+    border: none;
+    border: 1px solid rgb(101, 101, 101);
+    -webkit-appearance: none;
+    display: block;
+    background: #fff;
+    font-family: 'Raleway', sans-serif;
+}
+.login-form select {
+    outline: none;
+    font-size: .9em;
+    letter-spacing: 1px;
+    color: #666;
+    padding: 1em 1em;
+    margin: 0;
+    width: 99%;
+    margin-bottom: 1em;
+    border: none;
+    border: 1px solid rgb(101, 101, 101);
+    -webkit-appearance: none;
+    display: block;
+    background: #fff;
+    font-family: 'Raleway', sans-serif;
+}
+.login-form input[type="submit"] {
+    font-size: 1em;
+    color: #ffffff;
+    background: #db3552;
+    border: 1px solid #db3552;
+    outline: none;
+    cursor: pointer;
+    padding: .8em 1em;
+    letter-spacing: 1px;
+    -webkit-appearance: none;
+    width: 100%;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    font-family: 'Raleway', sans-serif;
+}
+
+    .login-form input[type="submit"]:hover {
+        background: #384956;
+        border: 1px solid #384956;
+    }
+
+.login-agileits-bottom {
+    margin-top: 1.6em;
+    text-align: center;
+}
+
+    .login-agileits-bottom h6 {
+        font-size: 1em;
+        letter-spacing: 2px;
+    }
+
+        .login-agileits-bottom h6 a {
+            color: #333;
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+            -ms-transition: 0.5s all;
+        }
+
+
+
+.login-form input[type="button"] {
+    font-size: 1em;
+    color: #ffffff;
+    background: #db3552;
+    border: 1px solid #db3552;
+    outline: none;
+    cursor: pointer;
+    padding: .8em 1em;
+    letter-spacing: 1px;
+    -webkit-appearance: none;
+    width: 100%;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    font-family: 'Raleway', sans-serif;
+}
+
+    .login-form input[type="button"]:hover {
+        background: #384956;
+        border: 1px solid #384956;
+    }
+/*-- //login form styling --*/
