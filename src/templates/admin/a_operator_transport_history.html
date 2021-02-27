@@ -1,0 +1,63 @@
+{% include 'admin/a_header.html' %}
+
+<link rel='stylesheet' type='text/css' href='../../static/admin/css/a_index.css' />
+<link rel='stylesheet' type='text/css' href='../../static/admin/css/a_manage.css' />
+
+
+<div class="layout_m_content">
+	<div class="layout_m_contitle">Operate Bike History</div>
+	<div class="layout_m_table">
+		<table class="table_userRoute">
+			<thead>
+				<tr>
+					<th>
+						<p>Index</p>
+					</th>
+					<th>
+						<p>Username</p>
+					</th>
+					<th>
+						<p>BikeId</p>
+					</th>
+					<th>
+						<p>Time</p>
+					</th>
+					<th>
+						<p>Location</p>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for operateHistory in operateHistory %}
+				<tr id="{{operateHistory.id}}">
+					<td>
+						<p>{{operateHistory.id}}</p>
+					</td>
+					<td>
+						<p>{{operateHistory.operator_id.username}}</p>
+					</td>
+					<td>
+						<p>{{operateHistory.bike_id.id}}</p>
+					</td>
+					<td>
+						<p>{{operateHistory.time}}</p>
+					</td>
+					<td>
+						<p>{{operateHistory.location_id.location_name}}</p>
+					</td>
+
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function () {
+		$('.table_userRoute').DataTable();
+	})
+</script>
+
+
+{% include 'admin/a_foot.html' %}

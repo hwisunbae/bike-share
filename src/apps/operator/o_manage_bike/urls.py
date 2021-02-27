@@ -24,4 +24,5 @@ urlpatterns = [
     path('repairBikeDo', views.repairBike_do),
     path('addNewRepairDo', views.addNewRepair_do),
     path('transportBike', views.transportBike),
+    path('transportBikeDo', views.transportBike_do),
 ]
