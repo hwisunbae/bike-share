@@ -7,13 +7,39 @@ import time
 
 from django.views.decorators.csrf import csrf_exempt
 from a_manage_bike.models import *
+from u_biking.models import *
+from a_manage_bike.models import *
 from o_manage_bike.models import *
-
+from o_login.models import *
 
 def findBike(request):
     userid = request.COOKIES.get("o_userid")
     if userid:
+        bikes = bike.objects.all()
+        locations = location.objects.all()
+        loc_lats = []
+        loc_lons = []
+        bike_numbers = []
+        for i in locations:
+            if i.id != 1:
+                loc_lats.append(float(i.lat))
+                loc_lons.append(float(i.lng))
+                bike_numbers.append(int(i.bike_count_now))
+
+        loc_lat_bike = []
+        loc_lon_bike = []
+        for i in bikes:
+            if i.new_lat:
+                loc_lat_bike.append(float(i.new_lat))
+                loc_lon_bike.append(float(i.new_lng))
+
         context = {}
+        context['loc_lats'] = loc_lats
+        context['loc_lons'] = loc_lons
+        context['bike_numbers'] = bike_numbers
+
+        context['loc_lat_bike'] = loc_lat_bike
+        context['loc_lon_bike'] = loc_lon_bike
         return render(request, 'operator/o_find_bike.html', context)
     else:
         return render(request, 'operator/o_login.html')
@@ -41,7 +67,32 @@ def findBike_do(request):
 def repairBike(request):
     userid = request.COOKIES.get("o_userid")
     if userid:
+        bikes = bike.objects.all()
+        locations = location.objects.all()
+        loc_lats = []
+        loc_lons = []
+        bike_numbers = []
+        for i in locations:
+            if i.id != 1:
+                loc_lats.append(float(i.lat))
+                loc_lons.append(float(i.lng))
+                bike_numbers.append(int(i.bike_count_now))
+
+        loc_lat_bike = []
+        loc_lon_bike = []
+        for i in bikes:
+            if i.new_lat:
+                loc_lat_bike.append(float(i.new_lat))
+                loc_lon_bike.append(float(i.new_lng))
+
         context = {}
+        context['loc_lats'] = loc_lats
+        context['loc_lons'] = loc_lons
+        context['bike_numbers'] = bike_numbers
+
+        context['loc_lat_bike'] = loc_lat_bike
+        context['loc_lon_bike'] = loc_lon_bike
+
         return render(request, 'operator/o_repair_bike.html', context)
     else:
         return render(request, 'operator/o_login.html')
@@ -91,10 +142,78 @@ def addNewRepair_do(request):
     else:
         return HttpResponse("error")
 
+
 def transportBike(request):
     userid = request.COOKIES.get("o_userid")
     if userid:
+        bikes = bike.objects.all()
+        locations = location.objects.all()
+        loc_lats = []
+        loc_lons = []
+        bike_numbers = []
+        for i in locations:
+            if i.id != 1:
+                loc_lats.append(float(i.lat))
+                loc_lons.append(float(i.lng))
+                bike_numbers.append(int(i.bike_count_now))
+
+        loc_lat_bike = []
+        loc_lon_bike = []
+        for i in bikes:
+            if i.new_lat:
+                loc_lat_bike.append(float(i.new_lat))
+                loc_lon_bike.append(float(i.new_lng))
+
         context = {}
+        context['loc_lats'] = loc_lats
+        context['loc_lons'] = loc_lons
+        context['bike_numbers'] = bike_numbers
+
+        context['loc_lat_bike'] = loc_lat_bike
+        context['loc_lon_bike'] = loc_lon_bike
+
+        context['locations'] = locations
+        Bikes = bike.objects.filter(is_use="False")
+        context['Bikes'] = Bikes
+
         return render(request, 'operator/o_transport_bike.html', context)
     else:
         return render(request, 'operator/o_login.html')
+
+
+@csrf_exempt
+def transportBike_do(request):
+    userid = request.COOKIES.get("o_userid")
+    if request.POST:
+        bikeId = request.POST.get('bikeId')
+        locationId = request.POST.get('locationId')
+        isExist = bike.objects.get(id=bikeId)
+        if isExist:
+            locationid = location.objects.get(id=locationId)
+            operator_id = operator_account.objects.get(id=userid)
+            Time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+            newTime = datetime.datetime.strptime(Time, '%Y-%m-%d %H:%M:%S')
+            obj = operator_transport_history(
+                operator_id=operator_id,
+                bike_id=isExist,
+                location_id=locationid,
+                time=newTime
+            )
+            obj.save()
+            # location bike ++
+            location_get = location.objects.get(id=locationId)
+            location_get.bike_count += 1
+            location_get.bike_count_now += 1
+            location_get.save()
+            # update the bike's location
+            bike_get = bike.objects.get(id=bikeId)
+            bike_get.location_id=location_get
+            bike_get.new_lat = None
+            bike_get.new_lng = None
+            bike_get.save()
+
+            return HttpResponse("success")
+        else:
+            return HttpResponse('BikeIDError')
+    else:
+        return HttpResponse("error")

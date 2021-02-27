@@ -11461,6 +11461,7 @@ form.signin-form {
   color: var(--heading-color); }
 
 .form-inner-cont input,
+.form-inner-cont select,
 .form-inner-cont textarea {
   outline: none;
   width: 100%;

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from o_login.models import *
+from o_manage_bike.models import *
 def index(request):
     if request.GET:
         pass
@@ -80,3 +81,16 @@ def changeInformation_do(request):
         return HttpResponse("success")
     else:
         return HttpResponse("error")
+
+
+def repairHistory(request):
+    context = {}
+    operateHistory = operator_repair_history.objects.all()
+    context['operateHistory'] = operateHistory
+    return render(request, 'admin/a_operator_operate_history.html', context)
+
+def transportHistory(request):
+    context = {}
+    operateHistory = operator_transport_history.objects.all()
+    context['operateHistory'] = operateHistory
+    return render(request, 'admin/a_operator_transport_history.html', context)

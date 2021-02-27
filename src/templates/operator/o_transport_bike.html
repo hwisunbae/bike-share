@@ -1,31 +1,11 @@
 {% include 'operator/o_header.html' %}
        <!--谷歌地图调用api-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw" async defer></script>
+<link rel='stylesheet' type='text/css' href='../../static/admin/css/a_manage.css' />
+<link rel="stylesheet" type="text/css" href="../../static/user/css/google_map.css" />
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&callback=initMap&libraries=&v=weekly" async></script>
+<script src="../../static/user/js/google_map.js"></script>
 
-	<script>
-
-    function initialize()
-    {
-      var mapProp = {
-        center: new google.maps.LatLng(55.87189,-4.28922),
-        zoom:7,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    }
-
-    function loadScript()
-    {
-      var script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&sensor=false&callback=initialize";
-      document.body.appendChild(script);
-    }
-
-
-    window.onload = loadScript;
-
-    </script>
 
 <!-- //about breadcrumb -->
  <section class="w3l-contact-11 py-5" id="contact">
@@ -39,26 +19,122 @@
                          <form method="post" class="signin-form">
                              <div class="form-input">
                                  <label>Bike ID</label>
-                                 <input type="text" name="BikeName" id="BikeName" placeholder="" />
+                                 <input type="text" name="BikeName" id="BikeId" placeholder="" />
                              </div>
 
                              <div class="form-input">
-                                 <label>From</label>
-                                 <input type="text" name="BikeName" id="BikeName" placeholder="" />
+                                 <label>To Location</label>
+                                 <select id="locationId">
+                                     {% for location in locations %}
+                                     <option value="{{location.id}}" >{{location.location_name}}</option>
+                                     {% endfor %}
+                                 </select>
                              </div>
-                             <div class="form-input">
-                                 <label>To</label>
-                                 <input type="text" name="BikeName" id="BikeName" placeholder="" />
-                             </div>
-                             <button type="button" class="btn btn-primary btn-style">Transport</button>
+                             <button type="button" id="transport" class="btn btn-primary btn-style">Transport</button>
                              <button type="button" onclick="window.location.href = '../o_index/index'" class="btn btn-primary btn-style">Return</button>
                          </form>
+
+                          <div class="layout_m_table">
+                            <table class="table_user">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <p>Index</p>
+                                        </th>
+                                        <th>
+                                            <p>Type</p>
+                                        </th>
+                                        <th>
+                                            <p>Rent Money</p>
+                                        </th>
+                                        <th>
+                                            <p>Location ID</p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for bike in Bikes %}
+                                    <tr id="{{bike.id}}">
+                                        <td>
+                                            <p>{{bike.id}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{bike.type}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{bike.rent_money}}￡/H</p>
+                                        </td>
+                                        <td>
+                                            <p>{{bike.location_id.location_name}}</p>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+
                      </div>
                  </div>
              </div>
          </div>
      </div>
  </section>
+
+<script>
+   $(document).ready(function(){
+        $("#transport").click(function(){
+            var bikeId = $("#BikeId").val()
+            var locationId = $("#locationId").val()
+             $.ajax({
+                url:"/o_manage_bike/transportBikeDo",
+                type:"POST",
+                data:{
+                    bikeId:bikeId,
+                    locationId:locationId
+                },
+                success:function(data){
+                    if(data == "success"){
+                        alert("transport success")
+                        window.location.href = "../o_manage_bike/transportBike"
+                       }
+                    else if(data == "BikeIDError"){
+                        alert("bike not exit")
+                        window.location.href = "../o_manage_bike/transportBike"
+                       }
+                    else{
+                        alert("need location at first")
+                        window.location.href = "../o_login/index"
+                    }
+                },
+                fail:function(data){
+                    alert("error")
+                    window.location.href = "../o_login/index"
+                }
+            })
+        })
+    })
+
+</script>
+<script>
+ // Get Locations from the DB
+ var loc_lat = {{loc_lats}};
+ var loc_lon = {{loc_lons}};
+ // Get number of bikes for each location from DB
+ var bike_numbers = {{bike_numbers}}; //number of bikes in the location
+ // Transform numbers into string labels
+ var labels = bike_numbers.map(String);
+ let labelIndex = 0;
+
+ //BIKE LOCATIONS (HARDCODED NEED TO FIX BACKEND)
+ // Get Locations from the DB
+ var loc_lat_bike = {{loc_lat_bike}};
+ var loc_lon_bike = {{loc_lon_bike}};
+
+//Initialize Marker
+let marker;
+
+</script>
 
 
 {% include 'operator/o_footer.html' %}

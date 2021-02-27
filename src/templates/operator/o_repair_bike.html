@@ -1,31 +1,10 @@
 {% include 'operator/o_header.html' %}
        <!--谷歌地图调用api-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw" async defer></script>
+<link rel="stylesheet" type="text/css" href="../../static/user/css/google_map.css" />
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&callback=initMap&libraries=&v=weekly" async></script>
+<script src="../../static/user/js/google_map.js"></script>
 
-	<script>
-
-    function initialize()
-    {
-      var mapProp = {
-        center: new google.maps.LatLng(55.87189,-4.28922),
-        zoom:7,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    }
-
-    function loadScript()
-    {
-      var script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&sensor=false&callback=initialize";
-      document.body.appendChild(script);
-    }
-
-
-    window.onload = loadScript;
-
-    </script>
 
 <!-- //about breadcrumb -->
  <section class="w3l-contact-11 py-5" id="contact">
@@ -135,5 +114,28 @@ $(document).ready(function(){
 })
 
 </script>
+
+
+<script>
+
+ // Get Locations from the DB
+ var loc_lat = {{loc_lats}};
+ var loc_lon = {{loc_lons}};
+ // Get number of bikes for each location from DB
+ var bike_numbers = {{bike_numbers}}; //number of bikes in the location
+ // Transform numbers into string labels
+ var labels = bike_numbers.map(String);
+ let labelIndex = 0;
+
+ //BIKE LOCATIONS (HARDCODED NEED TO FIX BACKEND)
+ // Get Locations from the DB
+ var loc_lat_bike = {{loc_lat_bike}};
+ var loc_lon_bike = {{loc_lon_bike}};
+
+//Initialize Marker
+let marker;
+
+</script>
+
 
 {% include 'operator/o_footer.html' %}

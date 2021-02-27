@@ -191,3 +191,5 @@ def returnBike(request):
         return HttpResponse(html)
     else:
         return HttpResponse("needLogin")
+
+

@@ -1,12 +1,74 @@
-{% include 'operator/o_header.html' %}
-<link rel="stylesheet" type="text/css" href="../../static/user/css/google_map.css" />
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3vT3UOTtr5GYl6yqo3wLfmaiElz66hIw&callback=initMap&libraries=&v=weekly" async></script>
-<script src="../../static/user/js/google_map.js"></script>
-
+{% include 'user/u_header.html' %}
+<link rel='stylesheet' type='text/css' href='../../static/admin/css/a_manage.css' />
 <section id="home" class="w3l-banner py-5">
     <div class="container py-lg-5 py-md-4">
-       <div class="map" id = "googleMap" style="width:100%;height:500px;border: 200px;padding:100px;"></div>
+        <div class="layout_m_table">
+                            <table class="table_user">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <p>Index</p>
+                                        </th>
+                                        <th>
+                                            <p>Bike Id</p>
+                                        </th>
+                                        <th>
+                                            <p>latitude</p>
+                                        </th>
+                                        <th>
+                                            <p>longitude</p>
+                                        </th>
+                                         <th>
+                                            <p>start_time</p>
+                                        </th>
+
+                                         <th>
+                                            <p>end_time</p>
+                                        </th>
+
+                                         <th>
+                                            <p>fee</p>
+                                        </th>
+                                        <th>
+                                            <p>ratings</p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for userRoute in userRoutes %}
+                                    <tr id="{{userRoute.id}}">
+                                        <td>
+                                            <p>{{userRoute.id}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{userRoute.bike_id.id}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{userRoute.latitude}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{userRoute.longitude}}</p>
+                                        </td>
+                                         <td>
+                                            <p>{{userRoute.start_time}}</p>
+                                        </td>
+                                         <td>
+                                            <p>{{userRoute.end_time}}</p>
+                                        </td>
+                                         <td>
+                                            <p>{{userRoute.fee}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{userRoute.ratings}}</p>
+                                        </td>
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+
     </div>
 </section>
 <!-- //banner section -->
@@ -14,6 +76,7 @@
 <!-- //banner section -->
 <section class="w3l-homeblock1" id="features">
     <div class="w3-services-ab py-5">
+
         <div class="container py-lg-5 py-md-4">
             <span class="title-small text-center mb-2">work space</span>
             <h3 class="title-big text-center mb-5">For Your Own Work</h3>
@@ -78,27 +141,13 @@
 </section>
 
 
+
 <script>
-
- // Get Locations from the DB
- var loc_lat = {{loc_lats}};
- var loc_lon = {{loc_lons}};
- // Get number of bikes for each location from DB
- var bike_numbers = {{bike_numbers}}; //number of bikes in the location
- // Transform numbers into string labels
- var labels = bike_numbers.map(String);
- let labelIndex = 0;
-
- //BIKE LOCATIONS (HARDCODED NEED TO FIX BACKEND)
- // Get Locations from the DB
- var loc_lat_bike = {{loc_lat_bike}};
- var loc_lon_bike = {{loc_lon_bike}};
-
-//Initialize Marker
-let marker;
-
+	$(document).ready(function () {
+		$('.table_user').DataTable();
+	})
 </script>
 
 
 <!-- footer-28 block -->
-{% include 'operator/o_footer.html' %}
+{% include 'user/u_footer.html' %}
