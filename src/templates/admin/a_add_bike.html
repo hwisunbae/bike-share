@@ -13,7 +13,9 @@
 					<td>
 						<select name="locations" id="locations" class="">
 							{%for location in locations%}
+							{% if location.id != 1%}
 							<option value="{{location.id}}">{{location.location_name}}</option>
+							{% endif %}
 							{% endfor %}
 						</select>
 					</td>
