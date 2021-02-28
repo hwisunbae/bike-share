@@ -20,7 +20,8 @@
         <div class='layout_h_content'>
             <a href="../a_index/index"><img src='../../static/admin/img/bike_logo.jpeg'/></a>
             <span>Bike System</span>
-            <a href='myinfo.ashx' class='layout_button layout_h_fhsy' title='lay out'>lay out</a>
+            <button type="submit" onclick="logout()"
+                              class="btn layout_button layout_h_fhsy">Log out</button>
         </div>
 
         <div class='layout_m_navigation'>
@@ -56,6 +57,25 @@
             <img class='layout_m_leftimg' src='../../static/admin/img/dl_06.jpg' />
         </div>
 
+        <script>
+            function logout(){
+            let stored = '';
+            $.ajax({
+                url:"/a_login/logout",
+                type:"POST",
+                data: { stored },
+                success:function(data){
+                    if(data == "success"){
+                        alert("Logout successfully")
+                        window.location.href = "../a_login/index"
+                    }
+                },
+                fail:function(data){
+                    alert("Logout did not success")
+                }
+            })
+        }
+        </script>
 <!-- THIS IS A HEADER !  -->
 <!-- DO NOT CLOSE BODY TAG  -->
 <!--    </div>-->
