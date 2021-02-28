@@ -28,6 +28,16 @@ def login(request):
         else:
             return HttpResponse("usernameError")
 
+@csrf_exempt
+def logout(request):
+    if request.POST:
+        response = HttpResponse('success')
+        response.delete_cookie("userid")
+        response.delete_cookie("username")
+        response.delete_cookie("password")
+        return response
+    else:
+        return HttpResponse("logoutError")
 
 # TESTING PURPOSE : create a account
 def saveAccount():
