@@ -4,6 +4,7 @@ import time
 from u_rent_bike.models import *
 from u_login.models import *
 from a_manage_bike.models import *
+from a_manage_location.models import *
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
@@ -23,6 +24,32 @@ def index(request):
             context['userid'] = userid
             context['latitude'] = latitude
             context['longitude'] = longitude
+
+            bikes = bike.objects.all()
+            locations = location.objects.all()
+            loc_lats = []
+            loc_lons = []
+            bike_numbers = []
+            for i in locations:
+                if i.id != 1:
+                    loc_lats.append(float(i.lat))
+                    loc_lons.append(float(i.lng))
+                    bike_numbers.append(int(i.bike_count_now))
+
+            loc_lat_bike = []
+            loc_lon_bike = []
+            for i in bikes:
+                if i.new_lat:
+                    loc_lat_bike.append(float(i.new_lat))
+                    loc_lon_bike.append(float(i.new_lng))
+            context['loc_lats'] = loc_lats
+            context['loc_lons'] = loc_lons
+            context['bike_numbers'] = bike_numbers
+
+            context['loc_lat_bike'] = loc_lat_bike
+            context['loc_lon_bike'] = loc_lon_bike
+
+
             return render(request, 'user/u_bike_question.html', context)
         else:
             context = {}
