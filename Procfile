@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath src bike_rent.wsgi
+web: python manage.py runserver 0.0.0.0:$PORT
