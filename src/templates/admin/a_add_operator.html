@@ -79,7 +79,7 @@ $(function() {
 				types: "Please select type",
 			},
 			submitHandler: function (form) {
-				let username = $("#id").val(), password = $.md5($("#password").val()),
+				let username = $("#id").val(), password = $("#password").val(),
 					telephone = $("#telephone").val(), locations = $("#locations").val(),
 					types = $("#types").val();
 				$.post({

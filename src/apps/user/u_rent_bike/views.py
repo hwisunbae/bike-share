@@ -95,11 +95,12 @@ def check_mail(request):
         open_password = bike_get.open_password
         code = open_password
         rentMoney = bike_get.rent_money
+        print(open_password, code, rentMoney)
         html_content = '<p>The email code is <strong>'+str(code)+'</strong>邮件</p>'
-        from_email = settings.DEFAULT_FROM_EMAIL
-        msg = EmailMultiAlternatives(subject, text_content, from_email, [email])
-        msg.attach_alternative(html_content, "text/html")
-        msg.send()
+        # from_email = settings.DEFAULT_FROM_EMAIL
+        # msg = EmailMultiAlternatives(subject, text_content, from_email, [email])
+        # msg.attach_alternative(html_content, "text/html")
+        # msg.send()
         returnCode = "Password:"+str(open_password)+"Rent Money:"+str(rentMoney)+"￡/H"
 
         return HttpResponse(returnCode)

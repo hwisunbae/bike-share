@@ -82,7 +82,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#submit").click(function(){
          var confirmCodeSession = $("#confirmCode").val().trim()
-         var confirmCode = $.md5($("#conEmail").val().trim());
+         var confirmCode = $("#conEmail").val().trim();
          if(confirmCodeSession != confirmCode){
             alert("please input correct code")
             return;
@@ -144,11 +144,11 @@ $(document).ready(function(){
             url:"../u_register/registerDo",
             type:"POST",
             data:{
-                location:location,
-                telephone:telephone,
-                email:email,
-                password:$.md5(password),
-                payPassword:$.md5(payPassword)
+                location,
+                telephone,
+                email,
+                password,
+                payPassword
             },
             success:function(data){
                 if(data=="success"){

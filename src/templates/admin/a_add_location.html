@@ -32,7 +32,7 @@
 				</tr>
 			</table>
 			<div class="layout_m_infobtnsave">
-				<input id="button_save" href="#" class="layout_button" type="button" value="Submit"/>
+				<input id="button_save" class="layout_button" type="button" value="Submit"/>
 			</div>
 		</form>
 		<div class="map_wrapper">
@@ -46,39 +46,28 @@
 <script>
 $(function() {
 	$("#button_save").click(function(){
-		$("form[name='add_location']").validate({
-			rules: {
-				name: "required",
-				lng: "required",
-				lat: "required"
-			},
-			messages: {
-				name: "Please enter location name",
-				lng: "Please pick any point in map or enter any number",
-				lat: "Please pick any point in map or enter any number"
-			},
-			submitHandler: function (form) {
-				let name = $("#name").val(),
-					lng = $("#lng").val(), lat = $("#lat").val();
-				$.post({
-					url:"/a_manage_location/addNewLocationDo",
-					type:"POST",
-					data:{ name, lng, lat },
-					success:function(data){
-						if(data == "success"){
-							alert("Added successfully")
-							window.location.href = "../a_manage_location/index"
-						}
-						else{
-							alert("Error")
-							}
-					},
-					fail:function(data){
-						alert("false")
+		console.log('hi')
+
+		let name = $("#name").val(),
+			lng = $("#lng").val(), lat = $("#lat").val();
+		$.post({
+			url:"/a_manage_location/addNewLocationDo",
+			type:"POST",
+			data:{ name, lng, lat },
+			success:function(data){
+				if(data == "success"){
+					alert("Added successfully")
+					window.location.href = "../a_manage_location/index"
+				}
+				else{
+					alert("Error")
 					}
-				})
+			},
+			fail:function(data){
+				alert("false")
 			}
 		})
+
 	})
 })
 </script>

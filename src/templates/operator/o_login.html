@@ -86,7 +86,7 @@
 <script>
 	function login(){
         let username = $("#email").val().trim(),
-        	password = $.md5($("#password").val().trim());
+        	password = $("#password").val().trim();
         if(username==""){
             alert("Please input your username");
             return;

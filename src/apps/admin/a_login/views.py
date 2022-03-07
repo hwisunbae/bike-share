@@ -8,13 +8,16 @@ from a_login.models import *
 
 def index(request):
     context = {}
+    # saveAccount()
     return render(request, 'admin/a_login.html', context)
+
 
 @csrf_exempt  # when you need ajax you must use it! to skip from verification
 def login(request):
     if request.POST:
         username = request.POST.get('username')
         password = request.POST.get('password')
+        print(password)
         user = admin_account.objects.filter(username=username)
         if user:
             if user[0].password == password:
@@ -28,6 +31,7 @@ def login(request):
         else:
             return HttpResponse("usernameError")
 
+
 @csrf_exempt
 def logout(request):
     if request.POST:
@@ -39,18 +43,20 @@ def logout(request):
     else:
         return HttpResponse("logoutError")
 
+
 # TESTING PURPOSE : create a account
 def saveAccount():
     password = '123456'
-    md5code = md5value(str(password).encode())
+    # md5code = md5value(str(password).encode())
     admin = admin_account(
         name='admin',
         type='admin',
         telephone='911911',
         username='1234@qq.com',
-        password=md5code,
+        password=password,
         location='Glasgow')
     admin.save()
+
 
 # do the md5
 def md5value(s):
