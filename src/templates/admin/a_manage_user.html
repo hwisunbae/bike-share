@@ -233,7 +233,7 @@
 		var location = $("#newLocation").val();
 		var password = "";
 		if(newPassword != oldPassword){
-			password = $.md5(newPassword);
+			password = newPassword;
 		}
 		$.ajax({
 			url:"/a_manage_user/changeInformationDo",
